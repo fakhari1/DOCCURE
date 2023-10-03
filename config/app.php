@@ -173,10 +173,13 @@ return [
 
 
         /*
-         * Modules Service Providers
+         * Modules Service Providers...
          */
         Settings\Providers\SettingsServiceProvider::class,
         User\Providers\UserServiceProvider::class,
+        Category\Providers\CategoryServiceProvider::class,
+        Dashboard\Providers\DashboardServiceProvider::class,
+        RolePermission\Providers\RolePermissionServiceProvider::class,
     ])->toArray(),
 
     /*
