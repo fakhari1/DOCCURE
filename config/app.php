@@ -180,6 +180,10 @@ return [
         Category\Providers\CategoryServiceProvider::class,
         Dashboard\Providers\DashboardServiceProvider::class,
         RolePermission\Providers\RolePermissionServiceProvider::class,
+        Blog\Providers\BlogServiceProvider::class,
+        Comment\Providers\CommentServiceProvider::class,
+        File\Providers\FileServiceProvider::class,
+
     ])->toArray(),
 
     /*
