@@ -33,7 +33,8 @@
             "Dashboard\\": "modules/Dashboard/",
             "Scheduling\\": "modules/Scheduling/",
             "Service\\": "modules/Service/",
-            "Ticket\\": "modules/Ticket/"
+            "Ticket\\": "modules/Ticket/",
+            "Category\\": "modules/Category"
         },
         "files": [
             "modules/Common/Helpers/helpers.php"
