@@ -34,7 +34,10 @@
             "Scheduling\\": "modules/Scheduling/",
             "Service\\": "modules/Service/",
             "Ticket\\": "modules/Ticket/"
-        }
+        },
+        "files": [
+            "modules/Common/Helpers/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
