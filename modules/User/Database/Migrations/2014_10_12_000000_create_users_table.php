@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('mobile', 10);
             $table->timestamp('mobile_verified_at')->nullable();
             $table->string('national_code', 10)->nullable();
+            $table->string('job')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
         });
