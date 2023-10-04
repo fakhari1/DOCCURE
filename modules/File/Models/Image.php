@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use User\Models\User;
 
-class File extends Model
+class Image extends Model
 {
     use HasFactory;
     protected $guarded=['id'];

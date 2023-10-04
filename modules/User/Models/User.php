@@ -3,7 +3,7 @@
 namespace User\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use File\Models\File;
+use File\Models\Image;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -44,7 +44,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-    public function files(){
-        return $this->hasOne(File::class,'profile_id');
+    public function image(){
+        return $this->hasOne(Image::class,'profile_id');
     }
 }
