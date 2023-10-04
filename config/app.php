@@ -183,6 +183,7 @@ return [
         Blog\Providers\BlogServiceProvider::class,
         Comment\Providers\CommentServiceProvider::class,
         File\Providers\FileServiceProvider::class,
+        Banner\Providers\BannerServiceProvider::class,
 
     ])->toArray(),
 

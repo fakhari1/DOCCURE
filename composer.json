@@ -38,7 +38,8 @@
             "Category\\": "modules/Category",
             "File\\": "modules/File",
             "Comment\\": "modules/Comment",
-            "Blog\\":  "modules/Blog"
+            "Blog\\":  "modules/Blog",
+           "Banner\\": "modules/Banner"
         },
         "files": [
             "modules/Common/Helpers/helpers.php"
