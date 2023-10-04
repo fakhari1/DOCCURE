@@ -3,6 +3,7 @@
 namespace User\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Comment\Models\Comment;
 use File\Models\Image;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -46,5 +47,8 @@ class User extends Authenticatable
     ];
     public function image(){
         return $this->hasOne(Image::class,'profile_id');
+    }
+    public function comment(){
+        return $this->hasMany(Comment::class,'author_id');
     }
 }
