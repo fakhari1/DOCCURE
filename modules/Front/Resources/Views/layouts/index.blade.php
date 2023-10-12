@@ -54,13 +54,13 @@
                         </span>
                 </a>
                 <a href="javascript:void(0)" class="navbar-brand logo">
-                    <img src="{{ asset('images/logo-white.png')}}" class="img-fluid" alt="Logo">
+                    <img src="{{ asset('assets/images/logo-white.png')}}" class="img-fluid" alt="Logo">
                 </a>
             </div>
             <div class="main-menu-wrapper">
                 <div class="menu-header">
                     <a href="javascript:void(0)" class="menu-logo">
-                        <img src="{{ asset('images/logo.png')}}" class="img-fluid" alt="Logo">
+                        <img src="{{ asset('assets/images/logo.png')}}" class="img-fluid" alt="Logo">
                     </a>
                     <a id="menu_close" class="menu-close" href="javascript:void(0)" title="menu close">
                         <i class="fas fa-times"></i>

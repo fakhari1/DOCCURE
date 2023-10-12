@@ -81,7 +81,7 @@
 
                     <div class="service-blog">
                         <div class="service-image">
-                            <img class="img-fluid" src="{{asset('images/index/services/ser-img1.jpg')}}" alt="Post Image">
+                            <img class="img-fluid" src="{{asset('assets/images/index/services/ser-img1.jpg')}}" alt="Post Image">
                             <div class="service-content text-center">
                                 <h3 class="service-title mb-0">مادر/کودک</h3>
                             </div>
@@ -93,7 +93,7 @@
 
                     <div class="service-blog">
                         <div class="service-image">
-                            <img class="img-fluid" src="{{asset('images/index/services/ser-img2.jpg')}}" alt="Post Image">
+                            <img class="img-fluid" src="{{asset('assets/images/index/services/ser-img2.jpg')}}" alt="Post Image">
                         </div>
                         <div class="service-content text-center">
                             <h3 class="service-title mb-0">واکسناسیون/ایمنی سازی</h3>
@@ -105,7 +105,7 @@
 
                     <div class="service-blog">
                         <div class="service-image">
-                            <img class="img-fluid" src="{{asset('images/index/services/ser-img3.jpg')}}" alt="Post Image">
+                            <img class="img-fluid" src="{{asset('assets/images/index/services/ser-img3.jpg')}}" alt="Post Image">
                         </div>
                         <div class="service-content text-center">
                             <h3 class="service-title mb-0">خدمات تغدیه</h3>
@@ -117,7 +117,7 @@
 
                     <div class="service-blog">
                         <div class="service-image">
-                            <img class="img-fluid" src="{{asset('images/index/services/ser-img4.jpg')}}" alt="Post Image">
+                            <img class="img-fluid" src="{{asset('assets/images/index/services/ser-img4.jpg')}}" alt="Post Image">
                         </div>
                         <div class="service-content text-center">
                             <h3 class="service-title mb-0">توسعه </h3>
@@ -129,7 +129,7 @@
 
                     <div class="service-blog">
                         <div class="service-image">
-                            <img class="img-fluid" src="{{asset('images/index/services/ser-img5.jpg')}}" alt="Post Image">
+                            <img class="img-fluid" src="{{asset('assets/images/index/services/ser-img5.jpg')}}" alt="Post Image">
                         </div>
                         <div class="service-content text-center">
                             <h3 class="service-title mb-0">تست آلرژی</h3>
@@ -141,7 +141,7 @@
 
                     <div class="service-blog">
                         <div class="service-image">
-                            <img class="img-fluid" src="{{asset('images/index/services/ser-img6.jpg')}}" alt="Post Image">
+                            <img class="img-fluid" src="{{asset('assets/images/index/services/ser-img6.jpg')}}" alt="Post Image">
                         </div>
                         <div class="service-content text-center">
                             <h3 class="service-title mb-0">کاهش وزن</h3>
@@ -154,7 +154,7 @@
     </section>
 
     <section class="why-section">
-        <div class="left-section">
+        <div class="right-section">
             <div class="why-content">
                 <div class="section-header">
                     <h2 class="sahel_black">چرا ما را انتخاب کنید</h2>
@@ -176,7 +176,7 @@
                 </div>
             </div>
         </div>
-        <div class="right-section">
+        <div class="left-section">
         </div>
     </section>
 @endsection
