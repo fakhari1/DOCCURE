@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use RolePermission\Models\Permission;
+use RolePermission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -59,6 +60,6 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        return auth()->user()->hasPermissionTo(Permission::PERMISSION_SUPER_ADMIN);
+        return auth()->user()->hasRole(Role::ROLE_SUPER_ADMIN);
     }
 }
