@@ -1,12 +1,8 @@
 @extends('Front::layouts.master')
 
-@section('head')
-    @yield('sub_head')
-@endsection
-
 @section('header')
-    <header class="header">
-        <div class="top-header">
+    <header class="header min-header">
+        <div class="top-header min">
             <div class="container-fluid">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-12 col-md-6">
@@ -58,13 +54,13 @@
                         </span>
                 </a>
                 <a href="javascript:void(0)" class="navbar-brand logo">
-                    <img src="{{ asset('assets/images/logo.png')}}" class="img-fluid" alt="Logo">
+                    <img src="{{ asset('images/logo-white.png')}}" class="img-fluid" alt="Logo">
                 </a>
             </div>
             <div class="main-menu-wrapper">
                 <div class="menu-header">
                     <a href="javascript:void(0)" class="menu-logo">
-                        <img src="{{ asset('assets/images/logo.png')}}" class="img-fluid" alt="Logo">
+                        <img src="{{ asset('images/logo.png')}}" class="img-fluid" alt="Logo">
                     </a>
                     <a id="menu_close" class="menu-close" href="javascript:void(0)" title="menu close">
                         <i class="fas fa-times"></i>
@@ -72,69 +68,24 @@
                 </div>
                 <ul class="main-nav">
                     <li class="active">
-                        <a href="index.html">خانه</a>
+                        <a href="/">خانه</a>
                     </li>
                     <li>
-                        <a href="reserve.html">دریافت نوبت</a>
+                        <a class="text-white" href="/reserve">دریافت نوبت</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)">تماس با ما</a>
+                        <a class="text-white" href="javascript:void(0)">تماس با ما</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)">درباره پزشک</a>
+                        <a class="text-white" href="javascript:void(0)">درباره پزشک</a>
                     </li>
                 </ul>
             </div>
             <ul class="nav header-navbar-rht">
-                <li class="nav-item dropdown has-arrow logged-item">
-                    <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="user-img">
-                            <img class="rounded-circle" src="{{asset('assets/images/doctor/doctor-thumb.jpg')}}" width="31"
-                                 alt="User Image">
-                        </span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end">
-                        <div class="user-header">
-                            <div class="avatar avatar-sm">
-                                <img src="{{ asset('assets/images/doctor/doctor-thumb.jpg')}}" alt="User Image"
-                                     class="avatar-img rounded-circle">
-                            </div>
-                            <div class="user-text">
-                                <h6>نام نام‌خانوادگی</h6>
-                                <p class="text-muted mb-0">پزشک</p>
-                            </div>
-                        </div>
-                        <a class="dropdown-item" href="javascript:void(0)">داشبورد</a>
-                        <a class="dropdown-item" href="javascript:void(0)">خروج</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link header-login" href="javascript:void(0)">ورود / ثبت‌نام</a>
                 </li>
             </ul>
         </nav>
     </header>
-@endsection
-
-@section('content')
-    <div class="content bg-white pb-4">
-        <div class="container-fluid">
-            @include('User::partials.alerts')
-            <div class="row justify-content-center">
-                <div class="col-md-8 justify-content-center">
-                    <div class="account-content d-flex justify-content-center">
-                        <div class="row w-100">
-                            <div class="col-md-7 col-lg-6 login-right">
-                                <img src="{{ asset('assets/images/login-banner.png')}}" class="img-fluid" alt="Login">
-                            </div>
-                            <div class="col-md-12 col-lg-6 login-left">
-                                @yield('sub_content')
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
-
-@section('script')
-    @yield('sub_script')
 @endsection

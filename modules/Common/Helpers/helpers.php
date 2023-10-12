@@ -10,3 +10,12 @@ function module_path(string $module_name, string $path = ''): string
 
     return $p;
 }
+
+function get_sms_api_key()
+{
+    return config('sms.keys.api_key');
+}
+
+function get_sms_originator() {
+    return config('sms.keys.originator');
+}

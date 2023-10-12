@@ -13,9 +13,8 @@ class AuthController extends Controller
         return view('User::auth.login');
     }
 
-    public function login(LoginRequest $request) {
-
-        dd($request->all());
+    public function login(LoginRequest $request)
+    {
 
     }
 
