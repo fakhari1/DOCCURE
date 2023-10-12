@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Dashboard\Http\Controllers\admin\DashboardController as AdminDashboardController;
-use Dashboard\Http\Controllers\user\DashboardController as UserDashboardController;
+use Dashboard\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use Dashboard\Http\Controllers\User\DashboardController as UserDashboardController;
 
-Route::middleware(['web, auth'])
+Route::namespace('Dashboard\Http\Controllers\Admin')
+    ->middleware(['web', 'auth'])
     ->group(function () {
 
         Route::middleware('admin')
@@ -13,6 +14,12 @@ Route::middleware(['web, auth'])
                 Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard.index');
             });
 
+    });
+
+Route::namespace('Dashboard\Http\Controllers\User')
+    ->middleware(['web', 'auth'])
+    ->group(function () {
+
         Route::middleware('user')
             ->prefix('panel')
             ->group(function () {
@@ -20,4 +27,5 @@ Route::middleware(['web, auth'])
             });
 
     });
+
 

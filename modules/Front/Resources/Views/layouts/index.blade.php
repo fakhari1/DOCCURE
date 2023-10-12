@@ -70,9 +70,12 @@
                     <li class="active">
                         <a href="/">خانه</a>
                     </li>
-                    <li>
-                        <a class="text-white" href="/reserve">دریافت نوبت</a>
-                    </li>
+
+                    @if(!auth()->user()->isAdmin())
+                        <li>
+                            <a class="text-white" href="/reserve">دریافت نوبت</a>
+                        </li>
+                    @endif
                     <li>
                         <a class="text-white" href="javascript:void(0)">تماس با ما</a>
                     </li>
@@ -93,9 +96,9 @@
                             <a class="nav-link header-login" href="{{ route('dashboard.index') }}">پنل مدیریت</a>
                         </li>
                     @else
-                            <li class="nav-item">
-                                <a class="nav-link header-login" href="{{ route('panel.index') }}">پنل کاربری</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link header-login" href="{{ route('panel.index') }}">پنل کاربری</a>
+                        </li>
                     @endif
                 @endauth
             </ul>
