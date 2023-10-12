@@ -82,9 +82,22 @@
                 </ul>
             </div>
             <ul class="nav header-navbar-rht">
-                <li class="nav-item">
-                    <a class="nav-link header-login" href="{{ route('login') }}">ورود به حساب کاربری</a>
-                </li>
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link header-login" href="{{ route('login') }}">ورود به حساب کاربری</a>
+                    </li>
+                @endguest
+                @auth
+                    @if(auth()->user()->isAdmin())
+                        <li class="nav-item">
+                            <a class="nav-link header-login" href="{{ route('dashboard.index') }}">پنل مدیریت</a>
+                        </li>
+                    @else
+                            <li class="nav-item">
+                                <a class="nav-link header-login" href="{{ route('panel.index') }}">پنل کاربری</a>
+                            </li>
+                    @endif
+                @endauth
             </ul>
         </nav>
     </header>
