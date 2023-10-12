@@ -20,6 +20,9 @@ Route::get('sms/send', function () {
     resolve(Notification::class)->sendSms(User\Models\User::findOrFail(1), 'test message');
 });
 
+Route::get('/home', function () {
+    return redirect()->to('/');
+});
 
 //Auth::routes();
 

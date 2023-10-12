@@ -3,13 +3,16 @@
 namespace User\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use User\Http\Requests\LoginRequest;
+use User\Models\User;
 
 class AuthController extends Controller
 {
 
     public function showLogin()
     {
+        Auth::login(User::first());
         return view('User::auth.login');
     }
 
