@@ -4,7 +4,7 @@
 
 @section('sub_content')
     <div class="login-header mb-5">
-        <h2>ورود به حساب کاربری</h2>
+        <h2 class="text-center">ورود به حساب کاربری</h2>
     </div>
     <form method="POST" action="{{ route('login') }}">
         @csrf

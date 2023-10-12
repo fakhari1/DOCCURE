@@ -177,6 +177,7 @@
             </div>
         </div>
         <div class="left-section">
+
         </div>
     </section>
 @endsection

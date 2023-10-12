@@ -2566,7 +2566,7 @@ html.menu-opened body {
     background-color: #fff;
 }
 .section-treatment .placeholder-dv {
-    background: url('../../public/images/background/effect.jpg') no-repeat bottom center;
+    background: url('../../public/assets/images/background/effect.jpg') no-repeat bottom center;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -2697,8 +2697,7 @@ html.menu-opened body {
     background-color: #f3f9ff;
 }
 .why-section {
-    background: url('../../public/images/background/choose-bg.jpg');
-    background-position: right;
+    background: url('../../public/assets/images/background/choose-bg.jpg');
     display: flex;
     background-position: center;
     background-size: cover;
@@ -2710,6 +2709,7 @@ html.menu-opened body {
     padding:60px 0 100px;
     padding-right: 120px;
 }
+
 .why-section h2 {
     color: #fff;
     font-size: 30px;

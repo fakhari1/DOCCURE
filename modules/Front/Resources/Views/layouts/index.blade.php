@@ -83,7 +83,7 @@
             </div>
             <ul class="nav header-navbar-rht">
                 <li class="nav-item">
-                    <a class="nav-link header-login" href="javascript:void(0)">ورود / ثبت‌نام</a>
+                    <a class="nav-link header-login" href="{{ route('login') }}">ورود به حساب کاربری</a>
                 </li>
             </ul>
         </nav>
