@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Dashboard\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use Dashboard\Http\Controllers\User\DashboardController as UserDashboardController;
+use Settings\Http\Controllers\SettingsController;
 
 Route::namespace('Dashboard\Http\Controllers\Admin')
     ->middleware(['web', 'auth'])
@@ -12,7 +13,9 @@ Route::namespace('Dashboard\Http\Controllers\Admin')
             ->prefix('dashboard')
             ->group(function () {
                 Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard.index');
+                Route::get('settings', [SettingsController::class, 'index'])->name('dashboard.settings.index');
             });
+
 
     });
 
