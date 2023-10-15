@@ -14,7 +14,7 @@ class DashboardServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(module_path('Dashboard', 'Routes\\dashboard_routes.php'));
         $this->loadMigrationsFrom(module_path('Dashboard'));
-
+        $this->loadViewsFrom(module_path('Dashboard', 'Resources\\Views'), 'Dashboard');
     }
 
 

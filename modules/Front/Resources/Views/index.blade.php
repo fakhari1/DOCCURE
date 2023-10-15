@@ -1,6 +1,10 @@
-@extends('Front::layouts.index')
+@extends('Front::layouts.master')
 
 @section('title','صفحه اصلی')
+
+@section('header')
+    @include('Front::sections.header')
+@endsection
 
 @section('content')
     <section class="section-search">
