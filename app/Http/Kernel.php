@@ -2,7 +2,7 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\authenticatedUserIsAdmin;
+use App\Http\Middleware\AuthenticatedUserIsAdmin;
 use App\Http\Middleware\AuthenticatedUserIsUser;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 

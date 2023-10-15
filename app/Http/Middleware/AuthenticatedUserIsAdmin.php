@@ -15,7 +15,7 @@ class AuthenticatedUserIsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->isAdmin())
+        if (auth()->check() && auth()->user()->isAdmin())
             return $next($request);
 
         return redirect('/');

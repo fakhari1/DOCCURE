@@ -12,7 +12,6 @@ class AuthController extends Controller
 
     public function showLogin()
     {
-        Auth::login(User::first());
         return view('User::auth.login');
     }
 

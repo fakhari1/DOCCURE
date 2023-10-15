@@ -71,11 +71,13 @@
                         <a href="/">خانه</a>
                     </li>
 
-                    @if(!auth()->user()->isAdmin())
-                        <li>
-                            <a class="text-white" href="/reserve">دریافت نوبت</a>
-                        </li>
-                    @endif
+                    @auth
+                        @if(!auth()->user()->isAdmin())
+                            <li>
+                                <a class="text-white" href="/reserve">دریافت نوبت</a>
+                            </li>
+                        @endif
+                    @endauth
                     <li>
                         <a class="text-white" href="javascript:void(0)">تماس با ما</a>
                     </li>
