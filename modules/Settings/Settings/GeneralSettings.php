@@ -6,7 +6,6 @@ use Spatie\LaravelSettings\Settings;
 
 class GeneralSettings extends Settings
 {
-
     public string $site_name;
     public int $doctor_id;
     public array $landing_phones;

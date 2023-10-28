@@ -11,7 +11,7 @@ class SettingsServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->loadMigrationsFrom(module_path('Settings', 'Database\\Migrations'));
+        $this->loadMigrationsFrom(module_path('Settings', 'Database\\Migrations\\settings_routes.php'));
         $this->loadRoutesFrom(module_path('Settings', 'Routes\\settings_routes.php'));
         $this->mergeConfigFrom(module_path('Settings', 'Configs\\settings.php'), 'settings');
     }

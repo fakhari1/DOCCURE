@@ -20,26 +20,30 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-6">
-                        <div class="right social-icon">
-                            <ul class="">
-                                <li class="px-2">
-                                    <a href="javascript:void(0)" title="instagram"><i
-                                            class="fab fa-instagram"></i></a>
-                                </li>
-                                <li class="px-2">
-                                    <a href="javascript:void(0)" title="facebook"><i
-                                            class="fab fa-facebook"></i></a>
-                                </li>
-                                <li class="px-2">
-                                    <a href="javascript:void(0)" title="whatsapp"><i
-                                            class="fab fa-whatsapp"></i></a>
-                                </li>
-                                <li class="px-2">
-                                    <a href="javascript:void(0)" title="telegram"><i
-                                            class="fab fa-telegram"></i></a>
-                                </li>
-                            </ul>
-                        </div>
+                        <ul>
+                            <li>
+                                <div class="right social-icon">
+                                    <ul class="">
+                                        <li class="px-2">
+                                            <a href="javascript:void(0)" title="instagram"><i
+                                                    class="fab fa-instagram"></i></a>
+                                        </li>
+                                        <li class="px-2">
+                                            <a href="javascript:void(0)" title="facebook"><i
+                                                    class="fab fa-facebook"></i></a>
+                                        </li>
+                                        <li class="px-2">
+                                            <a href="javascript:void(0)" title="whatsapp"><i
+                                                    class="fab fa-whatsapp"></i></a>
+                                        </li>
+                                        <li class="px-2">
+                                            <a href="javascript:void(0)" title="telegram"><i
+                                                    class="fab fa-telegram"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -94,9 +98,44 @@
                 @endguest
                 @auth
                     @if(auth()->user()->isAdmin())
-                        <li class="nav-item">
-                            <a class="nav-link header-login" href="{{ route('dashboard.index') }}">پنل مدیریت</a>
-                        </li>
+                            <div class="btn-group">
+                                <button type="button"
+                                        style="border-radius: 0 7px 7px 0 !important; display: inline-block; width: 20px !important"
+                                        class="btn btn-success dropdown-toggle dropdown-toggle-split text-white ps-3"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </button>
+                                <button type="button" class="btn btn-success" style="border-radius: 7px 0 0 7px">
+                                    <a class="nav-link header-login text-white" href="{{ route('admin.index') }}">پنل مدیریت</a>
+                                </button>
+
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">پروفایل کاربری</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item"
+                                           style="text-align: center"
+                                           onclick="document.querySelector('#logout_form').submit()"
+                                           href="javascript:void(0)">
+                                            خروج
+                                        </a>
+                                    </li>
+                                </ul>
+                                <form action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                </form>
+                            </div>
+{{--                        <li class="nav-item">--}}
+
+
+                                {{--                                <button type="button" class="btn btn-danger">--}}
+                                {{--                                </button>--}}
+
+
+{{--                        </li>--}}
                     @else
                         <li class="nav-item">
                             <a class="nav-link header-login" href="{{ route('panel.index') }}">پنل کاربری</a>
@@ -106,4 +145,22 @@
             </ul>
         </nav>
     </header>
+@endsection
+
+@section('head')
+    <style>
+        .dropdown-menu > li {
+            width: 100% !important;
+            display: block !important;
+            padding-left: 0 !important;
+        }
+
+        .dropdown-menu li:last-child a {
+            border-top: 0 !important;
+        }
+
+        .dropdown-menu li a {
+            text-align: center !important;
+        }
+    </style>
 @endsection

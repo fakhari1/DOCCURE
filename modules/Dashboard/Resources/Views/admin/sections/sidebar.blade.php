@@ -29,7 +29,7 @@
                         <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/transactions-list.html"><i class="fa-solid fa-chart-line"></i> <span>تراکنش‌ها</span></a>
                     </li>
                     <li>
-                        <a href="{{ route('dashboard.settings.index') }}"><i class="fa-solid fa-gear"></i> <span>تنظیمات</span></a>
+                        <a href="{{ route('admin.settings.general.index') }}"><i class="fa-solid fa-gear"></i> <span>تنظیمات</span></a>
                     </li>
                     <li class="submenu">
                         <a href="#"><i class="fa-solid fa-file-signature"></i> <span>گزارشات</span> <span class="menu-arrow"></span></a>
