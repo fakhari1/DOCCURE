@@ -10,9 +10,11 @@
                             <ul>
                                 <li>
                                     <span>شماره تماس (ها):</span>
-                                    @foreach($settings->landline_phones as $key => $phone)
-                                        | <span>{{ $phone }}</span>
-                                    @endforeach
+                                    @if($settings->landline_phones)
+                                        @foreach($settings->landline_phones as $key => $phone)
+                                            | <span>{{ $phone }}</span>
+                                        @endforeach
+                                    @endif
                                 </li>
                                 <li>
                                     <span>آدرس:</span>
