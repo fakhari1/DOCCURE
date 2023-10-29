@@ -5,6 +5,7 @@ namespace User\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Session;
 use User\Http\Requests\LoginRequest;
 use User\Models\User;
 
@@ -21,14 +22,13 @@ class AuthController extends Controller
 
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
         Auth::logout();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        Session::flush();
 
-        return redirect()->back();
+        return redirect()->to('/');
     }
 
 }

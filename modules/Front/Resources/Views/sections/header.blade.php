@@ -112,29 +112,29 @@
                             </button>
 
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="">پروفایل کاربری</a></li>
+                                <li><a class="dropdown-item" href="{{ route('admin.profile') }}">پروفایل کاربری</a></li>
                                 {{--                                    <li><a class="dropdown-item" href="">Another action</a></li>--}}
                                 {{--                                    <li><a class="dropdown-item" href="">Something else here</a></li>--}}
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li>
-                                    <a class="dropdown-item"
-                                       href="{{ route('logout') }}"
-                                       style="text-align: center"
-                                       onclick="event.preventDefault();
-                                       document.getElementById('logout_form').submit()"
+                                    <a
+                                        href="{{ route('logout') }}"
+                                        class="dropdown-item"
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout_form').submit()"
                                     >
                                         خروج
                                     </a>
+                                    <form action="{{ route('logout') }}"
+                                          method="POST"
+                                          id="logout_form">
+                                        @csrf
+                                    </form>
                                 </li>
                             </ul>
-                            <form action="{{ route('logout') }}"
-                                  method="post"
-                                  id="logout_form"
-                                  class="d-none">
-                                @csrf
-                            </form>
+
                         </div>
                         {{--                        <li class="nav-item">--}}
 
