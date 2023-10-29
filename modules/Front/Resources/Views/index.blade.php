@@ -12,7 +12,7 @@
             <div class="banner-wrapper">
                 <div class="banner-header">
                     <p>خوش آمدید</p>
-                    <h1 class="sahel_black">دکتر احمد احمدی</h1>
+                    <h1 class="sahel_black">{{ $settings->doctor_name }}</h1>
                     <h3 class="bold text-white">متخصص قلب و عروق</h3>
                     <p class="small-text">
                         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از

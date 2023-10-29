@@ -116,7 +116,7 @@
 @section('content')
     <div class="content bg-white pb-4">
         <div class="container-fluid">
-            @include('User::partials.alerts')
+            @include('Common::partials.alerts')
             <div class="row justify-content-center">
                 <div class="col-md-8 justify-content-center">
                     <div class="account-content d-flex justify-content-center">

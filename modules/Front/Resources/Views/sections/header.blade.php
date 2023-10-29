@@ -9,12 +9,14 @@
                         <div class="left">
                             <ul>
                                 <li>
-                                    <span>شماره تماس:</span>
-                                    <span>03153231111</span>
+                                    <span>شماره تماس (ها):</span>
+                                    @foreach($settings->landline_phones as $key => $phone)
+                                        | <span>{{ $phone }}</span>
+                                    @endforeach
                                 </li>
                                 <li>
                                     <span>آدرس:</span>
-                                    <span>واحد 1، طبقه 1، ساختمان پزشکان، خیابان شریعتی، اصفهان</span>
+                                    <span>{{ $settings->address }}</span>
                                 </li>
                             </ul>
                         </div>
@@ -23,21 +25,13 @@
                         <ul>
                             <li>
                                 <div class="right social-icon">
-                                    <ul class="">
+                                    <ul class="" style="list-style: none !important;">
                                         <li class="px-2">
-                                            <a href="javascript:void(0)" title="instagram"><i
+                                            <a href="https://instagram.com/{{ $settings->instagram_id }}" title="instagram" class="text-white"><i
                                                     class="fab fa-instagram"></i></a>
                                         </li>
                                         <li class="px-2">
-                                            <a href="javascript:void(0)" title="facebook"><i
-                                                    class="fab fa-facebook"></i></a>
-                                        </li>
-                                        <li class="px-2">
-                                            <a href="javascript:void(0)" title="whatsapp"><i
-                                                    class="fab fa-whatsapp"></i></a>
-                                        </li>
-                                        <li class="px-2">
-                                            <a href="javascript:void(0)" title="telegram"><i
+                                            <a href="https://telegram.me/{{ $settings->telegram_id }}" title="telegram" class="text-white"><i
                                                     class="fab fa-telegram"></i></a>
                                         </li>
                                     </ul>
@@ -91,30 +85,56 @@
                 </ul>
             </div>
             <ul class="nav header-navbar-rht">
+
                 @guest
                     <li class="nav-item">
                         <a class="nav-link header-login" href="{{ route('login') }}">ورود به حساب کاربری</a>
                     </li>
                 @endguest
                 @auth
-                    @if(auth()->user()->isAdmin())
-                        <div class="btn-group">
-                            <button type="button"
-                                    style="border-radius: 0 7px 7px 0 !important; display: inline-block; width: 20px !important"
-                                    class="btn btn-success dropdown-toggle dropdown-toggle-split text-white ps-3"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </button>
+                    <div class="btn-group">
+                        <button type="button"
+                                style="border-radius: 0 7px 7px 0 !important; display: inline-block; width: 20px !important"
+                                class="btn btn-success dropdown-toggle dropdown-toggle-split text-white ps-3"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                        @if(auth()->user()->isAdmin())
+
                             <button type="button" class="btn btn-success" style="border-radius: 7px 0 0 7px">
                                 <a class="nav-link header-login text-white" href="{{ route('admin.index') }}">پنل
                                     مدیریت</a>
                             </button>
 
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ route('admin.profile') }}">پروفایل کاربری</a></li>
-                                {{--                                    <li><a class="dropdown-item" href="">Another action</a></li>--}}
-                                {{--                                    <li><a class="dropdown-item" href="">Something else here</a></li>--}}
+                                <li><a class="dropdown-item" href="{{ route('users.profile') }}">پروفایل مدیریت</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a
+                                        href="{{ route('logout') }}"
+                                        class="dropdown-item"
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout_form').submit()"
+                                    >
+                                        خروج
+                                    </a>
+                                    <form action="{{ route('logout') }}"
+                                          method="POST"
+                                          id="logout_form">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                        @else
+                            <button type="button" class="btn btn-success" style="border-radius: 7px 0 0 7px">
+                                <a class="nav-link header-login text-white" href="{{ route('admin.index') }}">پنل
+                                    کاربری</a>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('users.profile') }}">پروفایل کابری</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -135,20 +155,9 @@
                                 </li>
                             </ul>
 
-                        </div>
-                        {{--                        <li class="nav-item">--}}
+                        @endif
+                    </div>
 
-
-                        {{--                                <button type="button" class="btn btn-danger">--}}
-                        {{--                                </button>--}}
-
-
-                        {{--                        </li>--}}
-                    @else
-                        <li class="nav-item">
-                            <a class="nav-link header-login" href="{{ route('panel.index') }}">پنل کاربری</a>
-                        </li>
-                    @endif
                 @endauth
             </ul>
         </nav>

@@ -10,8 +10,8 @@
 
 @if(session()->has('success_msg'))
     <div class="text-center">
-        <div class="alert alert-success w-50">
-            <p class="text-white font-size-15 my-0">{{ session('success_msg') }}</p>
+        <div class="alert alert-success" role="alert">
+            {{ session('success_msg') }}
         </div>
     </div>
 @endif

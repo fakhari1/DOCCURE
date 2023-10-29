@@ -187,7 +187,9 @@ return [
         'last_name' => 'نام خانوادگی',
         'password' => 'رمز عبور',
         'password_confirmation' => 'تاییدیه رمز عبور',
-        'mobile' => 'تلفن همراه'
+        'mobile' => 'تلفن همراه',
+        'instagram_id' => 'شناسه اینستاگرام',
+        'telegram_id' => 'شناسه تلگرام'
     ],
 
 ];
