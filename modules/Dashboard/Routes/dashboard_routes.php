@@ -19,6 +19,8 @@ Route::middleware(['web', 'auth'])
             ->prefix('panel')
             ->group(function () {
                 Route::get('/', [UserDashboardController::class, 'index'])->name('panel.index');
+
+//                Route::get('reservation', [])
             });
 
     });

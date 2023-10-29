@@ -187,6 +187,7 @@ return [
         Banner\Providers\BannerServiceProvider::class,
         Otp\Providers\OtpServiceProvider::class,
         Front\Providers\FrontServiceProvider::class,
+        Scheduling\Providers\SchedulingServiceProvider::class,
     ])->toArray(),
 
     /*
