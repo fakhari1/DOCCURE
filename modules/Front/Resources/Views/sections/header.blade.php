@@ -5,8 +5,8 @@
         <div class="top-header min">
             <div class="container-fluid">
                 <div class="row justify-content-between align-items-center">
-                    <div class="col-12 col-md-6">
-                        <div class="left">
+                    <div class="col-12 col-md-8">
+                        <div class="right">
                             <ul>
                                 <li>
                                     <span>شماره تماس (ها):</span>
@@ -23,23 +23,21 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
-                        <ul>
-                            <li>
-                                <div class="right social-icon">
-                                    <ul class="" style="list-style: none !important;">
-                                        <li class="px-2">
-                                            <a href="https://instagram.com/{{ $settings->instagram_id }}" title="instagram" class="text-white"><i
-                                                    class="fab fa-instagram"></i></a>
-                                        </li>
-                                        <li class="px-2">
-                                            <a href="https://telegram.me/{{ $settings->telegram_id }}" title="telegram" class="text-white"><i
-                                                    class="fab fa-telegram"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="col-12 col-md-4">
+                        <div class="left social-icon">
+                            <ul class="" style="list-style: none !important;">
+                                <li class="px-2">
+                                    <a href="https://instagram.com/{{ $settings->instagram_id }}" title="instagram"
+                                       class="text-white"><i
+                                            class="fab fa-instagram"></i></a>
+                                </li>
+                                <li class="px-2">
+                                    <a href="https://telegram.me/{{ $settings->telegram_id }}" title="telegram"
+                                       class="text-white"><i
+                                            class="fab fa-telegram"></i></a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

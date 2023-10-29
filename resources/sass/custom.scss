@@ -2049,18 +2049,12 @@ button.bg-danger:hover {
     margin-left: 5px;
 }
 .top-header .right {
-    text-align: left;
+    text-align: right;
     font-size: 14px;
     color: #fff;
-    float: left;
+    float: right;
 }
-.top-header .right ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    align-items: center;
-    display: flex;
-}
+
 .top-header .right ul li {
     display: inline-block;
     padding: 0 8px;
@@ -2148,18 +2142,11 @@ button.bg-danger:hover {
 .top-header ul li:last-child {
     padding-left: 0;
 }
-.top-header .right {
-    text-align: left;
-    font-size: 14px;
-    color: #fff;
-    float: left;
-}
 .top-header .right ul {
     list-style: none;
     padding: 0;
     margin: 0;
     align-items: center;
-    display: flex;
 }
 .top-header .right ul li {
     display: inline-block;

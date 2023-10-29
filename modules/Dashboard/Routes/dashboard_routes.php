@@ -5,8 +5,7 @@ use Dashboard\Http\Controllers\Admin\DashboardController as AdminDashboardContro
 use Dashboard\Http\Controllers\User\DashboardController as UserDashboardController;
 use Settings\Http\Controllers\GeneralSettingsController;
 
-Route::namespace('Dashboard\Http\Controllers\Admin')
-    ->middleware(['web', 'auth'])
+Route::middleware(['web', 'auth'])
     ->group(function () {
 
         Route::middleware('admin')
@@ -16,13 +15,6 @@ Route::namespace('Dashboard\Http\Controllers\Admin')
                 Route::get('settings', [GeneralSettingsController::class, 'index'])->name('admin.settings.general.index');
             });
 
-
-    });
-
-Route::namespace('Dashboard\Http\Controllers\User')
-    ->middleware(['web', 'auth'])
-    ->group(function () {
-
         Route::middleware('user')
             ->prefix('panel')
             ->group(function () {
@@ -30,5 +22,3 @@ Route::namespace('Dashboard\Http\Controllers\User')
             });
 
     });
-
-

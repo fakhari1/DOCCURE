@@ -19,10 +19,12 @@
                             {{ $settings->description }}
                         </p>
                     @endif
-                    <a href="javascript:void(0)" class="btn-pink">
-                        <span>رزرو نوبت</span>
-                        <i class="fas fa-arrow-left"></i>
-                    </a>
+                    @if(!auth()->check() or (auth()->check() and !auth()->user()->isAdmin()))
+                        <a href="javascript:void(0)" class="btn-pink">
+                            <span>رزرو نوبت</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>
