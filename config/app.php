@@ -185,6 +185,7 @@ return [
         Comment\Providers\CommentServiceProvider::class,
         File\Providers\FileServiceProvider::class,
         Banner\Providers\BannerServiceProvider::class,
+        Uploader\Providers\UploaderServiceProvider::class,
         Otp\Providers\OtpServiceProvider::class,
         Front\Providers\FrontServiceProvider::class,
         Scheduling\Providers\SchedulingServiceProvider::class,
