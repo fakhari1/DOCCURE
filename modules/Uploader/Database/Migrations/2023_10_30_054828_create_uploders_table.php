@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('files', function (Blueprint $table) {
+        Schema::create('uploders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('profile_id')->nullable();
-            $table->foreign('profile_id')->on('users')->references('id')->onDelete('cascade');
             $table->string('name');
             $table->integer('size');
             $table->integer('time')->nullable()->comment('based on seconds');
             $table->string('type')->comment('video,image,archive');
+            $table->boolean('is_private');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('files');
+        Schema::dropIfExists('uploders');
     }
 };

@@ -39,7 +39,8 @@
             "File\\": "modules/File",
             "Comment\\": "modules/Comment",
             "Blog\\":  "modules/Blog",
-           "Banner\\": "modules/Banner"
+           "Banner\\": "modules/Banner",
+           "Uploader\\": "modules/Uploader"
         },
         "files": [
             "modules/Common/Helpers/helpers.php"

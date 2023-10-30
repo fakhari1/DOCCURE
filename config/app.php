@@ -184,6 +184,7 @@ return [
         Comment\Providers\CommentServiceProvider::class,
         File\Providers\FileServiceProvider::class,
         Banner\Providers\BannerServiceProvider::class,
+        Uploader\Providers\UploaderServiceProvider::class,
 
     ])->toArray(),
 
