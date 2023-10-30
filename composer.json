@@ -41,7 +41,7 @@
             "File\\": "modules/File",
             "Comment\\": "modules/Comment",
             "Blog\\":  "modules/Blog",
-            "Uploader\\": "modules/Uploader"
+            "Uploader\\": "modules/Uploader",
             "Banner\\": "modules/Banner",
             "Otp\\": "modules/Otp",
             "Front\\": "modules/Front"
