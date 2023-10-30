@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use RolePermission\Models\Permission;
+use RolePermission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -45,10 +47,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
     public function image(){
         return $this->hasOne(Uploader::class,'profile_id');
+
+    public function image()
+    {
+        return $this->hasOne(Image::class, 'profile_id');
     }
-    public function comment(){
-        return $this->hasMany(Comment::class,'author_id');
+
+    public function comment()
+    {
+        return $this->hasMany(Comment::class, 'author_id');
+
+    }
+
+    public function isAdmin()
+    {
+        return auth()->user()->hasRole(Role::ROLE_SUPER_ADMIN);
     }
 }
