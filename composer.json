@@ -41,6 +41,10 @@
             "File\\": "modules/File",
             "Comment\\": "modules/Comment",
             "Blog\\":  "modules/Blog",
+<<<<<<< HEAD
+=======
+            "Uploader\\": "modules/Uploader",
+>>>>>>> 07a781a (Update composer.json)
             "Banner\\": "modules/Banner",
             "Otp\\": "modules/Otp",
             "Front\\": "modules/Front"
