@@ -1,0 +1,13 @@
+.dir-ltr {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+.dir-rtl {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}

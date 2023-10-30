@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Common\Services\Notify\Notification;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,8 +12,19 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
-Route::get('/', function () {
+//Route::get('sms/send', function () {
+//    resolve(Notification::class)->sendSms(User\Models\User::findOrFail(1), 'test message');
+//});
 
-    return view('welcome');
-});
+//Route::get('/home', function () {
+//    return redirect()->to('/');
+//});
+
+
+//Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
