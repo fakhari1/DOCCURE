@@ -4,7 +4,7 @@ namespace User\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Comment\Models\Comment;
-use File\Models\File;
+use File\Models\Uploader;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -47,11 +47,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-  
-    public function file()
-    {
-        return $this->hasOne(File::class, 'profile_id');
-    }
 
     public function comment()
     {

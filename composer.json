@@ -2,7 +2,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.1",
@@ -40,12 +43,10 @@
             "Category\\": "modules/Category",
             "File\\": "modules/File",
             "Comment\\": "modules/Comment",
-            "Blog\\":  "modules/Blog",
-            "Uploader\\": "modules/Uploader",
-            "Banner\\": "modules/Banner",
+            "Blog\\": "modules/Blog",
             "Otp\\": "modules/Otp",
-            "Front\\": "modules/Front"
-           "Banner\\": "modules/Banner"
+            "Front\\": "modules/Front",
+            "Banner\\": "modules/Banner"
         },
         "files": [
             "modules/Common/Helpers/helpers.php"
