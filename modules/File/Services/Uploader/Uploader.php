@@ -1,5 +1,5 @@
 <?php
-namespace File\Services\uploader;
+namespace File\Services\Uploader;
 
 use App\Exceptions\FileHasExistsExceotion;
 use FFMpeg\FFMpeg;

@@ -4,7 +4,7 @@ namespace File\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use File\Models\File;
-use File\Services\uploader\Uploader;
+use File\Services\Uploader\Uploader;
 use Illuminate\Http\Request;
 
 

@@ -2,7 +2,7 @@
 
 namespace File\Models;
 
-use File\Services\uploader\StorageManager;
+use File\Services\Uploader\StorageManager;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Services\Models\Service;

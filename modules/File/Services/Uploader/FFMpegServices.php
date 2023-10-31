@@ -1,6 +1,6 @@
 <?php
 
-namespace File\Services\uploader;
+namespace File\Services\Uploader;
 
 use FFMpeg\FFProbe;
 
