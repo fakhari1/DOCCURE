@@ -4,7 +4,7 @@ namespace User\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Comment\Models\Comment;
-use File\Models\Uploader;
+use File\Models\File;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -48,11 +48,10 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-//    public function image()
-//    {
-//        return $this->hasOne(Uploader::class, 'profile_id');
-//    }
-
+    public function file()
+    {
+        return $this->hasOne(File::class, 'profile_id');
+    }
 
     public function comment()
     {

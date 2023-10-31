@@ -15,6 +15,7 @@ class FileServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom(module_path('File', 'Database\\Migrations'));
         $this->loadRoutesFrom(module_path('File', 'Routes\\file_routes.php'));
+        $this->loadViewsFrom(module_path('File', 'Resources\\Views'),'Files');
     }
 
     /**
