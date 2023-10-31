@@ -48,13 +48,11 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function image(){
-        return $this->hasOne(Uploader::class,'profile_id');
+//    public function image()
+//    {
+//        return $this->hasOne(Uploader::class, 'profile_id');
+//    }
 
-    public function image()
-    {
-        return $this->hasOne(Image::class, 'profile_id');
-    }
 
     public function comment()
     {
