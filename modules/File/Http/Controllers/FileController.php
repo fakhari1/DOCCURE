@@ -14,13 +14,13 @@ class FileController extends Controller
 
     public function __construct(Uploader $uploader)
     {
-      $this->uploader=$uploader;
+        $this->uploader = $uploader;
     }
 
     public function index()
     {
-        $files=File::all();
-      return view('Files::files.index',compact('files'));
+        $files = File::all();
+        return view('Files::files.index', compact('files'));
     }
 
     public function create()
@@ -34,16 +34,16 @@ class FileController extends Controller
             $this->validateFile($request);
             $this->uploader->upload();
             return redirect()->back()->withSuccess('file has uploaded successfully');
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
 
         }
-       }
+    }
 
     private function validateFile($request)
     {
         $request->validate([
-            'file'=>['required','file','mimetypes:image/jpeg,video/mp4,application/zip']
+            'file' => ['required', 'file', 'mimetypes:image/jpeg,video/mp4,application/zip']
         ]);
     }
 
@@ -73,7 +73,6 @@ class FileController extends Controller
         $file->delete();
         return back();
     }
-
 
 
 }
