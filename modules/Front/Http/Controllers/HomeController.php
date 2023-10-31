@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function index()
     {
 //        Auth::login(User::firstOrFail());
-        Auth::login(User::where('id', '=', 2)->first());
+//        Auth::login(User::where('id', '=', 2)->first());
         $settings = new GeneralSettings();
         return view('Front::index', compact('settings'));
     }
