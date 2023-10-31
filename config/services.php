@@ -33,4 +33,3 @@ return [
     'ffmpeg'=>[
         'ffprobe_path'=>env('FFPROBE_PATH')
     ]
-];
