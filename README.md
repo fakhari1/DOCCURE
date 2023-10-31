@@ -1,66 +1,43 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="201px" height="52px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g><path style="opacity:0.75" fill="#fefffe" d="M 131.5,-0.5 C 133.167,-0.5 134.833,-0.5 136.5,-0.5C 139.576,3.42735 138.576,5.92735 133.5,7C 134.948,13.0413 135.948,19.208 136.5,25.5C 138.167,26.8333 139.833,26.8333 141.5,25.5C 142.084,19.9067 143.084,14.4067 144.5,9C 143.167,7 141.833,5 140.5,3C 140.648,1.74407 140.982,0.577401 141.5,-0.5C 143.167,-0.5 144.833,-0.5 146.5,-0.5C 147.122,0.626561 147.955,1.62656 149,2.5C 150.29,10.8016 150.623,19.135 150,27.5C 146.869,30.3353 144.036,33.5019 141.5,37C 142.167,38 142.833,39 143.5,40C 150.064,41.1294 156.731,41.6294 163.5,41.5C 173.801,41.7127 183.801,40.3794 193.5,37.5C 196.665,37.577 198.999,38.9103 200.5,41.5C 200.5,43.5 200.5,45.5 200.5,47.5C 198.809,48.8637 197.142,50.197 195.5,51.5C 194.167,51.5 192.833,51.5 191.5,51.5C 188.808,48.8578 185.475,47.8578 181.5,48.5C 181.719,47.325 181.386,46.325 180.5,45.5C 169.88,46.6431 159.214,46.8098 148.5,46C 146.392,45.6401 144.392,44.9734 142.5,44C 137.693,38.5231 132.86,33.0231 128,27.5C 127.355,20.6505 127.522,13.8172 128.5,7C 128.693,4.04294 129.693,1.54294 131.5,-0.5 Z M 190.5,45.5 C 191.5,45.8333 192.167,46.5 192.5,47.5C 191.167,47.5 190.5,46.8333 190.5,45.5 Z"/></g>
+<g><path style="opacity:0.834" fill="#fefffe" d="M 41.5,1.5 C 58.2163,2.27448 64.0496,10.6078 59,26.5C 51.8586,34.3995 43.6919,35.5662 34.5,30C 26.0012,17.7244 28.3345,8.22439 41.5,1.5 Z M 42.5,9.5 C 52.0328,9.24092 55.1995,13.5742 52,22.5C 46.9903,27.6746 42.3236,27.3412 38,21.5C 36.3087,16.1311 37.8087,12.1311 42.5,9.5 Z"/></g>
+<g><path style="opacity:0.813" fill="#fefffe" d="M 94.5,13.5 C 91.9272,14.5552 89.2605,14.7218 86.5,14C 82.9009,9.03687 78.4009,8.20354 73,11.5C 71.4961,15.0387 71.1628,18.7054 72,22.5C 77.6383,27.8566 82.805,27.3566 87.5,21C 89.8848,20.4436 92.2181,20.6103 94.5,21.5C 91.0513,31.5616 84.0513,35.3949 73.5,33C 63.6139,27.8657 60.7806,20.0324 65,9.5C 72.727,0.157622 81.3936,-0.842378 91,6.5C 92.705,8.57663 93.8717,10.91 94.5,13.5 Z"/></g>
+<g><path style="opacity:0.816" fill="#fefffe" d="M 94.5,21.5 C 94.5,18.8333 94.5,16.1667 94.5,13.5C 100.21,1.81815 108.877,-1.01518 120.5,5C 123.383,7.60181 125.05,10.7685 125.5,14.5C 121.414,15.1544 118.081,13.9878 115.5,11C 104.512,8.32517 100.679,12.4918 104,23.5C 109.55,27.5523 114.383,26.719 118.5,21C 124.601,19.0972 126.434,20.9306 124,26.5C 117.705,33.9145 110.205,35.4145 101.5,31C 98.1151,28.471 95.7818,25.3044 94.5,21.5 Z"/></g>
+<g><path style="opacity:0.829" fill="#fefffe" d="M -0.5,2.5 C 5.17645,2.33391 10.8431,2.50058 16.5,3C 23.7464,5.08379 27.4131,9.91712 27.5,17.5C 26.9579,25.8735 22.6245,31.0401 14.5,33C 9.51108,33.4993 4.51108,33.6659 -0.5,33.5C -0.5,23.1667 -0.5,12.8333 -0.5,2.5 Z M 7.5,10.5 C 18.7465,9.23971 22.0799,13.7397 17.5,24C 13.9613,25.5039 10.2946,25.8372 6.5,25C 7.46918,20.2633 7.80251,15.43 7.5,10.5 Z"/></g>
+<g><path style="opacity:0.83" fill="#fefffe" d="M 154.5,2.5 C 159.844,2.33398 165.177,2.50065 170.5,3C 178.874,8.53238 179.54,14.8657 172.5,22C 175.923,25.2379 178.257,29.0713 179.5,33.5C 177.143,33.6633 174.81,33.4966 172.5,33C 169.375,29.8871 166.375,26.7204 163.5,23.5C 162.679,26.4465 162.179,29.4465 162,32.5C 159.667,33.8333 157.333,33.8333 155,32.5C 154.5,22.5056 154.334,12.5056 154.5,2.5 Z M 162.5,9.5 C 165.885,8.78962 168.219,9.95629 169.5,13C 168.219,16.0437 165.885,17.2104 162.5,16.5C 162.5,14.1667 162.5,11.8333 162.5,9.5 Z"/></g>
+<g><path style="opacity:0.823" fill="#fefffe" d="M 200.5,26.5 C 200.5,28.5 200.5,30.5 200.5,32.5C 194.256,33.4578 187.923,33.7912 181.5,33.5C 181.5,23.1667 181.5,12.8333 181.5,2.5C 187.5,2.5 193.5,2.5 199.5,2.5C 199.768,5.1194 199.435,7.6194 198.5,10C 195.518,10.498 192.518,10.6646 189.5,10.5C 189.5,11.5 189.5,12.5 189.5,13.5C 192.5,13.5 195.5,13.5 198.5,13.5C 198.5,16.1667 198.5,18.8333 198.5,21.5C 195.15,21.335 191.817,21.5017 188.5,22C 189.833,23 189.833,24 188.5,25C 192.585,25.2332 196.585,25.7332 200.5,26.5 Z"/></g>
+</svg>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## درباره ی پروژه
+این پروژه برای مدیریت بهتر مطب پزشکان و درمانگاه ها و همینطور نوبت دهی آنلاین ایجاد شده است.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+``Laravel 10`` ``Modular Structure`` ``SOLID Based Developed`` ``Separate Service Providers``
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## این دستورات را اجرا کنید سپس به صفحه اصلی سایت بروید
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```
+    composer install
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```
+    npm install
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```
+    php artisan migrate:fresh --seed
+```
 
-## Laravel Sponsors
+```
+    php artisan optimize
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```
+    php artisan serve
+```
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+    npm run dev
+```
