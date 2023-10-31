@@ -83,7 +83,7 @@ return [
     |
     */
 
-    'locale' => 'fa',
+    'locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -96,7 +96,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'fa',
+    'fallback_locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -175,7 +175,6 @@ return [
         /*
          * Modules Service Providers...
          */
-        Common\Providers\CommonServiceProvider::class,
         Settings\Providers\SettingsServiceProvider::class,
         User\Providers\UserServiceProvider::class,
         Category\Providers\CategoryServiceProvider::class,
@@ -185,10 +184,7 @@ return [
         Comment\Providers\CommentServiceProvider::class,
         File\Providers\FileServiceProvider::class,
         Banner\Providers\BannerServiceProvider::class,
-        Uploader\Providers\UploaderServiceProvider::class,
-        Otp\Providers\OtpServiceProvider::class,
-        Front\Providers\FrontServiceProvider::class,
-        Scheduling\Providers\SchedulingServiceProvider::class,
+
     ])->toArray(),
 
     /*
