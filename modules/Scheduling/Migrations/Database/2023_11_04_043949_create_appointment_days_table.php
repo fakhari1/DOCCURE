@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('reason_of_unavailable')->nullable();
             $table->unsignedTinyInteger('appointment_duration')->comment('minutes based');
             $table->boolean('has_morning_turn')->default(true);
-            $table->time('morning_turn_start_time')->nullable();
-            $table->time('morning_turn_end_time')->nullable();
+            $table->time('morning_start_time')->nullable();
+            $table->time('morning_end_time')->nullable();
             $table->boolean('has_evening_turn')->default(true);
-            $table->time('evening_turn_start_time')->nullable();
-            $table->time('evening_turn_end_time')->nullable();
+            $table->time('evening_start_time')->nullable();
+            $table->time('evening_end_time')->nullable();
             $table->timestamps();
         });
     }
