@@ -11,6 +11,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use RolePermission\Models\Permission;
 use RolePermission\Models\Role;
+use Scheduling\Models\Appointment;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -57,5 +58,10 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return auth()->user()->hasRole(Role::ROLE_SUPER_ADMIN);
+    }
+
+    public function appointments()
+    {
+        return $this->hasManyThrough(Appointment::class, 'appointment_user');
     }
 }

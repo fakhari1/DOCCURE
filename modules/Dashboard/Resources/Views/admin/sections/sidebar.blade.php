@@ -8,10 +8,19 @@
                     <li class="active">
                         <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/index.html"><i class="fa-solid fa-home"></i> <span>پیشخوان</span></a>
                     </li>
-                    <li>
-                        <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/appointment-list.html">
-                            <i class="fa-solid fa-bell-concierge"></i>
-                            <span>نوبت‌دهی</span></a>
+                    <li class="submenu">
+                        <a href="#">
+                            <i class="fa-solid fa-file-signature"></i>
+                            <span>نوبت دهی</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul style="display: none;">
+                            <li>
+                                <a href="{{ route('admin.appointments.create') }}">
+                                    ایجاد نوبت ویزیت
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/specialities.html"><i class="fa-solid fa-users"></i> <span>تخصص</span></a>
