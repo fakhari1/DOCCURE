@@ -21,7 +21,7 @@ class AppointmentDayController extends Controller
      */
     public function create()
     {
-        //
+        return view('Scheduling::days.index');
     }
 
     /**

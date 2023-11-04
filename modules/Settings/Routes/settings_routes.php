@@ -13,6 +13,7 @@ Route::middleware(['web', 'auth'])
         Route::middleware('admin')
             ->prefix('admin')
             ->group(function () {
+                Route::get('settings/general', [GeneralSettingsController::class, 'create'])->name('admin.settings.general.index');
                 Route::post('settings/general/create', [GeneralSettingsController::class, 'store'])->name('admin.settings.general.store');
             });
 

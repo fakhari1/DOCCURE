@@ -10,9 +10,7 @@ class AppointmentDay extends Model
     use HasFactory;
 
     static $durations = [
-        10,
         15,
-        20,
         30,
         45,
         60

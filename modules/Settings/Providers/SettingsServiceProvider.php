@@ -16,6 +16,7 @@ class SettingsServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(module_path('Settings', 'Database\\Migrations'));
         $this->loadRoutesFrom(module_path('Settings', 'Routes\\settings_routes.php'));
         $this->mergeConfigFrom(module_path('Settings', 'Configs\\settings.php'), 'settings');
+        $this->loadViewsFrom(module_path('Settings', 'Resources\\Views'), 'Settings');
 
         DatabaseSeeder::$seeders[3] = GeneralSettingsSeeder::class;
     }

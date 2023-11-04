@@ -12,7 +12,6 @@ Route::middleware(['web', 'auth'])
             ->prefix('admin')
             ->group(function () {
                 Route::get('/', [AdminDashboardController::class, 'index'])->name('admin.index');
-                Route::get('settings', [GeneralSettingsController::class, 'index'])->name('admin.settings.general.index');
             });
 
         Route::middleware('user')

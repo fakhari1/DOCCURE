@@ -16,7 +16,7 @@
                         </a>
                         <ul style="display: none;">
                             <li>
-                                <a href="{{ route('admin.appointments.create') }}">
+                                <a href="{{ route('admin.appointment-days.create') }}">
                                     ایجاد نوبت ویزیت
                                 </a>
                             </li>
@@ -38,7 +38,8 @@
                         <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/transactions-list.html"><i class="fa-solid fa-chart-line"></i> <span>تراکنش‌ها</span></a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.settings.general.index') }}"><i class="fa-solid fa-gear"></i> <span>تنظیمات</span></a>
+                        <a href="{{ route('admin.settings.general.index') }}"><i class="fa-solid fa-gear"></i>
+                            <span>تنظیمات</span></a>
                     </li>
                     <li class="submenu">
                         <a href="#"><i class="fa-solid fa-file-signature"></i> <span>گزارشات</span> <span class="menu-arrow"></span></a>

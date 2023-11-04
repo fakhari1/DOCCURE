@@ -10,11 +10,11 @@ class GeneralSettingsController extends Controller
 {
 
 
-    public function index()
+    public function create()
     {
         $settings = new GeneralSettings();
 
-        return view('Dashboard::admin.settings.index', compact('settings'));
+        return view('Settings::admin.settings.create', compact('settings'));
     }
 
     public function store(GeneralSettingsRequest $request, GeneralSettings $settings)
