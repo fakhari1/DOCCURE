@@ -15,7 +15,7 @@
 
 ``Laravel 10`` ``Modular Structure`` ``SOLID Based Developed`` ``Separate Service Providers``
 
-## ابتدا فایل ``.env.example`` را کپی کنید و فایل ``.env`` را بسازید؛ سپس این دستورات را اجرا کنید سپس به صفحه اصلی سایت بروید
+### ابتدا فایل ``.env.example`` را کپی کنید و فایل ``.env`` را بسازید؛ سپس این دستورات را اجرا کنید 
 
 ```
     composer install
