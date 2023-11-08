@@ -6,6 +6,7 @@ use Dashboard\Http\Controllers\User\DashboardController as UserDashboardControll
 use Settings\Http\Controllers\GeneralSettingsController;
 
 Route::middleware(['web', 'auth'])
+    ->prefix('dashboard')
     ->group(function () {
 
         Route::middleware('admin')

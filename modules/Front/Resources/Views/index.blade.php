@@ -20,7 +20,7 @@
                         </p>
                     @endif
                     @if(!auth()->check() or (auth()->check() and !auth()->user()->isAdmin()))
-                        <a href="{{ route('') }}" class="btn-pink">
+                        <a href="" class="btn-pink">
                             <span>رزرو نوبت</span>
                             <i class="fas fa-arrow-left"></i>
                         </a>

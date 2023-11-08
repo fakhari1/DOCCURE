@@ -1,124 +1,105 @@
-<div class="sidebar" id="sidebar">
-    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 100%; height: 507px;"><div class="sidebar-inner slimscroll" style="overflow: hidden; width: 100%; height: 507px;">
-            <div id="sidebar-menu" class="sidebar-menu">
-                <ul>
-                    <li class="menu-title">
-                        <span>اصلی</span>
-                    </li>
-                    <li class="active">
-                        <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/index.html"><i class="fa-solid fa-home"></i> <span>پیشخوان</span></a>
-                    </li>
-                    <li class="submenu">
-                        <a href="#">
-                            <i class="fa-solid fa-file-signature"></i>
-                            <span>نوبت دهی</span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <ul style="display: none;">
-                            <li>
-                                <a href="{{ route('admin.appointment-days.create') }}">
-                                    ایجاد نوبت ویزیت
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/specialities.html"><i class="fa-solid fa-users"></i> <span>تخصص</span></a>
-                    </li>
-                    <li>
-                        <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/doctor-list.html"><i class="fa-solid fa-user-plus"></i> <span>پزشکان</span></a>
-                    </li>
-                    <li>
-                        <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/patient-list.html"><i class="fa-solid fa-user"></i> <span>مراجعه‌کنندگان</span></a>
-                    </li>
-                    <li>
-                        <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/reviews.html"><i class="fa-regular fa-comments"></i> <span>نظرات</span></a>
-                    </li>
-                    <li>
-                        <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/transactions-list.html"><i class="fa-solid fa-chart-line"></i> <span>تراکنش‌ها</span></a>
-                    </li>
-                    <li>
-                        <a href="{{ route('admin.settings.general.index') }}"><i class="fa-solid fa-gear"></i>
-                            <span>تنظیمات</span></a>
-                    </li>
-                    <li class="submenu">
-                        <a href="#"><i class="fa-solid fa-file-signature"></i> <span>گزارشات</span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/invoice-report.html">گزارشات فاکتور</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-title">
-                        <span>صفحات</span>
-                    </li>
-                    <li>
-                        <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/profile.html"><i class="fa-solid fa-user-plus"></i> <span>پروفایل</span></a>
-                    </li>
-                    <li class="submenu">
-                        <a href="#"><i class="fa-solid fa-document"></i> <span>احراز هویت</span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/login.html"> ورود </a></li>
-                            <li><a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/register.html"> ثبت‌نام</a></li>
-                            <li><a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/forgot-password.html"> فراموشی رمز عبور </a></li>
-                            <li><a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/lock-screen.html"> قفل صفحه </a></li>
-                        </ul>
-                    </li>
-                    <li class="submenu">
-                        <a href="#"><i class="fa-solid fa-warning"></i> <span> صفحات خطا </span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/error-404.html">404 خطا </a></li>
-                            <li><a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/error-500.html">500 خطا </a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/blank-page.html"><i class="fa-solid fa-file"></i> <span>صفحه خالی</span></a>
-                    </li>
-                    <li class="menu-title">
-                        <span>رابط کاربری</span>
-                    </li>
-                    <li>
-                        <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/components.html"><i class="fa-solid fa-vector"></i> <span>‌کامپوننت‌ها</span></a>
-                    </li>
-                    <li class="submenu">
-                        <a href="#"><i class="fa-solid fa-layout"></i> <span>فرم‌ها</span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/form-basic-inputs.html">ورودی پایه</a></li>
-                            <li><a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/form-input-groups.html">ورودی گروهی</a></li>
-                            <li><a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/form-horizontal.html">فرم افقی</a></li>
-                            <li><a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/form-vertical.html">فرم عمودی</a></li>
-                            <li><a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/form-mask.html"> ماسک فرم </a></li>
-                            <li><a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/form-validation.html">اعتبارسنجی فرم </a></li>
-                        </ul>
-                    </li>
-                    <li class="submenu">
-                        <a href="#"><i class="fa-solid fa-table"></i> <span>جدول ها</span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/tables-basic.html">جدول پایه</a></li>
-                            <li><a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/data-tables.html">جدول داده</a></li>
-                        </ul>
-                    </li>
-                    <li class="submenu">
-                        <a href="javascript:void(0);"><i class="fa-solid fa-code"></i> <span>چند لایه</span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li class="submenu">
-                                <a href="javascript:void(0);"> <span>لایه 1</span> <span class="menu-arrow"></span></a>
-                                <ul style="display: none;">
-                                    <li><a href="javascript:void(0);"><span>لایه 2</span></a></li>
-                                    <li class="submenu">
-                                        <a href="javascript:void(0);"> <span> لایه 2</span> <span class="menu-arrow"></span></a>
-                                        <ul style="display: none;">
-                                            <li><a href="javascript:void(0);">لایه 3</a></li>
-                                            <li><a href="javascript:void(0);">لایه 3</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="javascript:void(0);"> <span>لایه 2</span></a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);"> <span>لایه 1</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+    <div class="theiaStickySidebar" style="padding-bottom: 1px; padding-top: 0px; position: relative; transform: none;">
+        <div class="profile-sidebar">
+            <div class="widget-profile pro-widget-content">
+                <div class="profile-info-widget">
+                    <a href="#" class="booking-doc-img">
+                        <img src="{{ asset('assets/images/doctor/doctor-thumb.jpg') }}" alt="User Image">
+                    </a>
+                    <div class="profile-det-info">
+                        <h3> {{ $settings->doctor_name }}</h3>
+                        <div class="patient-details">
+                            <h5 class="mb-0"> {{ $settings->specialization }} </h5>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div><div class="slimScrollBar" style="background: rgb(204, 204, 204); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; left: 1px; height: 299.287px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; left: 1px;"></div></div>
+            <div class="dashboard-widget">
+                <nav class="dashboard-menu">
+                    <ul>
+                        <li class="active">
+                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/doctor-dashboard.html">
+                                <i class="fas fa-columns"></i>
+                                <span>پیشخوان</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/appointments.html">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>نوبت‌دهی</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/my-patients.html">
+                                <i class="fas fa-user-injured"></i>
+                                <span>مراجعه‌کنندگان من</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/schedule-timings.html">
+                                <i class="fas fa-hourglass-start"></i>
+                                <span>زمان‌بندی</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/invoices.html">
+                                <i class="fas fa-file-invoice"></i>
+                                <span>صورت‌حساب</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/reviews.html">
+                                <i class="fas fa-star"></i>
+                                <span>نظرات</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/chat-doctor.html">
+                                <i class="fas fa-comments"></i>
+                                <span>پیام‌ها</span>
+                                <small class="unread-msg">23</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/doctor-profile-settings.html">
+                                <i class="fas fa-user-cog"></i>
+                                <span>تنظیمات پروفایل</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/social-media.html">
+                                <i class="fas fa-share-alt"></i>
+                                <span>شبکه‌های اجتماعی</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/doctor-change-password.html">
+                                <i class="fas fa-lock"></i>
+                                <span>‌تغییر رمز عبور</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/index-2.html">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>خروج</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="resize-sensor"
+             style="position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden;">
+            <div class="resize-sensor-expand"
+                 style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+                <div
+                    style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 293px; height: 831px;"></div>
+            </div>
+            <div class="resize-sensor-shrink"
+                 style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+                <div
+                    style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%"></div>
+            </div>
+        </div>
+    </div>
 </div>

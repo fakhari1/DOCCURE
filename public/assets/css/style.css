@@ -42,7 +42,7 @@ Version      : 1.3
 	font-family: iransans;
 	font-style: normal;
 	font-weight: normal;
-	src: url('../../fonts/iransans_fa_num.ttf');
+	src: url('../fonts/iransans_fa_num.ttf');
 }
 
 /*@font-face {*/
