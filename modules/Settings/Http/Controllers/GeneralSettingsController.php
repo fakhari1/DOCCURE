@@ -14,7 +14,7 @@ class GeneralSettingsController extends Controller
     {
         $settings = new GeneralSettings();
 
-        return view('Settings::admin.settings.create', compact('settings'));
+        return view('Settings::create', compact('settings'));
     }
 
     public function store(GeneralSettingsRequest $request, GeneralSettings $settings)

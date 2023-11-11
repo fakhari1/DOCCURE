@@ -61,9 +61,15 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/doctor-profile-settings.html">
+                            <a href="">
                                 <i class="fas fa-user-cog"></i>
                                 <span>تنظیمات پروفایل</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.settings.general.index') }}">
+                                <i class="fas fa-cog"></i>
+                                <span>تنظیمات سایت</span>
                             </a>
                         </li>
                         <li>
