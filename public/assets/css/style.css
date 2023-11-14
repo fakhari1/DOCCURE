@@ -496,55 +496,55 @@ button.bg-danger:hover {
 .bg-white {
 	background-color: #fff;
 }
-.bg-purple,
-.badge-purple {
-    background-color: #9368e9 !important;
-}
-.text-primary,
-.dropdown-menu > li > a.text-primary {
-	color: #fe235b !important
-}
-.text-success,
-.dropdown-menu > li > a.text-success {
-	color: #699834 !important;
-}
-.text-danger,
-.dropdown-menu > li > a.text-danger {
-	color: #e84646 !important;
-}
-.text-info,
-.dropdown-menu > li > a.text-info {
-	color: #009efb !important;
-}
-.text-warning,
-.dropdown-menu > li > a.text-warning {
-	color: #ffbc34 !important;
-}
-.text-purple,
-.dropdown-menu > li > a.text-purple {
-	color: #7460ee !important;
-}
-.text-muted {
-    color: #757575 !important;
-}
-.text-secondary {
-    color: #b8bdc1!important;
-}
-.border-primary {
-    border-color: #fe235b !important;
-}
-.btn-primary {
-	background-color: #fe235b;
-    border: 1px solid #fe235b;
-}
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary.active,
-.btn-primary:active,
-.open > .dropdown-toggle.btn-primary {
-	background-color: #ea1e53;
-	border: 1px solid #ea1e53;
-}
+/*.bg-purple,*/
+/*.badge-purple {*/
+/*    background-color: #9368e9 !important;*/
+/*}*/
+/*.text-primary,*/
+/*.dropdown-menu > li > a.text-primary {*/
+/*	color: #fe235b !important*/
+/*}*/
+/*.text-success,*/
+/*.dropdown-menu > li > a.text-success {*/
+/*	color: #699834 !important;*/
+/*}*/
+/*.text-danger,*/
+/*.dropdown-menu > li > a.text-danger {*/
+/*	color: #e84646 !important;*/
+/*}*/
+/*.text-info,*/
+/*.dropdown-menu > li > a.text-info {*/
+/*	color: #009efb !important;*/
+/*}*/
+/*.text-warning,*/
+/*.dropdown-menu > li > a.text-warning {*/
+/*	color: #ffbc34 !important;*/
+/*}*/
+/*.text-purple,*/
+/*.dropdown-menu > li > a.text-purple {*/
+/*	color: #7460ee !important;*/
+/*}*/
+/*.text-muted {*/
+/*    color: #757575 !important;*/
+/*}*/
+/*.text-secondary {*/
+/*    color: #b8bdc1!important;*/
+/*}*/
+/*.border-primary {*/
+/*    border-color: #fe235b !important;*/
+/*}*/
+/*.btn-primary {*/
+/*	background-color: #fe235b;*/
+/*    border: 1px solid #fe235b;*/
+/*}*/
+/*.btn-primary:hover,*/
+/*.btn-primary:focus,*/
+/*.btn-primary.active,*/
+/*.btn-primary:active,*/
+/*.open > .dropdown-toggle.btn-primary {*/
+/*	background-color: #ea1e53;*/
+/*	border: 1px solid #ea1e53;*/
+/*}*/
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     color: #fff;
     background-color: #fe235b;

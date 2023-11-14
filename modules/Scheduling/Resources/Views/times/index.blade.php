@@ -27,25 +27,25 @@
             <td>
 
                 <div class="btn-group dropup">
-                    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button type="button" class="btn btn-sm btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         کلیک کنید
                     </button>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="">
+                    <ul class="dropdown-menu m-0 p-0">
+                        <li class="dir-rtl text-right px-1 border-bottom">
+                            <a href="" class="text-primary py-2 d-block">
                                 <i class="fa-solid fa-eye">
                                 </i>
-                                قرار های ملاقات این ماه
+                                قرار های ملاقات
                             </a>
                         </li>
-                        <li>
-                            <a href="" class="btn btn-sm btn-warning">
+                        <li class="dir-rtl text-right px-1 border-bottom">
+                            <a href="" class="text-warning py-2 d-block">
                                 <i class="fa-solid fa-pen"></i>
                                 ویرایش
                             </a>
                         </li>
-                        <li>
-                            <a href="" class="btn btn-sm btn-danger">
+                        <li class="dir-rtl text-right px-1 border-bottom">
+                            <a href="" class="text-danger py-2 d-block">
                                 <i class="fa-solid fa-trash"></i>
                                 حذف
                             </a>
