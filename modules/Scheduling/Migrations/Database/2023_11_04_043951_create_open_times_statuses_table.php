@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Auth;
+use Scheduling\Models\OpenTimesStatus;
 
 return new class extends Migration
 {
@@ -11,11 +13,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('appointment_user', function (Blueprint $table) {
+        Schema::create('open_times_statuses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('appointment_id')->references('id')->on('appointments');
-            $table->string('referrer_name');
+            $table->enum('name', OpenTimesStatus::$statuses)->default(OpenTimesStatus::STATUS_ACTIVE);
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('appointment_user');
+        Schema::dropIfExists('open_times_statuses');
     }
 };

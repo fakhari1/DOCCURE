@@ -14,7 +14,6 @@ class HomeController extends Controller
     {
         Auth::login(User::firstOrFail());
 //        Auth::login(User::where('id', '=', 2)->first());
-        $settings = new GeneralSettings();
-        return view('Front::index', compact('settings'));
+        return view('Front::index');
     }
 }

@@ -4,10 +4,9 @@
 use Illuminate\Support\Facades\Route;
 use Front\Http\Controllers\HomeController;
 
-Route::group([
-    'middleware'=>'web'],function (){
+Route::middleware(['web'])->group(function (){
 
-    Route::get('/', [HomeController::class, 'index'])->name('home.index');
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 
 });
 

@@ -10,15 +10,16 @@ Route::middleware(['web', 'auth'])
     ->group(function () {
 
         Route::middleware('admin')
-            ->prefix('admin')
+            ->prefix('doctor')
             ->group(function () {
-                Route::get('/', [AdminDashboardController::class, 'index'])->name('admin.index');
+                Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard.admin.index');
+
             });
 
         Route::middleware('user')
-            ->prefix('panel')
+            ->prefix('user')
             ->group(function () {
-                Route::get('/', [UserDashboardController::class, 'index'])->name('panel.index');
+                Route::get('/', [UserDashboardController::class, 'index'])->name('dashboard.user.index');
             });
 
     });

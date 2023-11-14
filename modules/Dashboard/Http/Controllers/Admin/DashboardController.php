@@ -8,8 +8,7 @@ use Settings\Settings\GeneralSettings;
 class DashboardController extends Controller
 {
     public function index() {
-        $settings = new GeneralSettings();
-        return view('Dashboard::admin.index', compact('settings'));
+        return view('Dashboard::admin.index');
     }
 
 

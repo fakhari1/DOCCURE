@@ -17,49 +17,49 @@
             <div class="dashboard-widget">
                 <nav class="dashboard-menu">
                     <ul>
-                        <li class="active">
-                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/doctor-dashboard.html">
+                        <li class="{{ Illuminate\Support\Facades\Route::is('dashboard.admin.index') ? 'active' : '' }}">
+                            <a href="{{ route('dashboard.admin.index') }}">
                                 <i class="fas fa-columns"></i>
                                 <span>پیشخوان</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/appointments.html">
-                                <i class="fas fa-calendar-check"></i>
-                                <span>نوبت‌دهی</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/my-patients.html">
-                                <i class="fas fa-user-injured"></i>
-                                <span>مراجعه‌کنندگان من</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/schedule-timings.html">
+{{--                        <li>--}}
+{{--                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/appointments.html">--}}
+{{--                                <i class="fas fa-calendar-check"></i>--}}
+{{--                                <span>نوبت ‌دهی</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/my-patients.html">--}}
+{{--                                <i class="fas fa-user-injured"></i>--}}
+{{--                                <span>مراجعه‌کنندگان من</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+                        <li class="{{ Illuminate\Support\Facades\Route::is('admin.open-times.index') ? 'active' : '' }}">
+                            <a href="{{ route('admin.open-times.index') }}">
                                 <i class="fas fa-hourglass-start"></i>
-                                <span>زمان‌بندی</span>
+                                <span>زمان بندی ها</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/invoices.html">
-                                <i class="fas fa-file-invoice"></i>
-                                <span>صورت‌حساب</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/reviews.html">
-                                <i class="fas fa-star"></i>
-                                <span>نظرات</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/chat-doctor.html">
-                                <i class="fas fa-comments"></i>
-                                <span>پیام‌ها</span>
-                                <small class="unread-msg">23</small>
-                            </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/invoices.html">--}}
+{{--                                <i class="fas fa-file-invoice"></i>--}}
+{{--                                <span>صورت‌حساب</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/reviews.html">--}}
+{{--                                <i class="fas fa-star"></i>--}}
+{{--                                <span>نظرات</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/chat-doctor.html">--}}
+{{--                                <i class="fas fa-comments"></i>--}}
+{{--                                <span>پیام‌ها</span>--}}
+{{--                                <small class="unread-msg">23</small>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                         <li>
                             <a href="">
                                 <i class="fas fa-user-cog"></i>
@@ -72,18 +72,18 @@
                                 <span>تنظیمات سایت</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/social-media.html">
-                                <i class="fas fa-share-alt"></i>
-                                <span>شبکه‌های اجتماعی</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/doctor-change-password.html">
-                                <i class="fas fa-lock"></i>
-                                <span>‌تغییر رمز عبور</span>
-                            </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/social-media.html">--}}
+{{--                                <i class="fas fa-share-alt"></i>--}}
+{{--                                <span>شبکه‌های اجتماعی</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/doctor-change-password.html">--}}
+{{--                                <i class="fas fa-lock"></i>--}}
+{{--                                <span>‌تغییر رمز عبور</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                         <li>
                             <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/index-2.html">
                                 <i class="fas fa-sign-out-alt"></i>

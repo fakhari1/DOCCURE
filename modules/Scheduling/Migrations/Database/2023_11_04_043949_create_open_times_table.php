@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Auth;
 
 return new class extends Migration
 {
@@ -11,19 +12,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('appointment_days', function (Blueprint $table) {
+        Schema::create('open_times', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
-            $table->unsignedTinyInteger('day_of_month');
-            $table->boolean('is_available')->default(true);
-            $table->string('reason_of_unavailable')->nullable();
-            $table->unsignedTinyInteger('appointment_duration')->comment('minutes based');
-            $table->boolean('has_morning_turn')->default(true);
+            $table->unsignedTinyInteger('duration')->comment('based on minutes');
+            $table->date('date')->comment('based only in date with YYYY-mm-dd format');
             $table->time('morning_start_time')->nullable();
             $table->time('morning_end_time')->nullable();
-            $table->boolean('has_evening_turn')->default(true);
             $table->time('evening_start_time')->nullable();
             $table->time('evening_end_time')->nullable();
+            $table->unsignedTinyInteger('status_id')->default(1);
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('appointment_days');
+        Schema::dropIfExists('open_times');
     }
 };

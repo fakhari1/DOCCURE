@@ -103,7 +103,7 @@
                         @if(auth()->user()->isAdmin())
 
                             <button type="button" class="btn btn-success" style="border-radius: 7px 0 0 7px">
-                                <a class="nav-link header-login text-white" href="{{ route('admin.index') }}">پنل
+                                <a class="nav-link header-login text-white" href="{{ route('dashboard.admin.index') }}">پنل
                                     مدیریت</a>
                             </button>
 
@@ -130,7 +130,7 @@
                             </ul>
                         @else
                             <button type="button" class="btn btn-success" style="border-radius: 7px 0 0 7px">
-                                <a class="nav-link header-login text-white" href="{{ route('admin.index') }}">پنل
+                                <a class="nav-link header-login text-white" href="{{ route('dashboard.user.index') }}">پنل
                                     کاربری</a>
                             </button>
                             <ul class="dropdown-menu">
