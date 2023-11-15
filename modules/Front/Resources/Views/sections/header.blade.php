@@ -95,7 +95,7 @@
                     <div class="btn-group">
                         <button type="button"
                                 style="border-radius: 0 7px 7px 0 !important; display: inline-block; width: 20px !important"
-                                class="btn btn-success dropdown-toggle dropdown-toggle-split text-white ps-3"
+                                class="btn btn-success dropdown-toggle dropdown-toggle-split pe-3 dir-ltr"
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false">
                             <i class="fa-solid fa-chevron-right"></i>
@@ -103,15 +103,14 @@
                         @if(auth()->user()->isAdmin())
 
                             <button type="button" class="btn btn-success" style="border-radius: 7px 0 0 7px">
-                                <a class="nav-link header-login text-white" href="{{ route('dashboard.admin.index') }}">پنل
-                                    مدیریت</a>
+                                <a class="nav-link header-login text-white" href="{{ route('dashboard.admin.index') }}">
+                                    پنل مدیریت
+                                </a>
                             </button>
 
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ route('users.profile') }}">پروفایل مدیریت</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
+                                <li class="border-bottom"><a class="dropdown-item mb-0" href="{{ route('users.profile') }}">پروفایل مدیریت</a></li>
+
                                 <li>
                                     <a
                                         href="{{ route('logout') }}"
