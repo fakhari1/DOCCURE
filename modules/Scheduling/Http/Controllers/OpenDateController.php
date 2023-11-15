@@ -8,7 +8,7 @@ use Scheduling\Http\Requests\AppointmentRequest;
 use Scheduling\Models\Appointment;
 use Spatie\OpeningHours\OpeningHours;
 
-class OpenTimeController extends Controller
+class OpenDateController extends Controller
 {
     public function __construct()
     {
@@ -16,12 +16,12 @@ class OpenTimeController extends Controller
 
     public function index()
     {
-        return view('Scheduling::times.index');
+        return view('Scheduling::dates.index');
     }
 
     public function create()
     {
-
+        return view('Scheduling::dates.create');
     }
 
     public function store()

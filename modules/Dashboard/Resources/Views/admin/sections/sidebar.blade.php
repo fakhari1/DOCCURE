@@ -35,8 +35,8 @@
 {{--                                <span>مراجعه‌کنندگان من</span>--}}
 {{--                            </a>--}}
 {{--                        </li>--}}
-                        <li class="{{ Illuminate\Support\Facades\Route::is('admin.open-times.index') ? 'active' : '' }}">
-                            <a href="{{ route('admin.open-times.index') }}">
+                        <li class="{{ Illuminate\Support\Facades\Route::is('admin.open-dates.index') ? 'active' : '' }}">
+                            <a href="{{ route('admin.open-dates.index') }}">
                                 <i class="fas fa-hourglass-start"></i>
                                 <span>زمان بندی ها</span>
                             </a>

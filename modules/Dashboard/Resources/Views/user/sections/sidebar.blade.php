@@ -16,7 +16,7 @@
                         </a>
                         <ul style="display: none;">
                             <li>
-                                <a href="{{ route('admin.appointment-times.create') }}">
+                                <a href="{{ route('admin.appointment-dates.create') }}">
                                     ایجاد نوبت ویزیت
                                 </a>
                             </li>

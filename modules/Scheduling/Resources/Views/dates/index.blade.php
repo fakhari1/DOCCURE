@@ -8,6 +8,13 @@
 
     <h3 class="mb-4">زمان بندی ها</h3>
 
+    <div class="row justify-content-start mb-4">
+        <div>
+            <a href="{{ route('admin.open-dates.create') }}" class="btn btn-sm btn-success">
+                <i class="fa-solid fa-plus"></i>
+                جدید</a>
+        </div>
+    </div>
     <table class="table table-striped table-hover">
         <thead>
         <tr>

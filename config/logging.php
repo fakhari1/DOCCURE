@@ -69,7 +69,7 @@ return [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),
             'level' => env('LOG_LEVEL', 'debug'),
-            'times' => 14,
+            'dates' => 14,
             'replace_placeholders' => true,
         ],
 

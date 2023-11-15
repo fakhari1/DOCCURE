@@ -104,7 +104,7 @@
 {{--                                                    </a>--}}
 {{--                                                    <a href="javascript:void(0);"--}}
 {{--                                                       class="btn btn-sm bg-danger-light">--}}
-{{--                                                        <i class="fas fa-times"></i> حذف--}}
+{{--                                                        <i class="fas fa-dates"></i> حذف--}}
 {{--                                                    </a>--}}
 {{--                                                </div>--}}
 {{--                                            </td>--}}
@@ -138,7 +138,7 @@
 {{--                                                    </a>--}}
 {{--                                                    <a href="javascript:void(0);"--}}
 {{--                                                       class="btn btn-sm bg-danger-light">--}}
-{{--                                                        <i class="fas fa-times"></i> حذف--}}
+{{--                                                        <i class="fas fa-dates"></i> حذف--}}
 {{--                                                    </a>--}}
 {{--                                                </div>--}}
 {{--                                            </td>--}}
@@ -172,7 +172,7 @@
 {{--                                                    </a>--}}
 {{--                                                    <a href="javascript:void(0);"--}}
 {{--                                                       class="btn btn-sm bg-danger-light">--}}
-{{--                                                        <i class="fas fa-times"></i> حذف--}}
+{{--                                                        <i class="fas fa-dates"></i> حذف--}}
 {{--                                                    </a>--}}
 {{--                                                </div>--}}
 {{--                                            </td>--}}
@@ -206,7 +206,7 @@
 {{--                                                    </a>--}}
 {{--                                                    <a href="javascript:void(0);"--}}
 {{--                                                       class="btn btn-sm bg-danger-light">--}}
-{{--                                                        <i class="fas fa-times"></i> حذف--}}
+{{--                                                        <i class="fas fa-dates"></i> حذف--}}
 {{--                                                    </a>--}}
 {{--                                                </div>--}}
 {{--                                            </td>--}}
@@ -240,7 +240,7 @@
 {{--                                                    </a>--}}
 {{--                                                    <a href="javascript:void(0);"--}}
 {{--                                                       class="btn btn-sm bg-danger-light">--}}
-{{--                                                        <i class="fas fa-times"></i> حذف--}}
+{{--                                                        <i class="fas fa-dates"></i> حذف--}}
 {{--                                                    </a>--}}
 {{--                                                </div>--}}
 {{--                                            </td>--}}
@@ -274,7 +274,7 @@
 {{--                                                    </a>--}}
 {{--                                                    <a href="javascript:void(0);"--}}
 {{--                                                       class="btn btn-sm bg-danger-light">--}}
-{{--                                                        <i class="fas fa-times"></i> حذف--}}
+{{--                                                        <i class="fas fa-dates"></i> حذف--}}
 {{--                                                    </a>--}}
 {{--                                                </div>--}}
 {{--                                            </td>--}}
@@ -332,7 +332,7 @@
 {{--                                                    </a>--}}
 {{--                                                    <a href="javascript:void(0);"--}}
 {{--                                                       class="btn btn-sm bg-danger-light">--}}
-{{--                                                        <i class="fas fa-times"></i> حذف--}}
+{{--                                                        <i class="fas fa-dates"></i> حذف--}}
 {{--                                                    </a>--}}
 {{--                                                </div>--}}
 {{--                                            </td>--}}
@@ -366,7 +366,7 @@
 {{--                                                    </a>--}}
 {{--                                                    <a href="javascript:void(0);"--}}
 {{--                                                       class="btn btn-sm bg-danger-light">--}}
-{{--                                                        <i class="fas fa-times"></i> حذف--}}
+{{--                                                        <i class="fas fa-dates"></i> حذف--}}
 {{--                                                    </a>--}}
 {{--                                                </div>--}}
 {{--                                            </td>--}}
@@ -400,7 +400,7 @@
 {{--                                                    </a>--}}
 {{--                                                    <a href="javascript:void(0);"--}}
 {{--                                                       class="btn btn-sm bg-danger-light">--}}
-{{--                                                        <i class="fas fa-times"></i> حذف--}}
+{{--                                                        <i class="fas fa-dates"></i> حذف--}}
 {{--                                                    </a>--}}
 {{--                                                </div>--}}
 {{--                                            </td>--}}
@@ -434,7 +434,7 @@
 {{--                                                    </a>--}}
 {{--                                                    <a href="javascript:void(0);"--}}
 {{--                                                       class="btn btn-sm bg-danger-light">--}}
-{{--                                                        <i class="fas fa-times"></i> حذف--}}
+{{--                                                        <i class="fas fa-dates"></i> حذف--}}
 {{--                                                    </a>--}}
 {{--                                                </div>--}}
 {{--                                            </td>--}}
@@ -468,7 +468,7 @@
 {{--                                                    </a>--}}
 {{--                                                    <a href="javascript:void(0);"--}}
 {{--                                                       class="btn btn-sm bg-danger-light">--}}
-{{--                                                        <i class="fas fa-times"></i> حذف--}}
+{{--                                                        <i class="fas fa-dates"></i> حذف--}}
 {{--                                                    </a>--}}
 {{--                                                </div>--}}
 {{--                                            </td>--}}
@@ -504,7 +504,7 @@
 {{--                                                    </a>--}}
 {{--                                                    <a href="javascript:void(0);"--}}
 {{--                                                       class="btn btn-sm bg-danger-light">--}}
-{{--                                                        <i class="fas fa-times"></i> حذف--}}
+{{--                                                        <i class="fas fa-dates"></i> حذف--}}
 {{--                                                    </a>--}}
 {{--                                                </div>--}}
 {{--                                            </td>--}}
