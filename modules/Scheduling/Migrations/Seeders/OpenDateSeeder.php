@@ -5,7 +5,7 @@ namespace Scheduling\Migrations\Seeders;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Scheduling\Models\OpenDateStatus;
+use Scheduling\Models\OpenDate;
 
 class OpenDateSeeder extends Seeder
 {
@@ -47,6 +47,7 @@ class OpenDateSeeder extends Seeder
         DB::table('open_dates')->insert(
             $data
         );
+
     }
 
 }

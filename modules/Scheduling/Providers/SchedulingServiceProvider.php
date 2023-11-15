@@ -6,6 +6,7 @@ use Database\Seeders\DatabaseSeeder;
 use Illuminate\Support\ServiceProvider;
 use Scheduling\Migrations\Seeders\OpenDateSeeder;
 use Scheduling\Migrations\Seeders\OpenDateStatusSeeder;
+use Scheduling\Migrations\Seeders\OpenTimeSeeder;
 use Scheduling\Migrations\Seeders\OpenTimeStatusSeeder;
 
 class SchedulingServiceProvider extends ServiceProvider
@@ -19,5 +20,6 @@ class SchedulingServiceProvider extends ServiceProvider
         DatabaseSeeder::$seeders[4] = OpenDateStatusSeeder::class;
         DatabaseSeeder::$seeders[5] = OpenTimeStatusSeeder::class;
         DatabaseSeeder::$seeders[6] = OpenDateSeeder::class;
+        DatabaseSeeder::$seeders[7] = OpenTimeSeeder::class;
     }
 }

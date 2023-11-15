@@ -18,9 +18,9 @@ return new class extends Migration
             $table->time('start_time');
             $table->time('end_time');
             $table->unsignedBigInteger('date_id');
-            $table->unsignedBigInteger('created_by')->default(Auth::id());
+            $table->unsignedBigInteger('created_by')->default(Auth::id() ?? 1);
             $table->unsignedTinyInteger('status_id')->default(1);
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

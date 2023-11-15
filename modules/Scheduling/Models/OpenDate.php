@@ -14,9 +14,9 @@ class OpenDate extends Model
         return $this->belongsTo(OpenDateStatus::class);
     }
 
-    public function openTimes()
+    public function times()
     {
-        return $this->hasMany(OpenTime::class);
+        return $this->hasMany(OpenTime::class, 'date_id');
     }
 
     public function appointments()

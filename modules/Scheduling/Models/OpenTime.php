@@ -19,4 +19,8 @@ class OpenTime extends Model
     {
         return $this->hasMany(Appointment::class);
     }
+
+    public function openDate() {
+        return $this->belongsTo(OpenDate::class, 'date_id');
+    }
 }

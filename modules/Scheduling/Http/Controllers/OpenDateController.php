@@ -9,6 +9,7 @@ use Scheduling\Http\Requests\AppointmentRequest;
 use Scheduling\Models\Appointment;
 use Scheduling\Models\OpenDate;
 use Scheduling\Models\OpenDateStatus;
+use Scheduling\Models\OpenTime;
 use Spatie\OpeningHours\OpeningHours;
 
 class OpenDateController extends Controller
@@ -19,7 +20,10 @@ class OpenDateController extends Controller
 
     public function index()
     {
+
         $dates = OpenDate::all();
+
+        dd(OpenTime::first());
 
         return view('Scheduling::dates.index', compact('dates'));
     }
