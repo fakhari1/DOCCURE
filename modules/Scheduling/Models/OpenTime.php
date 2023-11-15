@@ -12,6 +12,6 @@ class OpenTime extends Model
 
     public function status()
     {
-        return $this->belongsTo(OpenTimesStatus::class);
+        return $this->belongsTo(OpenTimeStatus::class);
     }
 }

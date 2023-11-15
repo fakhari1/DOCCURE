@@ -166,44 +166,44 @@ input[type=password] {
 .btn.focus, .btn:focus {
     box-shadow: inherit;
 }
-.form-control {
-    border-color: #dcdcdc;
-    color: #333;
-    font-size: 15px;
-    min-height: 46px;
-    padding: 6px 15px;
-}
-.form-control[type=file] {
-    min-height: auto;
-}
-.table .form-control {
-    font-size: 14px;
-    min-height: 38px;
-}
+//.form-control {
+//    border-color: #dcdcdc;
+//    color: #333;
+//    font-size: 15px;
+//    min-height: 46px;
+//    padding: 6px 15px;
+//}
+//.form-control[type=file] {
+//    min-height: auto;
+//}
+//.table .form-control {
+//    font-size: 14px;
+//    min-height: 38px;
+//}
 .container-fluid {
     padding-left: 30px;
     padding-right: 30px;
 }
-.form-control::-webkit-input-placeholder {
-    color: #858585;
-    font-size: 14px;
-}
-.form-control::-moz-placeholder {
-    color: #858585;
-    font-size: 14px;
-}
-.form-control:-ms-input-placeholder {
-    color: #858585;
-    font-size: 14px;
-}
-.form-control::-ms-input-placeholder {
-    color: #858585;
-    font-size: 14px;
-}
-.form-control::placeholder {
-    color: #858585;
-    font-size: 14px;
-}
+//.form-control::-webkit-input-placeholder {
+//    color: #858585;
+//    font-size: 14px;
+//}
+//.form-control::-moz-placeholder {
+//    color: #858585;
+//    font-size: 14px;
+//}
+//.form-control:-ms-input-placeholder {
+//    color: #858585;
+//    font-size: 14px;
+//}
+//.form-control::-ms-input-placeholder {
+//    color: #858585;
+//    font-size: 14px;
+//}
+//.form-control::placeholder {
+//    color: #858585;
+//    font-size: 14px;
+//}
 .list-group-item {
     border: 1px solid #f0f0f0;
 }
@@ -224,9 +224,9 @@ label {
 .form-email {
     direction: rtl;
 }
-textarea.form-control {
-    min-height: 100px;
-}
+//textarea.form-control {
+//    min-height: 100px;
+//}
 
 /*-----------------
 	2. Table
@@ -937,11 +937,11 @@ table.table td,table.table th {
 .text-xl {
     font-size: 1.5rem !important;
 }
-.form-control:focus {
-    border-color: #bbb;
-    box-shadow: none;
-    outline: 0 none;
-}
+//.form-control:focus {
+//    border-color: #bbb;
+//    box-shadow: none;
+//    outline: 0 none;
+//}
 .form-group {
     margin-bottom: 1.25rem;
 }

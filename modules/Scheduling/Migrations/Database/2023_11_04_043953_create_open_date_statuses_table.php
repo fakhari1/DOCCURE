@@ -3,8 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Auth;
-use Scheduling\Models\AppointmentStatus;
+use Scheduling\Models\OpenDateStatus;
 
 return new class extends Migration
 {
@@ -15,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('open_date_statuses', function (Blueprint $table) {
             $table->id();
-            $table->enum('name', AppointmentStatus::$statuses)->default(AppointmentStatus::STATUS_ACTIVE);
+            $table->enum('name', OpenDateStatus::$statuses)->default(OpenDateStatus::STATUS_ACTIVE);
             $table->timestamps();
         });
     }

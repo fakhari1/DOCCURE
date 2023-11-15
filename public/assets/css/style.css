@@ -122,27 +122,27 @@ input:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px white inset !important;
 }
 
-.form-control {
-    border: 1px solid #ddd;
-    box-shadow: none;
-    color: #333;
-    font-size: 15px;
-    height: 40px;
-}
-
-.form-control:focus {
-    border-color: #fe235b;
-    box-shadow: none;
-    outline: 0 none;
-}
-
-.form-control.form-control-sm {
-    height: calc(1.5em + .5rem + 2px);
-}
-
-.form-control.form-control-lg {
-    height: calc(1.5em + 1rem + 2px);
-}
+/*.form-control {*/
+/*    border: 1px solid #ddd;*/
+/*    box-shadow: none;*/
+/*    color: #333;*/
+/*    font-size: 15px;*/
+/*    height: 40px;*/
+/*}*/
+/**/
+/*.form-control:focus {*/
+/*    border-color: #fe235b;*/
+/*    box-shadow: none;*/
+/*    outline: 0 none;*/
+/*}*/
+/**/
+/*.form-control.form-control-sm {*/
+/*    height: calc(1.5em + .5rem + 2px);*/
+/*}*/
+/**/
+/*.form-control.form-control-lg {*/
+/*    height: calc(1.5em + 1rem + 2px);*/
+/*}*/
 
 a {
     color: #122852;
@@ -175,10 +175,10 @@ input[type=password] {
     appearance: none;
 }
 
-textarea.form-control {
-    resize: vertical;
-    height: auto;
-}
+/*textarea.form-control {*/
+/*    resize: vertical;*/
+/*    height: auto;*/
+/*}*/
 
 label {
     display: inline-block;
@@ -193,9 +193,9 @@ label {
     margin-bottom: 1.25rem;
 }
 
-.input-group .form-control {
-    height: 40px;
-}
+/*.input-group .form-control {*/
+/*    height: 40px;*/
+/*}*/
 
 .nav .open > a,
 .nav .open > a:focus,

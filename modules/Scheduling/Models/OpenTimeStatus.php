@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use User\Models\User;
 
-class OpenTimesStatus extends Model
+class OpenTimeStatus extends Model
 {
     use HasFactory;
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Auth;
-use Scheduling\Models\OpenTimesStatus;
+use Scheduling\Models\OpenTimeStatus;
 
 return new class extends Migration
 {
@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('open_time_statuses', function (Blueprint $table) {
             $table->id();
-            $table->enum('name', OpenTimesStatus::$statuses)->default(OpenTimesStatus::STATUS_ACTIVE);
+            $table->enum('name', OpenTimeStatus::$statuses)->default(OpenTimeStatus::STATUS_ACTIVE);
             $table->timestamps();
         });
     }

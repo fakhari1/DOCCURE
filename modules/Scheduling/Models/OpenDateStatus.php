@@ -12,8 +12,8 @@ class OpenDateStatus extends Model
 
     protected $table = 'open_date_statuses';
 
-    const STATUS_ACTIVE = 'active';
-    const STATUS_INACTIVE = 'inactive';
+    const STATUS_ACTIVE = 'فعال';
+    const STATUS_INACTIVE = 'غیر فعال';
     const STATUS_NOT_FINALIZED = 'not finalized';
     const STATUS_FINALIZED = 'finalized';
 
