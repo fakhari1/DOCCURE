@@ -11,3 +11,25 @@
 .cursor-pointer {
     cursor: pointer !important;
 }
+
+.mw-100-px {
+    max-width: 100px !important;
+}
+
+.mw-200-px {
+    max-width: 200px !important;
+}
+
+.mw-300-px {
+    max-width: 300px !important;
+}
+
+.mw-400-px {
+    max-width: 400px !important;
+}
+
+.card-selected {
+    border: 1px solid #0b5ed7 !important;
+    background: #ccdfff !important;
+}
+

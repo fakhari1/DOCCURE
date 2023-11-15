@@ -14,7 +14,8 @@ return new class extends Migration
     {
         Schema::create('open_dates', function (Blueprint $table) {
             $table->id();
-            $table->date('date')->comment('based only in date with YYYY-mm format');
+            $table->date('date')->comment('based only in date with YYYY-mm-dd format');
+            $table->unsignedTinyInteger('duration')->comment('based only in minutes');
             $table->time('morning_start_time')->nullable();
             $table->time('morning_end_time')->nullable();
             $table->time('evening_start_time')->nullable();
