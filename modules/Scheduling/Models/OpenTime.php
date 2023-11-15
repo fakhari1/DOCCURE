@@ -14,4 +14,9 @@ class OpenTime extends Model
     {
         return $this->belongsTo(OpenTimeStatus::class);
     }
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
 }

@@ -13,35 +13,33 @@ class OpenDateSeeder extends Seeder
     public function run()
     {
 
-        $now = Carbon::now();
-        $nextMonth = $now->addMonth();
-        $nextMonthFirstDay = $nextMonth->startOfMonth();
-        $nextMonthLastDay = $nextMonth->endOfMonth();
         $data = [];
 
-        for ($i = 0; $i <= $now->endOfMonth()->format('d'); $i++) {
+        $now = Carbon::now();
+        for ($i = Carbon::now()->format('d'); $i <= Carbon::now()->endOfMonth()->format('d'); $i++) {
             $data[$i] = [
                 'date' => $now->format('Y-m-d'),
-                'morning_start_time' => '8',
-                'morning_end_time' => '13',
-                'evening_start_time' => '16',
-                'evening_end_time' => '21',
+                'morning_start_time' => '8:00',
+                'morning_end_time' => '13:00',
+                'evening_start_time' => '16:00',
+                'evening_end_time' => '21:00',
             ];
 
-            $now = $now->addDay();
+            $now->addDay();
         }
 
-        $date = $nextMonthFirstDay;
-        for ($i = $nextMonthFirstDay->format('d'); $i <= $nextMonthLastDay->format('d'); $i++) {
+        $date = Carbon::now()->addMonth()->startOfMonth();
+
+        for ($i = $date->format('d'); $i <= Carbon::now()->addMonth()->endOfMonth()->format('d'); $i++) {
             $data[] = [
                 'date' => $date->format('Y-m-d'),
-                'morning_start_time' => '8',
-                'morning_end_time' => '13',
-                'evening_start_time' => '16',
-                'evening_end_time' => '21',
+                'morning_start_time' => '8:00',
+                'morning_end_time' => '13:00',
+                'evening_start_time' => '16:00',
+                'evening_end_time' => '21:00',
             ];
 
-            $date = $nextMonthFirstDay->addDay();
+            $date->addDay();
         }
 
         DB::table('open_dates')->delete();
@@ -49,7 +47,6 @@ class OpenDateSeeder extends Seeder
         DB::table('open_dates')->insert(
             $data
         );
-
     }
 
 }

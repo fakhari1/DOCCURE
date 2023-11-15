@@ -19,7 +19,9 @@ class OpenDateController extends Controller
 
     public function index()
     {
-        return view('Scheduling::dates.index');
+        $dates = OpenDate::all();
+
+        return view('Scheduling::dates.index', compact('dates'));
     }
 
     public function create()
