@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('appointments', function (Blueprint $table) {
+        Schema::create('appointment_statuses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('open_date_id');
-            $table->unsignedBigInteger('open_time_id');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedTinyInteger('status_id')->default(1);
+            $table->enum('name', AppointmentStatus::$statuses)->default(AppointmentStatus::STATUS_ACTIVE);
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('appointments');
+        Schema::dropIfExists('appointment_statuses');
     }
 };

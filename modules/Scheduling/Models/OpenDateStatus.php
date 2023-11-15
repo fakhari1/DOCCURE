@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use User\Models\User;
 
-class OpenTimesStatus extends Model
+class OpenDateStatus extends Model
 {
     use HasFactory;
 
-    protected $table = 'open_time_statuses';
+    protected $table = 'open_date_statuses';
 
     const STATUS_ACTIVE = 'active';
     const STATUS_INACTIVE = 'inactive';

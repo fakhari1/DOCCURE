@@ -14,13 +14,13 @@ return new class extends Migration
     {
         Schema::create('open_times', function (Blueprint $table) {
             $table->id();
-            $table->unsignedTinyInteger('duration')->comment('based on minutes');
-            $table->date('date')->comment('based only in date with YYYY-mm-dd format');
-            $table->time('morning_start_time')->nullable();
-            $table->time('morning_end_time')->nullable();
-            $table->time('evening_start_time')->nullable();
-            $table->time('evening_end_time')->nullable();
+            $table->date('date');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->unsignedBigInteger('date_id');
+            $table->unsignedBigInteger('created_by')->default(Auth::id());
             $table->unsignedTinyInteger('status_id')->default(1);
+            $table->string('description');
             $table->timestamps();
         });
     }

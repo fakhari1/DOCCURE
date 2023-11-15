@@ -12,23 +12,35 @@
         <thead>
         <tr>
             <th>#</th>
-            <th>ماه</th>
             <th>تاریخ</th>
-            <th>تعداد قرار ملاقات</th>
+            <th> قرار ملاقات</th>
+            <th>قرار ملاقات خالی</th>
+            <th>مدت قرار های ملاقات</th>
+            <th>ساعت کاری صبح</th>
+            <th>ساعت کاری عصر</th>
+            <th>وضعیت</th>
             <th>عملیات</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>1</td>
-            <td>آبان</td>
-            <td>1402/08</td>
-            <td>45</td>
+            <td class="text-center">1</td>
+            <td class="text-center">1402/08</td>
+            <td class="text-center">45</td>
+            <td class="text-center">15</td>
+            <td class="text-center">30 دقیقه</td>
+            <td class="text-center dir-ltr">08:00 - 13:00</td>
+            <td class="text-center dir-ltr">16:00 - 21:00</td>
+            <td class="text-center">
+                <div class="badge bg-success">
+                    فعال
+                </div>
+            </td>
             <td>
 
                 <div class="btn-group dropup">
-                    <button type="button" class="btn btn-sm btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        کلیک کنید
+                    <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        انتخاب...
                     </button>
                     <ul class="dropdown-menu m-0 p-0">
                         <li class="dir-rtl text-right px-1 border-bottom">

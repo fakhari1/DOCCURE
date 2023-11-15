@@ -443,59 +443,59 @@ table.table td,table.table th {
 .btn.btn-rounded {
 	border-radius: 50px;
 }
-.bg-primary,
-.badge-primary {
-	background-color: #fe235b !important;
-}
-a.bg-primary:focus,
-a.bg-primary:hover,
-button.bg-primary:focus,
-button.bg-primary:hover {
-    background-color: #0168b3 !important;
-}
-.bg-success,
-.badge-success {
-	background-color: #7bb13c !important;
-}
-a.bg-success:focus,
-a.bg-success:hover,
-button.bg-success:focus,
-button.bg-success:hover {
-    background-color: #699834 !important;
-}
-.bg-info,
-.badge-info {
-	background-color: #009efb !important;
-}
-a.bg-info:focus,
-a.bg-info:hover,
-button.bg-info:focus,
-button.bg-info:hover {
-    background-color: #028ee1 !important;
-}
-.bg-warning,
-.badge-warning {
-	background-color: #ffbc34 !important;
-}
-a.bg-warning:focus,
-a.bg-warning:hover,
-button.bg-warning:focus,
-button.bg-warning:hover {
-    background-color: #e9ab2e !important;
-}
-.bg-danger,
-.badge-danger {
-	background-color: #e84646 !important;
-}
-a.bg-danger:focus,
-a.bg-danger:hover,
-button.bg-danger:focus,
-button.bg-danger:hover {
-    background-color: #e63333 !important;
-}
-.bg-white {
-	background-color: #fff;
-}
+/*.bg-primary,*/
+/*.badge-primary {*/
+/*	background-color: #fe235b !important;*/
+/*}*/
+/*a.bg-primary:focus,*/
+/*a.bg-primary:hover,*/
+/*button.bg-primary:focus,*/
+/*button.bg-primary:hover {*/
+/*    background-color: #0168b3 !important;*/
+/*}*/
+/*.bg-success,*/
+/*.badge-success {*/
+/*	background-color: #7bb13c !important;*/
+/*}*/
+/*a.bg-success:focus,*/
+/*a.bg-success:hover,*/
+/*button.bg-success:focus,*/
+/*button.bg-success:hover {*/
+/*    background-color: #699834 !important;*/
+/*}*/
+/*.bg-info,*/
+/*.badge-info {*/
+/*	background-color: #009efb !important;*/
+/*}*/
+/*a.bg-info:focus,*/
+/*a.bg-info:hover,*/
+/*button.bg-info:focus,*/
+/*button.bg-info:hover {*/
+/*    background-color: #028ee1 !important;*/
+/*}*/
+/*.bg-warning,*/
+/*.badge-warning {*/
+/*	background-color: #ffbc34 !important;*/
+/*}*/
+/*a.bg-warning:focus,*/
+/*a.bg-warning:hover,*/
+/*button.bg-warning:focus,*/
+/*button.bg-warning:hover {*/
+/*    background-color: #e9ab2e !important;*/
+/*}*/
+/*.bg-danger,*/
+/*.badge-danger {*/
+/*	background-color: #e84646 !important;*/
+/*}*/
+/*a.bg-danger:focus,*/
+/*a.bg-danger:hover,*/
+/*button.bg-danger:focus,*/
+/*button.bg-danger:hover {*/
+/*    background-color: #e63333 !important;*/
+/*}*/
+/*.bg-white {*/
+/*	background-color: #fff;*/
+/*}*/
 /*.bg-purple,*/
 /*.badge-purple {*/
 /*    background-color: #9368e9 !important;*/

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('open_times_statuses', function (Blueprint $table) {
+        Schema::create('open_time_statuses', function (Blueprint $table) {
             $table->id();
             $table->enum('name', OpenTimesStatus::$statuses)->default(OpenTimesStatus::STATUS_ACTIVE);
             $table->timestamps();
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('open_times_statuses');
+        Schema::dropIfExists('open_time_statuses');
     }
 };

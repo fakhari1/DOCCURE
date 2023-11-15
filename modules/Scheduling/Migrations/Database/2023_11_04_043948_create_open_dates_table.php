@@ -4,7 +4,6 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Auth;
-use Scheduling\Models\AppointmentStatus;
 
 return new class extends Migration
 {
@@ -13,11 +12,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('appointments', function (Blueprint $table) {
+        Schema::create('open_dates', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('open_date_id');
-            $table->unsignedBigInteger('open_time_id');
-            $table->unsignedBigInteger('user_id');
+            $table->date('date')->comment('based only in date with YYYY-mm format');
+            $table->time('morning_start_time')->nullable();
+            $table->time('morning_end_time')->nullable();
+            $table->time('evening_start_time')->nullable();
+            $table->time('evening_end_time')->nullable();
             $table->unsignedTinyInteger('status_id')->default(1);
             $table->timestamps();
         });
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('appointments');
+        Schema::dropIfExists('open_dates');
     }
 };
