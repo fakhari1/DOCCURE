@@ -16,12 +16,12 @@ class Appointment extends Model
         return $this->belongsTo(AppointmentStatus::class);
     }
 
-    public function openTime()
+    public function time()
     {
         return $this->belongsTo(OpenTime::class, 'open_time_id');
     }
 
-    public function openDate()
+    public function date()
     {
         return $this->belongsTo(OpenDate::class, 'open_date_id');
     }

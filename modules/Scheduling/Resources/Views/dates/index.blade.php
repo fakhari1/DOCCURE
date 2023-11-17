@@ -20,7 +20,7 @@
         <tr>
             <th>#</th>
             <th>تاریخ</th>
-            <th>وقت ها</th>
+            <th>وقت ملاقات</th>
             <th>وقت خالی</th>
             <th>مدت</th>
             <th>صبح</th>
@@ -34,8 +34,8 @@
             <tr>
                 <td class="text-center">{{ $date->id }}</td>
                 <td class="text-center">{{ Morilog\Jalali\Jalalian::fromCarbon(Carbon\Carbon::parse($date->date))->format('Y-m-d') }}</td>
-                <td class="text-center">{{ $date->openTimes->count() }}</td>
-                <td class="text-center">0</td>
+                <td class="text-center">{{ $date->times->count() }}</td>
+                <td class="text-center">{{ $date->getAvailableAppointmentsCount() }}</td>
                 <td class="text-center">{{ $date->duration }} دقیقه</td>
                 <td class="text-center dir-ltr">{{ $date->morning_start_time ?? '-' }} - {{ $date->morning_end_time ?? '-' }}</td>
                 <td class="text-center dir-ltr">{{ $date->evening_start_time ?? '-' }} - {{ $date->evening_end_time ?? '-' }}</td>

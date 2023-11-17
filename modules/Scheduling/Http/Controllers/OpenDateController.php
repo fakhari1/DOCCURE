@@ -4,26 +4,22 @@ namespace Scheduling\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
-use DateTime;
-use Scheduling\Http\Requests\AppointmentRequest;
-use Scheduling\Models\Appointment;
+use Illuminate\Http\Request;
+use Morilog\Jalali\Jalalian;
 use Scheduling\Models\OpenDate;
 use Scheduling\Models\OpenDateStatus;
-use Scheduling\Models\OpenTime;
-use Spatie\OpeningHours\OpeningHours;
 
 class OpenDateController extends Controller
 {
+    protected $count;
     public function __construct()
     {
+        $this->count = 0;
     }
 
     public function index()
     {
-
         $dates = OpenDate::all();
-
-        dd(OpenTime::first());
 
         return view('Scheduling::dates.index', compact('dates'));
     }
@@ -36,8 +32,11 @@ class OpenDateController extends Controller
         return view('Scheduling::dates.create', compact('statuses'));
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $date = substr($request->start_date, 0, 10);
+        dd(Carbon::createFromTimestamp($date)->format('Y-m-d'), Jalalian::fromCarbon(Carbon::createFromTimestamp($date))->format('Y/m/d'));
+
 
     }
 

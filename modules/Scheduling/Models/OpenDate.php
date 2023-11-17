@@ -24,4 +24,16 @@ class OpenDate extends Model
         return $this->hasMany(Appointment::class);
     }
 
+    public function getAvailableAppointmentsCount()
+    {
+        $count = 0;
+        $this->times()->each(function ($time) use (&$count) {
+            if (!$time->hasAppointment()) {
+                $count++;
+            }
+        });
+
+        return $count;
+    }
+
 }

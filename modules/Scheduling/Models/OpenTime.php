@@ -15,12 +15,18 @@ class OpenTime extends Model
         return $this->belongsTo(OpenTimeStatus::class);
     }
 
-    public function appointments()
+    public function appointment()
     {
-        return $this->hasMany(Appointment::class);
+        return $this->hasOne(Appointment::class);
     }
 
-    public function openDate() {
+    public function openDate()
+    {
         return $this->belongsTo(OpenDate::class, 'date_id');
+    }
+
+    public function hasAppointment()
+    {
+        return $this->appointment()->exists();
     }
 }
