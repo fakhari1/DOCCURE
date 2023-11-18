@@ -13,8 +13,8 @@
     </h4>
 
     <div class="row justify-content-end mb-4">
-        <div>
-            <a href="{{ route('admin.open-dates.index') }}" class="btn btn-sm btn-primary">
+        <div class="dir-ltr text-left">
+            <a href="{{ route('admin.open-dates.index') }}" class="btn btn-sm btn-primary dir-ltr text-left">
                 <i class="fa-solid fa-chevron-left"></i>
                 بازگشت
             </a>
@@ -34,7 +34,7 @@
         <tbody>
         @foreach($times as $key => $time)
             <tr>
-                <td class="">{{ $time->id }}</td>
+                <td class="">{{ $loop->iteration }}</td>
 {{--                <td class="text-center">{{ Morilog\Jalali\Jalalian::fromCarbon(Carbon\Carbon::parse($time->date))->format('Y-m-d') }}</td>--}}
                 <td class="">{!! $time->end_time_text . ' - ' . $time->start_time_text!!}</td>
                 <td class="">{!! $time->is_available_text !!}</td>

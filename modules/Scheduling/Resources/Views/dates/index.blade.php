@@ -12,7 +12,8 @@
         <div>
             <a href="{{ route('admin.open-dates.create') }}" class="btn btn-sm btn-success">
                 <i class="fa-solid fa-plus"></i>
-                جدید</a>
+                جدید
+            </a>
         </div>
     </div>
     <table class="table table-striped table-hover">

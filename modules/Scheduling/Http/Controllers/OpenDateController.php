@@ -4,9 +4,7 @@ namespace Scheduling\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Morilog\Jalali\Jalalian;
 use Scheduling\Http\Requests\OpenDateRequest;
 use Scheduling\Models\OpenDate;
 use Scheduling\Models\OpenDateStatus;
@@ -15,6 +13,7 @@ use Scheduling\Models\OpenTime;
 class OpenDateController extends Controller
 {
     protected $count;
+
     public function __construct()
     {
         $this->count = 0;
@@ -29,7 +28,6 @@ class OpenDateController extends Controller
 
     public function create()
     {
-        $holiday_months = OpenDate::get()->pluck('date');
         $statuses = OpenDateStatus::all();
         return view('Scheduling::dates.create', compact('statuses'));
     }
@@ -39,7 +37,6 @@ class OpenDateController extends Controller
 
         DB::beginTransaction();
 
-
         try {
             $startDate = get_timestamp_gregory_date(get_fixed_timestamp($request->start_date));
             $endDate = get_timestamp_gregory_date(get_fixed_timestamp($request->end_date));
@@ -47,7 +44,7 @@ class OpenDateController extends Controller
             $data = [];
 
             if (!is_null($request->holidays))
-                foreach($request->holidays as $key => $day) {
+                foreach ($request->holidays as $key => $day) {
                     $holidays[] = get_timestamp_gregory_date(get_fixed_timestamp($day))->format('Y-m-d');
                 }
 
@@ -114,7 +111,7 @@ class OpenDateController extends Controller
 
             }
 
-            foreach($times as $key => $time) {
+            foreach ($times as $key => $time) {
                 OpenTime::create($time);
             }
 
@@ -130,8 +127,79 @@ class OpenDateController extends Controller
 
     }
 
-    public function edit()
+    public function edit(OpenDate $date)
     {
+        $statuses = OpenDateStatus::all();
+        return view('Scheduling::dates.edit', compact('date', 'statuses'));
+    }
 
+    public function update(OpenDate $date, OpenDateRequest $request)
+    {
+        if ($date->hasAppointment())
+            return redirect()->route('admin.open-dates.index')->with(['error_msg' => 'روز انتخاب شده به علت داشتن نوبت رزرو شده قابل ویرایش نیست؛ اگر مصمم به ویرایش هستید ابتدا نوبت ها را لغو و سپس اقدام به ویرایش زمان بندی کنید!']);
+
+        $date->openTimes()->each(function ($time) {
+            if ($time->hasAppointment()) {
+                $time->appointment()->delete();
+            }
+            $time->delete();
+        });
+
+        $date->update([
+            'morning_start_time' => $request->morning_start_time,
+            'morning_end_time' => $request->morning_end_time,
+            'evening_start_time' => $request->evening_start_time,
+            'evening_end_time' => $request->evening_end_time,
+            'duration' => $request->duration
+        ]);
+
+        $mst = $request->morning_start_time ?? null;
+        $met = $request->morning_end_time ?? null;
+        $est = $request->evening_start_time ?? null;
+        $eet = $request->evening_end_time ?? null;
+
+        $start_time = null;
+        $end_time = null;
+
+        if (!is_null($mst) and !is_null($met)) {
+            $start_time = $mst;
+            $end_time = Carbon::parse($start_time)->addMinutes($request->duration);
+
+
+            while (Carbon::parse($end_time)->lessThanOrEqualTo(Carbon::parse($met))) {
+                $times[] = [
+                    'date' => $date->date,
+                    'start_time' => $start_time,
+                    'end_time' => $end_time->format('H:i:s'),
+                    'date_id' => $date->id
+                ];
+
+                $start_time = $end_time->format('H:i:s');
+                $end_time = Carbon::parse($end_time)->addMinutes($request->duration);
+            }
+        }
+
+        if (!is_null($est) and !is_null($eet)) {
+            $start_time = $est;
+            $end_time = Carbon::parse($start_time)->addMinutes($request->duration);
+
+            while (Carbon::parse($end_time)->lessThanOrEqualTo(Carbon::parse($eet))) {
+                $times[] = [
+                    'date' => $date->date,
+                    'start_time' => $start_time,
+                    'end_time' => $end_time->format('H:i:s'),
+                    'date_id' => $date->id
+                ];
+
+                $start_time = $end_time->format('H:i:s');
+                $end_time = Carbon::parse($end_time)->addMinutes($request->duration);
+            }
+        }
+
+        foreach ($times as $key => $time) {
+            OpenTime::create($time);
+        }
+
+        return redirect()->route('admin.open-dates.times.index', $date)->with(['success_msg' => 'تاریخ با موفقیت بروزرسانی شد!']);
     }
 }

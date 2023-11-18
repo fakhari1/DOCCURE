@@ -47,7 +47,7 @@ class OpenTime extends Model
 
     public function hasAppointment()
     {
-        return $this->appointment()->exists();
+        return $this->appointment()->where('status_id', '=', OpenTimeStatus::findOrFail(1)->id)->exists();
     }
 
     public function getStatusTextAttribute()
