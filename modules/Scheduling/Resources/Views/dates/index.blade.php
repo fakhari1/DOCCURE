@@ -19,12 +19,13 @@
         <thead>
         <tr>
             <th>#</th>
-            <th>تاریخ</th>
+            <th class="text-center">تاریخ</th>
             <th>وقت ملاقات</th>
             <th>وقت خالی</th>
-            <th>مدت</th>
-            <th>صبح</th>
-            <th>عصر</th>
+            <th class="text-center">مدت</th>
+            <th class="text-center">صبح</th>
+            <th class="text-center">عصر</th>
+            <th>تعطیل</th>
             <th>وضعیت</th>
             <th>عملیات</th>
         </tr>
@@ -33,7 +34,11 @@
         @foreach($dates as $key => $date)
             <tr>
                 <td class="text-center">{{ $date->id }}</td>
-                <td class="text-center">{{ Morilog\Jalali\Jalalian::fromCarbon(Carbon\Carbon::parse($date->date))->format('Y-m-d') }}</td>
+                <td class="text-center">
+                    <span class="badge bg-transparent text-dark border border-1 border-primary" style="font-size: 14px !important;">
+                        {{ Morilog\Jalali\Jalalian::fromCarbon(Carbon\Carbon::parse($date->date))->format('Y/m/d') }}
+                    </span>
+                </td>
                 <td class="text-center">{{ $date->openTimes()->count() }}</td>
                 <td class="text-center">{{ $date->getAvailableAppointmentsCount() }}</td>
                 <td class="text-center">{{ $date->duration }} دقیقه</td>
@@ -57,9 +62,18 @@
                     @endif
                 </td>
                 <td class="text-center">
-                    <div class="badge bg-success">
-                        فعال
-                    </div>
+                    @if($date->is_holiday)
+                        <span class="text-success fw-bolder">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                    @else
+                        <span class="text-danger fw-bolder">
+                            -
+                        </span>
+                    @endif
+                </td>
+                <td class="text-center">
+                    {!! $date->status_text !!}
                 </td>
                 <td>
                     <div class="btn-group">

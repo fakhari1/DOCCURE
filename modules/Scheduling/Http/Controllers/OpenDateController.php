@@ -62,7 +62,7 @@ class OpenDateController extends Controller
                     'evening_end_time' => $request->evening_end_time ?? null,
                     'duration' => $request->duration,
                     'is_holiday' => in_array($date->format('Y-m-d'), $holidays),
-                    'status_id' => $request->status_id
+                    'status_id' => $data[$i]['is_holiday'] ? OpenDateStatus::where('name', OpenDateStatus::STATUS_INACTIVE)->first()->id : $request->status_id
                 ];
 
                 $date = Carbon::parse($date)->addDay();

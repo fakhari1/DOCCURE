@@ -47,4 +47,13 @@ class OpenDate extends Model
         return $count;
     }
 
+    public function getStatusTextAttribute()
+    {
+        if ($this->status->name == 'active') {
+            return '<span class="badge bg-success">' . trans($this->status->name) . '</span>';
+        } else {
+            return '<span class="badge bg-danger">' . trans($this->status->name) . '</span>';
+        }
+    }
+
 }
