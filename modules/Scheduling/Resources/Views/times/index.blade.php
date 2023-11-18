@@ -12,11 +12,12 @@
         {{ Morilog\Jalali\Jalalian::fromCarbon(Carbon\Carbon::parse($date->date))->format('%A, %d %B %Y') }}
     </h4>
 
-    <div class="row justify-content-start mb-4">
+    <div class="row justify-content-end mb-4">
         <div>
-            <a href="{{ route('admin.open-dates.create') }}" class="btn btn-sm btn-success">
-                <i class="fa-solid fa-plus"></i>
-                جدید</a>
+            <a href="{{ route('admin.open-dates.index') }}" class="btn btn-sm btn-primary">
+                <i class="fa-solid fa-chevron-left"></i>
+                بازگشت
+            </a>
         </div>
     </div>
     <table class="table table-striped table-hover">

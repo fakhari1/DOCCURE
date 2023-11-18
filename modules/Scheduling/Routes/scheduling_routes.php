@@ -10,6 +10,10 @@ Route::middleware(['web', 'auth'])->prefix('dashboard')->group(function () {
         Route::get('open-dates/all', [OpenDateController::class, 'index'])->name('admin.open-dates.index');
         Route::get('open-dates', [OpenDateController::class, 'create'])->name('admin.open-dates.create');
         Route::post('open-dates', [OpenDateController::class, 'store'])->name('admin.open-dates.store');
+        Route::get('open-dates/{date}/edit', [OpenDateController::class, 'edit'])->name('admin.open-dates.edit');
+        Route::patch('open-dates/{date}', [OpenDateController::class, 'update'])->name('admin.open-dates.update');
+
+
         Route::get('open-dates/{date}/times/all', [OpenTimeController::class, 'index'])->name('admin.open-dates.times.index');
     });
 

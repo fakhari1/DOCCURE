@@ -37,10 +37,25 @@
                 <td class="text-center">{{ $date->openTimes()->count() }}</td>
                 <td class="text-center">{{ $date->getAvailableAppointmentsCount() }}</td>
                 <td class="text-center">{{ $date->duration }} دقیقه</td>
-                <td class="text-center dir-ltr">{{ $date->morning_start_time ?? '-' }}
-                    - {{ $date->morning_end_time ?? '-' }}</td>
-                <td class="text-center dir-ltr">{{ $date->evening_start_time ?? '-' }}
-                    - {{ $date->evening_end_time ?? '-' }}</td>
+                <td class="text-center dir-ltr">
+                    @if($date->morning_start_time && $date->morning_end_time)
+                        <span class="badge bg-success">{{ Carbon\Carbon::parse($date->morning_start_time)->format('H:i') }}</span>
+                        -
+                        <span class="badge bg-danger">{{ Carbon\Carbon::parse($date->morning_end_time)->format('H:i') }}</span>
+                    @else
+                        -
+                    @endif
+
+                </td>
+                <td class="text-center dir-ltr">
+                    @if($date->evening_start_time && $date->evening_end_time)
+                        <span class="badge bg-success">{{ Carbon\Carbon::parse($date->evening_start_time)->format('H:i') }}</span>
+                        -
+                        <span class="badge bg-danger">{{ Carbon\Carbon::parse($date->evening_end_time)->format('H:i') }}</span>
+                    @else
+                        -
+                    @endif
+                </td>
                 <td class="text-center">
                     <div class="badge bg-success">
                         فعال
@@ -53,33 +68,31 @@
                                 class="btn btn-sm btn-primary dropdown-toggle dropdown-toggle-split pe-3 dir-ltr"
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false">
-{{--                            <i class="fa-solid fa-chevron-right"></i>--}}
+                            {{--                            <i class="fa-solid fa-chevron-right"></i>--}}
                         </button>
                         <button type="button" class="btn btn-sm btn-primary" style="border-radius: 7px 0 0 7px">
-                            <a href="{{ route('admin.open-dates.times.index', $date) }}" class="w-100 text-white d-flex align-items-center justify-content-between">
+                            <a href="{{ route('admin.open-dates.times.index', $date) }}"
+                               class="w-100 text-white d-flex align-items-center justify-content-between">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
                         </button>
 
                         <ul class="dropdown-menu">
-                            <li class="border-bottom"><a class="dropdown-item mb-0" href="{{ route('users.profile') }}">پروفایل
-                                    مدیریت</a></li>
-
-                            <li>
-                                <a
-                                    href="{{ route('logout') }}"
-                                    class="dropdown-item"
-                                    onclick="event.preventDefault();
-                                        document.getElementById('logout_form').submit()"
-                                >
-                                    خروج
+                            <li class="">
+                                <a class="dropdown-item mb-0 text-warning"
+                                   href="{{ route('admin.open-dates.edit', $date) }}">
+                                    <i class="fa-solid fa-pen"></i>
+                                    <span>ویرایش</span>
                                 </a>
-                                <form action="{{ route('logout') }}"
-                                      method="POST"
-                                      id="logout_form">
-                                    @csrf
-                                </form>
                             </li>
+
+                            {{--                            <li class="border-bottom">--}}
+                            {{--                                <a class="dropdown-item mb-0 text-warning"--}}
+                            {{--                                   href="{{ route('admin.open-dates.edit', $date) }}">--}}
+                            {{--                                    <i class="fa-solid fa-pen"></i>--}}
+                            {{--                                    <span>ویرایش</span>--}}
+                            {{--                                </a>--}}
+                            {{--                            </li>--}}
                         </ul>
                     </div>
                 </td>
