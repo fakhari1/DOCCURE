@@ -34,7 +34,7 @@
             <tr>
                 <td class="text-center">{{ $date->id }}</td>
                 <td class="text-center">{{ Morilog\Jalali\Jalalian::fromCarbon(Carbon\Carbon::parse($date->date))->format('Y-m-d') }}</td>
-                <td class="text-center">{{ $date->times->count() }}</td>
+                <td class="text-center">{{ $date->openTimes()->count() }}</td>
                 <td class="text-center">{{ $date->getAvailableAppointmentsCount() }}</td>
                 <td class="text-center">{{ $date->duration }} دقیقه</td>
                 <td class="text-center dir-ltr">{{ $date->morning_start_time ?? '-' }}
@@ -56,9 +56,8 @@
 {{--                            <i class="fa-solid fa-chevron-right"></i>--}}
                         </button>
                         <button type="button" class="btn btn-sm btn-primary" style="border-radius: 7px 0 0 7px">
-                            <a href="" class="text-white">
+                            <a href="{{ route('admin.open-dates.times.index', $date) }}" class="w-100 text-white d-flex align-items-center justify-content-between">
                                 <i class="fa-solid fa-eye"></i>
-                                نوبت ها
                             </a>
                         </button>
 

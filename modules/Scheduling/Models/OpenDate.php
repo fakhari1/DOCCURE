@@ -25,9 +25,9 @@ class OpenDate extends Model
         return $this->belongsTo(OpenDateStatus::class);
     }
 
-    public function times()
+    public function openTimes()
     {
-        return $this->hasMany(OpenTime::class, 'date_id');
+        return $this->hasMany(OpenTime::class, 'date_id', 'id');
     }
 
     public function appointments()
@@ -38,7 +38,7 @@ class OpenDate extends Model
     public function getAvailableAppointmentsCount()
     {
         $count = 0;
-        $this->times()->each(function ($time) use (&$count) {
+        $this->openTimes()->each(function ($time) use (&$count) {
             if (!$time->hasAppointment()) {
                 $count++;
             }
