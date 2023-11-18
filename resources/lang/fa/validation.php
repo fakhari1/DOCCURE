@@ -189,7 +189,16 @@ return [
         'password_confirmation' => 'تاییدیه رمز عبور',
         'mobile' => 'تلفن همراه',
         'instagram_id' => 'شناسه اینستاگرام',
-        'telegram_id' => 'شناسه تلگرام'
-    ],
+        'telegram_id' => 'شناسه تلگرام',
+        'start_date' => 'تاریخ شروع',
+        'end_date' => 'تاریخ پایان',
+        'duration' => 'دوره زمانی',
+        'holidays' => 'روز های تعطیل',
+        'holiday' => 'روز تعطیل',
+        'morning_start_time' => 'ساعت شروع شیفت صبح',
+        'morning_end_time' => 'ساعت پایان شیفت صبح',
+        'evening_start_time' => 'ساعت شروع شیفت عصر',
+        'evening_end_time' => 'ساعت پایان شیفت عصر',
 
+    ],
 ];

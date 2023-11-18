@@ -14,12 +14,13 @@ return new class extends Migration
     {
         Schema::create('open_dates', function (Blueprint $table) {
             $table->id();
-            $table->date('date')->comment('based only in date with YYYY-mm-dd format');
+            $table->date('date')->unique()->comment('based only in date with YYYY-mm-dd format');
             $table->enum('duration', get_appointment_durations())->default(get_appointment_durations()[0])->comment('based only in minutes');
             $table->time('morning_start_time')->nullable();
             $table->time('morning_end_time')->nullable();
             $table->time('evening_start_time')->nullable();
             $table->time('evening_end_time')->nullable();
+            $table->boolean('is_holiday')->default(false);
             $table->unsignedTinyInteger('status_id')->default(1);
             $table->timestamps();
         });

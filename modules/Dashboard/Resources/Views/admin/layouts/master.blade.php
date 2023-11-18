@@ -44,6 +44,9 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
+
+                                    @include('Common::partials.alerts')
+
                                     @yield('content')
                                 </div>
                             </div>

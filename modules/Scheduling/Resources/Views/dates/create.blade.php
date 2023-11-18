@@ -64,7 +64,8 @@
                 <div class="form-group">
 
                     <label for="" class="form-label">
-                        از تاریخ
+                        <span class="text-danger">*</span>
+                        شروع
                     </label>
                     <input type="hidden" id="start_date" name="start_date">
                     <input type="text" name="" id="start_date_view" class="form-control form-control-sm">
@@ -76,7 +77,8 @@
                 <div class="form-group">
 
                     <label for="" class="form-label">
-                        تا تاریخ
+                        <span class="text-danger">*</span>
+                        پایان
                     </label>
                     <input type="hidden" id="end_date" name="end_date">
                     <input type="text" class="form-control form-control-sm" id="end_date_view">
@@ -128,7 +130,7 @@
                                     class="form-control form-control-sm form-select">
                                 <option value="null">تعطیل</option>
                                 @foreach(get_ceil_hours() as $key => $hour)
-                                    <option value="{{ $hour }}" @if($hour == '8:00') selected @endif>
+                                    <option value="{{ $hour }}" @if($hour == '08:00') selected @endif>
                                         {{ $hour }}
                                     </option>
                                 @endforeach
@@ -195,7 +197,10 @@
             <div class="col-12 col-md-6">
 
                 <div class="form-group">
-                    <label for="">زمان هر نوبت</label>
+                    <label for="">
+                        <span class="text-danger">*</span>
+                        زمان هر نوبت
+                    </label>
                     <select type="text" class="form-control form-control-sm form-select" name="duration">
                         <option disabled selected>
                             انتخاب کنید...
@@ -265,7 +270,7 @@
 
         })
 
-        let startDate, endDate, holidays, holidaysArray = [];
+        let startDate, endDate, holidays, dates = [];
 
         startDate = Date.now();
         endDate = startDate;
@@ -286,12 +291,7 @@
             maxDate: new persianDate().add('month', 3).valueOf(),
             minDate: new persianDate().valueOf(),
             onSelect: function (unix) {
-                document.getElementById('start_date_view').value =
-                    getJalaliDateWithGeneralFormat(
-                        getDateObject(startDate).year,
-                        getDateObject(startDate).month,
-                        getDateObject(startDate).date
-                    )
+                document.getElementById('start_date_view').value = getJalaliDateWithGeneralFormat(getDateDetails(startDate));
             }
         });
 
@@ -309,20 +309,9 @@
             minDate: new persianDate().valueOf(),
             onSelect: function (unix) {
                 document.getElementById('end_date_view').value =
-                    getJalaliDateWithGeneralFormat(
-                        getDateObject(endDate).year,
-                        getDateObject(endDate).month,
-                        getDateObject(endDate).date
-                    )
+                    getJalaliDateWithGeneralFormat(getDateDetails(endDate))
             }
         });
-
-        function createBadgeTag(text) {
-            return `<span class="badge bg-danger d-inline-block ms-2 mb-2 d-flex justify-content-between align-items-center flex-nowrap ms-2" style="width: 100px">
-                        <i class="fa-solid fa-close text-danger p-1 rounded-pill bg-white cursor-pointer" id=${text} onclick="removeHoliday('${text}')"></i>
-                        ${text}
-                       </span>`;
-        }
 
         holidays = $('#holidays_view').persianDatepicker({
             initialValue: false,
@@ -331,47 +320,69 @@
             maxDate: new persianDate().add('month', 3).valueOf(),
             minDate: new persianDate().valueOf(),
             onSelect: function () {
-                addingHolidays();
+                addingHolidays(holidays);
             }
         });
 
-        function addingHolidays() {
-            let date = getJalaliDateWithGeneralFormat(
-                getDateObject(holidays).year,
-                getDateObject(holidays).month,
-                getDateObject(holidays).date,
-            );
+        function createBadgeTag(date) {
+            console.log('create badge date', date);
+            return `<span class="badge bg-danger d-inline-block ms-2 mb-2 d-flex justify-content-between align-items-center flex-nowrap ms-2" style="width: 100px">
+                        <i
+                            class="fa-solid fa-close text-danger p-1 rounded-pill bg-white cursor-pointer"
+                            id=${date.text} onclick="removeHoliday('${date.text}')"></i>
+                        ${date.text}
+                            <input type="hidden" name="holidays[]" value="${date.unix}">
+                       </span>`;
+        }
 
-            if (holidaysArray.indexOf(date) === -1) {
-                holidaysArray.push(date);
+        function addingHolidays(hd) {
+            let date = getDateDetails(hd);
+            let formattedDate = getJalaliDateWithGeneralFormat(date);
+            let unixDate = date.unixDate;
+            let obj = {text: formattedDate, unix: unixDate}
+            let found = dates.find(d => d.text === obj.text)
+
+            if (found) {
+                dates = dates.filter(function (d) {
+                    return d.text !== obj.text
+                })
             } else {
-                holidaysArray.splice(holidaysArray.indexOf(date), 1);
+                dates.push(obj);
             }
 
             rerenderHolidays();
         }
 
         function rerenderHolidays() {
+
             document.getElementById('holidays_container').innerHTML = '';
 
-            holidaysArray.forEach((item) => {
-                document.getElementById('holidays_container').innerHTML += createBadgeTag(item)
+            dates.forEach((date) => {
+                document.getElementById('holidays_container').innerHTML += createBadgeTag(date)
             })
+
+            console.log('rerender done');
         }
 
-        function getJalaliDateWithGeneralFormat(year, month, day) {
+        function getJalaliDateWithGeneralFormat(date) {
+            let year = date.year;
+            let month = date.month;
+            let day = date.date;
+
             if (day < 10) day = '0' + day;
             if (month < 10) month = '0' + month;
             return year + '/' + month + '/' + day;
         }
 
-        function getDateObject(object) {
-            return object.getState().selected;
+        function removeHoliday(date) {
+            dates = dates.filter(function (d) {
+                return d.text !== date;
+            });
+            rerenderHolidays()
         }
 
-        function removeHoliday(date) {
-            holidaysArray.splice(holidaysArray.indexOf(date), 1);
-            rerenderHolidays()
+        function getDateDetails(date) {
+            return date.getState().selected;
         }
     </script>
 @endsection

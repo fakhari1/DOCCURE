@@ -19,7 +19,7 @@ class SchedulingServiceProvider extends ServiceProvider
 
         DatabaseSeeder::$seeders[4] = OpenDateStatusSeeder::class;
         DatabaseSeeder::$seeders[5] = OpenTimeStatusSeeder::class;
-        DatabaseSeeder::$seeders[6] = OpenDateSeeder::class;
-        DatabaseSeeder::$seeders[7] = OpenTimeSeeder::class;
+//        DatabaseSeeder::$seeders[6] = OpenDateSeeder::class;
+//        DatabaseSeeder::$seeders[7] = OpenTimeSeeder::class;
     }
 }
