@@ -94,27 +94,26 @@
                     <input type="hidden" id="holidays" name="holidays">
                     {{--                            <div id="holidays_inline"></div>--}}
                 </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-
-            <div class="form-group">
-
-                <label for="" class="for-label">
-
-                    روزهای تعطیل انتخاب شده
-
-                </label>
-
-                <div id="holidays_container" class="d-flex">
 
 
+                <div class="form-group">
+
+                    <label for="" class="for-label">
+
+                        روزهای تعطیل انتخاب شده
+
+                    </label>
+
+                    <div id="holidays_container" class="d-flex flex-wrap">
+
+
+                    </div>
                 </div>
+
+
             </div>
-
-
         </div>
+
 
         <div class="row mb-4">
 
@@ -162,7 +161,7 @@
                     <div class="row">
                         <div class="col-md-5">
                             <select type="text" class="form-control form-control-sm form-select"
-                                    name="evening_start_date">
+                                    name="evening_start_time">
                                 <option value="null">تعطیل</option>
                                 @foreach(get_ceil_hours() as $key => $hour)
                                     <option value="{{ $hour }}" @if($hour == '16:00') selected @endif>
@@ -176,7 +175,7 @@
                         </div>
                         <div class="col-md-5">
                             <select type="text" class="form-control form-control-sm form-select"
-                                    name="evening_end_date">
+                                    name="evening_end_time">
                                 <option value="null">تعطیل</option>
                                 @foreach(get_ceil_hours() as $key => $hour)
                                     <option value="{{ $hour }}" @if($hour == '21:00') selected @endif>
@@ -219,10 +218,10 @@
 
                 <div class="form-group">
                     <label for="">وضعیت</label>
-                    <select type="text" class="form-control form-control-sm form-select">
+                    <select type="text" class="form-control form-control-sm form-select" name="status_id">
                         @foreach($statuses as $key => $status)
                             <option value="{{ $status->id }}">
-                                {{ $status->name }}
+                                @lang($status->name)
                             </option>
                         @endforeach
                     </select>
@@ -326,7 +325,7 @@
 
         function createBadgeTag(date) {
             console.log('create badge date', date);
-            return `<span class="badge bg-danger d-inline-block ms-2 mb-2 d-flex justify-content-between align-items-center flex-nowrap ms-2" style="width: 100px">
+            return `<span class="badge bg-danger d-inline-block ms-1 mb-1 d-flex justify-content-between align-items-center flex-nowrap ms-2" style="width: 85px">
                         <i
                             class="fa-solid fa-close text-danger p-1 rounded-pill bg-white cursor-pointer"
                             id=${date.text} onclick="removeHoliday('${date.text}')"></i>

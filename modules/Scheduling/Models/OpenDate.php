@@ -9,6 +9,17 @@ class OpenDate extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'date',
+        'duration',
+        'morning_start_time',
+        'morning_end_time',
+        'evening_start_time',
+        'evening_end_time',
+        'is_holiday',
+        'status_id',
+    ];
+
     public function status()
     {
         return $this->belongsTo(OpenDateStatus::class);

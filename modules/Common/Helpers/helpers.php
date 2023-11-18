@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use Morilog\Jalali\Jalalian;
+
 function module_path(string $module_name, string $path = ''): string
 {
     $p = base_path() . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . $module_name;
@@ -104,10 +105,15 @@ function get_today_number_of_month(): string
 
 function get_timestamp_gregory_date(string $timestamp): Carbon
 {
-    return Carbon::createFromTimestamp(substr($timestamp, 0, 10));
+    return Carbon::createFromTimestamp(get_fixed_timestamp($timestamp));
 }
 
 function get_timestamp_jalali_date(string $timestamp): Jalalian
 {
     return Jalalian::fromCarbon(get_timestamp_gregory_date($timestamp));
+}
+
+function get_fixed_timestamp($timestamp)
+{
+    return substr($timestamp, 0, 10);
 }

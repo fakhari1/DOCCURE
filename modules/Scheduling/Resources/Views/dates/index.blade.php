@@ -37,43 +37,52 @@
                 <td class="text-center">{{ $date->times->count() }}</td>
                 <td class="text-center">{{ $date->getAvailableAppointmentsCount() }}</td>
                 <td class="text-center">{{ $date->duration }} دقیقه</td>
-                <td class="text-center dir-ltr">{{ $date->morning_start_time ?? '-' }} - {{ $date->morning_end_time ?? '-' }}</td>
-                <td class="text-center dir-ltr">{{ $date->evening_start_time ?? '-' }} - {{ $date->evening_end_time ?? '-' }}</td>
+                <td class="text-center dir-ltr">{{ $date->morning_start_time ?? '-' }}
+                    - {{ $date->morning_end_time ?? '-' }}</td>
+                <td class="text-center dir-ltr">{{ $date->evening_start_time ?? '-' }}
+                    - {{ $date->evening_end_time ?? '-' }}</td>
                 <td class="text-center">
                     <div class="badge bg-success">
                         فعال
                     </div>
                 </td>
                 <td>
-
-                    <div class="btn-group dropup">
-                        <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            انتخاب...
+                    <div class="btn-group">
+                        <button type="button"
+                                style="border-radius: 0 7px 7px 0 !important; display: inline-block; width: 20px !important"
+                                class="btn btn-sm btn-primary dropdown-toggle dropdown-toggle-split pe-3 dir-ltr"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
+{{--                            <i class="fa-solid fa-chevron-right"></i>--}}
                         </button>
-                        <ul class="dropdown-menu m-0 p-0">
-                            <li class="dir-rtl text-right px-1 border-bottom">
-                                <a href="" class="text-primary py-2 d-block">
-                                    <i class="fa-solid fa-eye">
-                                    </i>
-                                    قرار های ملاقات
+                        <button type="button" class="btn btn-sm btn-primary" style="border-radius: 7px 0 0 7px">
+                            <a href="" class="text-white">
+                                <i class="fa-solid fa-eye"></i>
+                                نوبت ها
+                            </a>
+                        </button>
+
+                        <ul class="dropdown-menu">
+                            <li class="border-bottom"><a class="dropdown-item mb-0" href="{{ route('users.profile') }}">پروفایل
+                                    مدیریت</a></li>
+
+                            <li>
+                                <a
+                                    href="{{ route('logout') }}"
+                                    class="dropdown-item"
+                                    onclick="event.preventDefault();
+                                        document.getElementById('logout_form').submit()"
+                                >
+                                    خروج
                                 </a>
-                            </li>
-                            <li class="dir-rtl text-right px-1 border-bottom">
-                                <a href="" class="text-warning py-2 d-block">
-                                    <i class="fa-solid fa-pen"></i>
-                                    ویرایش
-                                </a>
-                            </li>
-                            <li class="dir-rtl text-right px-1 border-bottom">
-                                <a href="" class="text-danger py-2 d-block">
-                                    <i class="fa-solid fa-trash"></i>
-                                    حذف
-                                </a>
+                                <form action="{{ route('logout') }}"
+                                      method="POST"
+                                      id="logout_form">
+                                    @csrf
+                                </form>
                             </li>
                         </ul>
                     </div>
-
-
                 </td>
             </tr>
         @endforeach

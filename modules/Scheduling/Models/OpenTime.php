@@ -10,6 +10,18 @@ class OpenTime extends Model
 {
     use HasFactory;
 
+    protected $table = 'open_times';
+
+    protected $fillable = [
+        'date',
+        'start_time',
+        'end_time',
+        'date_id',
+        'created_by',
+        'status_id',
+        'description',
+    ];
+
     public function status()
     {
         return $this->belongsTo(OpenTimeStatus::class);

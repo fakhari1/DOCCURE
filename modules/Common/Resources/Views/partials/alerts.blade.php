@@ -16,6 +16,14 @@
     </div>
 @endif
 
+@if(session()->has('error_msg'))
+    <div class="text-center">
+        <div class="alert alert-danger" role="alert">
+            {{ session('error_msg') }}
+        </div>
+    </div>
+@endif
+
 
 
 
