@@ -42,7 +42,7 @@
                     </span>
                 </td>
                 <td class="text-center">{{ $date->openTimes()->count() }}</td>
-                <td class="text-center">{{ $date->getAvailableAppointmentsCount() }}</td>
+                <td class="text-center">{{ $date->getAvailableTimesCount() }}</td>
                 <td class="text-center">{{ $date->duration }} دقیقه</td>
                 <td class="text-center dir-ltr">
                     @if($date->morning_start_time && $date->morning_end_time)

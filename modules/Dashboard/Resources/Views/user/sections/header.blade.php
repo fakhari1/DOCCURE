@@ -1,16 +1,16 @@
 <div class="header">
 
     <div class="header-left">
-        <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/index.html" class="logo">
-            <img src="settings_files/logo.png" alt="Logo">
+        <a href="" class="logo">
+            <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
         </a>
-        <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/index.html" class="logo logo-small">
-            <img src="settings_files/logo-small.png" alt="Logo" width="30" height="30">
+        <a href="" class="logo logo-small">
+            <img src="{{ asset('assets/images/logo-small.png') }}" alt="Logo" width="30" height="30">
         </a>
     </div>
 
     <a href="javascript:void(0);" id="toggle_btn">
-        <i class="fe fe-text-align-right"></i>
+        <i class="fa-solid fa-align-right"></i>
     </a>
     <div class="top-nav-search">
         <form>
@@ -28,7 +28,7 @@
 
         <li class="nav-item dropdown noti-dropdown">
             <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
-                <i class="fe fe-bell"></i> <span class="badge rounded-pill">3</span>
+                <i class="fa-solid fa-bell"></i> <span class="badge rounded-pill">3</span>
             </a>
             <div class="dropdown-menu notifications">
                 <div class="topnav-dropdown-header">
@@ -41,7 +41,7 @@
                             <a href="#">
                                 <div class="media d-flex">
 <span class="avatar avatar-sm flex-shrink-0">
-<img class="avatar-img rounded-circle" alt="User Image" src="settings_files/doctor-thumb-01.jpg">
+<img class="avatar-img rounded-circle" alt="User Image" src="{{ asset('assets/images/doctor/doctor-thumb.jpg') }}">
 </span>
                                     <div class="media-body flex-grow-1">
                                         <p class="noti-details"><span class="noti-title">پزشک. رابی پرین</span>
@@ -104,24 +104,24 @@
 
         <li class="nav-item dropdown has-arrow">
             <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
-                    <span class="user-img"><img class="rounded-circle" src="settings_files/avatar-01.jpg" width="31"
+                    <span class="user-img"><img class="rounded-circle" src="{{ asset('assets/images/avatar-01.jpg') }}" width="31"
                                                 alt="Donald Niles"></span>
             </a>
             <div class="dropdown-menu">
                 <div class="user-header">
                     <div class="avatar avatar-sm">
-                        <img src="settings_files/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
+                        <img src="{{ asset('assets/images/avatar-01.jpg') }}" alt="User Image" class="avatar-img rounded-circle">
                     </div>
                     <div class="user-text">
                         <h6>دانلد نیلز</h6>
                         <p class="text-muted mb-0">ادمین</p>
                     </div>
                 </div>
-                <a class="dropdown-item" href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/profile.html">پروفایل
+                <a class="dropdown-item" href="">پروفایل
                     من</a>
                 <a class="dropdown-item" href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/settings.html">تنظیمات</a>
                 <a class="dropdown-item"
-                   href="https://atiyehahmadi.ir/doccure/pediatric-rtl/admin/login.html">خروج</a>
+                   href="">خروج</a>
             </div>
         </li>
 

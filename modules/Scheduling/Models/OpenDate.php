@@ -47,11 +47,11 @@ class OpenDate extends Model
         return $count > 0;
     }
 
-    public function getAvailableAppointmentsCount()
+    public function getAvailableTimesCount()
     {
         $count = 0;
         $this->openTimes()->each(function ($time) use (&$count) {
-            if (!$time->hasAppointment()) {
+            if (!$time->hasAppointment() && !$time->isDisabled()) {
                 $count++;
             }
         });

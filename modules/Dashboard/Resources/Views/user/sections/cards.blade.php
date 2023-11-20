@@ -83,6 +83,6 @@
 
 
 <div class="row">
-    @include('Dashboard::admin.sections.__income')
-    @include('Dashboard::admin.sections.__status')
+    @include('Dashboard::user.sections.__income')
+    @include('Dashboard::user.sections.__status')
 </div>
