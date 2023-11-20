@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use Scheduling\Http\Controllers\OpenDateController;
 use Scheduling\Http\Controllers\OpenTimeController;
+use Scheduling\Http\Controllers\BookingController;
 
 Route::middleware(['web', 'auth'])->prefix('dashboard')->group(function () {
 
@@ -19,6 +20,8 @@ Route::middleware(['web', 'auth'])->prefix('dashboard')->group(function () {
     });
 
     Route::middleware('user')->prefix('user')->group(function () {
+
+        Route::get('booking', [BookingController::class, 'index'])->name('user.booking.index');
 
     });
 
