@@ -11,6 +11,7 @@ use Scheduling\Http\Requests\OpenDateRequest;
 use Scheduling\Models\OpenDate;
 use Scheduling\Models\OpenDateStatus;
 use Scheduling\Models\OpenTime;
+use Scheduling\Models\OpenTimeStatus;
 
 class OpenTimeController extends Controller
 {
@@ -20,5 +21,16 @@ class OpenTimeController extends Controller
         $times = $date->openTimes;
 
         return view('Scheduling::times.index', compact('times', 'date'));
+    }
+
+    public function updateStatus(OpenTime $time)
+    {
+        $status_id = $time->status_id == 1 ? OpenTimeStatus::where('name', OpenTimeStatus::STATUS_INACTIVE)->first()->id : OpenTimeStatus::where('name', OpenTimeStatus::STATUS_ACTIVE)->first()->id;
+
+        $time->update([
+            'status_id' => $status_id
+        ]);
+
+        return redirect()->back()->with(['success_msg' => 'زمان مورد نظر با موفقیت بروزرسانی شد!']);
     }
 }

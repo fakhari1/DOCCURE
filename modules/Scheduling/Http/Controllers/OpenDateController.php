@@ -9,6 +9,7 @@ use Scheduling\Http\Requests\OpenDateRequest;
 use Scheduling\Models\OpenDate;
 use Scheduling\Models\OpenDateStatus;
 use Scheduling\Models\OpenTime;
+use Scheduling\Models\OpenTimeStatus;
 
 class OpenDateController extends Controller
 {
@@ -138,68 +139,90 @@ class OpenDateController extends Controller
         if ($date->hasAppointment())
             return redirect()->route('admin.open-dates.index')->with(['error_msg' => 'روز انتخاب شده به علت داشتن نوبت رزرو شده قابل ویرایش نیست؛ اگر مصمم به ویرایش هستید ابتدا نوبت ها را لغو و سپس اقدام به ویرایش زمان بندی کنید!']);
 
-        $date->openTimes()->each(function ($time) {
-            if ($time->hasAppointment()) {
-                $time->appointment()->delete();
+        DB::beginTransaction();
+
+        try {
+
+            $date->openTimes()->each(function ($time) {
+                if ($time->hasAppointment()) {
+                    $time->appointment()->delete();
+                }
+                $time->delete();
+            });
+
+            $date->update([
+                'morning_start_time' => $request->morning_start_time,
+                'morning_end_time' => $request->morning_end_time,
+                'evening_start_time' => $request->evening_start_time,
+                'evening_end_time' => $request->evening_end_time,
+                'duration' => $request->duration,
+                'status_id' => $request->status_id
+            ]);
+
+//            if ($date->isItClosed()) $date->closeMyTimes();
+//            if (!$date->isItClosed()) $date->openMyTimes();
+
+            $mst = $request->morning_start_time ?? null;
+            $met = $request->morning_end_time ?? null;
+            $est = $request->evening_start_time ?? null;
+            $eet = $request->evening_end_time ?? null;
+
+            $start_time = null;
+            $end_time = null;
+
+            if (!is_null($mst) and !is_null($met)) {
+                $start_time = $mst;
+                $end_time = Carbon::parse($start_time)->addMinutes($request->duration);
+
+
+                while (Carbon::parse($end_time)->lessThanOrEqualTo(Carbon::parse($met))) {
+                    $times[] = [
+                        'date' => $date->date,
+                        'start_time' => $start_time,
+                        'end_time' => $end_time->format('H:i:s'),
+                        'date_id' => $date->id,
+                        'status_id' => $date->status->name !== OpenDateStatus::STATUS_ACTIVE ? OpenTimeStatus::where('name', OpenTimeStatus::STATUS_INACTIVE)->first()->id : OpenTimeStatus::where('name', OpenTimeStatus::STATUS_ACTIVE)->first()->id
+                    ];
+
+                    $start_time = $end_time->format('H:i:s');
+                    $end_time = Carbon::parse($end_time)->addMinutes($request->duration);
+                }
             }
-            $time->delete();
-        });
 
-        $date->update([
-            'morning_start_time' => $request->morning_start_time,
-            'morning_end_time' => $request->morning_end_time,
-            'evening_start_time' => $request->evening_start_time,
-            'evening_end_time' => $request->evening_end_time,
-            'duration' => $request->duration
-        ]);
+            if (!is_null($est) and !is_null($eet)) {
+                $start_time = $est;
+                $end_time = Carbon::parse($start_time)->addMinutes($request->duration);
 
-        $mst = $request->morning_start_time ?? null;
-        $met = $request->morning_end_time ?? null;
-        $est = $request->evening_start_time ?? null;
-        $eet = $request->evening_end_time ?? null;
+                while (Carbon::parse($end_time)->lessThanOrEqualTo(Carbon::parse($eet))) {
+                    $times[] = [
+                        'date' => $date->date,
+                        'start_time' => $start_time,
+                        'end_time' => $end_time->format('H:i:s'),
+                        'date_id' => $date->id,
+                        'status_id' => $date->status->name !== OpenDateStatus::STATUS_ACTIVE ? OpenTimeStatus::where('name', OpenTimeStatus::STATUS_INACTIVE)->first()->id : OpenTimeStatus::where('name', OpenTimeStatus::STATUS_ACTIVE)->first()->id
+                    ];
 
-        $start_time = null;
-        $end_time = null;
-
-        if (!is_null($mst) and !is_null($met)) {
-            $start_time = $mst;
-            $end_time = Carbon::parse($start_time)->addMinutes($request->duration);
-
-
-            while (Carbon::parse($end_time)->lessThanOrEqualTo(Carbon::parse($met))) {
-                $times[] = [
-                    'date' => $date->date,
-                    'start_time' => $start_time,
-                    'end_time' => $end_time->format('H:i:s'),
-                    'date_id' => $date->id
-                ];
-
-                $start_time = $end_time->format('H:i:s');
-                $end_time = Carbon::parse($end_time)->addMinutes($request->duration);
+                    $start_time = $end_time->format('H:i:s');
+                    $end_time = Carbon::parse($end_time)->addMinutes($request->duration);
+                }
             }
+
+            foreach ($times as $key => $time) {
+                OpenTime::create($time);
+            }
+
+            DB::commit();
+
+            return redirect()->route('admin.open-dates.times.index', $date)->with(['success_msg' => 'تاریخ با موفقیت بروزرسانی شد!']);
+
+
+        } catch (\Exception $exception) {
+
+            DB::rollBack();
+
+            return redirect()->back()->with(['error_msg' => $exception->getMessage()]);
+
         }
 
-        if (!is_null($est) and !is_null($eet)) {
-            $start_time = $est;
-            $end_time = Carbon::parse($start_time)->addMinutes($request->duration);
-
-            while (Carbon::parse($end_time)->lessThanOrEqualTo(Carbon::parse($eet))) {
-                $times[] = [
-                    'date' => $date->date,
-                    'start_time' => $start_time,
-                    'end_time' => $end_time->format('H:i:s'),
-                    'date_id' => $date->id
-                ];
-
-                $start_time = $end_time->format('H:i:s');
-                $end_time = Carbon::parse($end_time)->addMinutes($request->duration);
-            }
-        }
-
-        foreach ($times as $key => $time) {
-            OpenTime::create($time);
-        }
-
-        return redirect()->route('admin.open-dates.times.index', $date)->with(['success_msg' => 'تاریخ با موفقیت بروزرسانی شد!']);
     }
 }

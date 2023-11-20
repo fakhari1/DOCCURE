@@ -37,7 +37,14 @@ class OpenDate extends Model
 
     public function hasAppointment()
     {
-        return $this->getAvailableAppointmentsCount() > 0;
+        $count = 0;
+        $this->openTimes()->each(function ($time) use (&$count) {
+            if ($time->hasAppointment()) {
+                $count++;
+            }
+        });
+
+        return $count > 0;
     }
 
     public function getAvailableAppointmentsCount()
@@ -59,6 +66,29 @@ class OpenDate extends Model
         } else {
             return '<span class="badge bg-danger">' . trans($this->status->name) . '</span>';
         }
+    }
+
+    public function isItClosed()
+    {
+        return $this->status_id == OpenDateStatus::where('name', OpenDateStatus::STATUS_INACTIVE)->first()->id;
+    }
+
+    public function closeMyTimes()
+    {
+        $this->openTimes()->each(function ($time) {
+            $time->update([
+                'status_id' => OpenTimeStatus::where('name', OpenTimeStatus::STATUS_INACTIVE)->first()->id
+            ]);
+        });
+    }
+
+    public function openMyTimes()
+    {
+        $this->openTimes()->each(function ($time) {
+            $time->update([
+                'status_id' => OpenTimeStatus::where('name', OpenTimeStatus::STATUS_ACTIVE)->first()->id
+            ]);
+        });
     }
 
 }

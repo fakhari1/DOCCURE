@@ -69,12 +69,19 @@ class OpenTime extends Model
         return '<span class="badge bg-white text-danger border border-1 border-danger" style="width: 80px">' . Carbon::parse($this->end_time)->format('H:i') . '</span>';
     }
 
+    public function isDisabled()
+    {
+        return $this->status_id == 2;
+    }
+
     public function getIsAvailableTextAttribute()
     {
+        if ($this->isDisabled())
+            return '<span class="badge bg-danger" style="width: 80px">' . 'غیر فعال' . '</span>';
+
         if ($this->hasAppointment())
-            return '<span class="badge bg-danger" style="width: 80px">' . 'رزرو' . '</span>';
+            return '<span class="badge bg-warning" style="width: 80px">' . 'رزرو' . '</span>';
         else
             return '<span class="badge bg-success" style="width: 80px">' . 'آزاد' . '</span>';
-
     }
 }

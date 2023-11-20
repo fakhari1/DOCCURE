@@ -15,6 +15,7 @@ Route::middleware(['web', 'auth'])->prefix('dashboard')->group(function () {
 
 
         Route::get('open-dates/{date}/times/all', [OpenTimeController::class, 'index'])->name('admin.open-dates.times.index');
+        Route::post('open-dates/times/{time}/update-status', [OpenTimeController::class, 'updateStatus'])->name('admin.open-dates.times.update_status');
     });
 
     Route::middleware('user')->prefix('user')->group(function () {

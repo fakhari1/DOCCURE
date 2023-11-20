@@ -24,25 +24,40 @@
         <thead>
         <tr>
             <th>#</th>
-{{--            <th>تاریخ</th>--}}
-            <th>ساعت</th>
-            <th>وضعیت دسترسی</th>
-            <th>وضعیت</th>
-            <th>عملیات</th>
+            {{--            <th>تاریخ</th>--}}
+            <th class="text-center">ساعت</th>
+            <th class="text-center">وضعیت دسترسی</th>
+            <th class="text-center">وضعیت</th>
+            <th class="text-center">عملیات</th>
         </tr>
         </thead>
         <tbody>
         @foreach($times as $key => $time)
             <tr>
-                <td class="">{{ $loop->iteration }}</td>
-{{--                <td class="text-center">{{ Morilog\Jalali\Jalalian::fromCarbon(Carbon\Carbon::parse($time->date))->format('Y-m-d') }}</td>--}}
-                <td class="">{!! $time->end_time_text . ' - ' . $time->start_time_text!!}</td>
-                <td class="">{!! $time->is_available_text !!}</td>
-                <td class="">
+                <td class="text-center">{{ $loop->iteration }}</td>
+                {{--                <td class="text-center">{{ Morilog\Jalali\Jalalian::fromCarbon(Carbon\Carbon::parse($time->date))->format('Y-m-d') }}</td>--}}
+                <td class="text-center">{!! $time->end_time_text . ' - ' . $time->start_time_text!!}</td>
+                <td class="text-center">{!! $time->is_available_text !!}</td>
+                <td class="text-center">
                     {!! $time->status_text !!}
                 </td>
-                <td>
-
+                <td class="text-center">
+                    <form
+                        action="{{ route('admin.open-dates.times.update_status', $time) }}"
+                        method="post">
+                        @csrf
+                        <button type="submit"
+                                class="btn btn-sm @if($time->isDisabled()) btn-success @else btn-danger @endif d-flex justify-content-between align-items-center mx-auto"
+                                style="width: 85px;">
+                            @if($time->isDisabled())
+                                <i class="fa-solid fa-check"></i>
+                                <span>در دسترس</span>
+                            @else
+                                <i class="fa-solid fa-close"></i>
+                                <span>لغو/تعطیل</span>
+                            @endif
+                        </button>
+                    </form>
                 </td>
             </tr>
         @endforeach

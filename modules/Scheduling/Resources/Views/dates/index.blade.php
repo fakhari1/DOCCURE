@@ -21,9 +21,9 @@
         <tr>
             <th>#</th>
             <th class="text-center">تاریخ</th>
-            <th>وقت ملاقات</th>
-            <th>وقت خالی</th>
-            <th class="text-center">مدت</th>
+            <th>نوبت ها</th>
+            <th>نوبت خالی</th>
+            <th class="text-center">زمان نوبت</th>
             <th class="text-center">صبح</th>
             <th class="text-center">عصر</th>
             <th>تعطیل</th>
@@ -33,10 +33,11 @@
         </thead>
         <tbody>
         @foreach($dates as $key => $date)
-            <tr>
-                <td class="text-center">{{ $date->id }}</td>
+            <tr disabled="disabled">
+                <td class="text-center">{{ $loop->iteration }}</td>
                 <td class="text-center">
-                    <span class="badge bg-transparent text-dark border border-1 border-primary" style="font-size: 14px !important;">
+                    <span class="badge bg-transparent text-dark border border-1 border-primary"
+                          style="font-size: 14px !important;">
                         {{ Morilog\Jalali\Jalalian::fromCarbon(Carbon\Carbon::parse($date->date))->format('Y/m/d') }}
                     </span>
                 </td>
@@ -45,9 +46,11 @@
                 <td class="text-center">{{ $date->duration }} دقیقه</td>
                 <td class="text-center dir-ltr">
                     @if($date->morning_start_time && $date->morning_end_time)
-                        <span class="badge bg-success">{{ Carbon\Carbon::parse($date->morning_start_time)->format('H:i') }}</span>
+                        <span
+                            class="badge bg-success">{{ Carbon\Carbon::parse($date->morning_start_time)->format('H:i') }}</span>
                         -
-                        <span class="badge bg-danger">{{ Carbon\Carbon::parse($date->morning_end_time)->format('H:i') }}</span>
+                        <span
+                            class="badge bg-danger">{{ Carbon\Carbon::parse($date->morning_end_time)->format('H:i') }}</span>
                     @else
                         -
                     @endif
@@ -55,9 +58,11 @@
                 </td>
                 <td class="text-center dir-ltr">
                     @if($date->evening_start_time && $date->evening_end_time)
-                        <span class="badge bg-success">{{ Carbon\Carbon::parse($date->evening_start_time)->format('H:i') }}</span>
+                        <span
+                            class="badge bg-success">{{ Carbon\Carbon::parse($date->evening_start_time)->format('H:i') }}</span>
                         -
-                        <span class="badge bg-danger">{{ Carbon\Carbon::parse($date->evening_end_time)->format('H:i') }}</span>
+                        <span
+                            class="badge bg-danger">{{ Carbon\Carbon::parse($date->evening_end_time)->format('H:i') }}</span>
                     @else
                         -
                     @endif
@@ -79,13 +84,18 @@
                 <td>
                     <div class="btn-group">
                         <button type="button"
+                                @if(Carbon\Carbon::parse($date->date)->lessThan(Carbon\Carbon::now()->format('Y-m-d')))
+                                    disabled="disabled"
+                                @endif
                                 style="border-radius: 0 7px 7px 0 !important; display: inline-block; width: 20px !important"
                                 class="btn btn-sm btn-primary dropdown-toggle dropdown-toggle-split pe-3 dir-ltr"
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false">
                             {{--                            <i class="fa-solid fa-chevron-right"></i>--}}
                         </button>
-                        <button type="button" class="btn btn-sm btn-primary" style="border-radius: 7px 0 0 7px">
+                        <button type="button"
+                                class="btn btn-sm btn-primary"
+                                style="border-radius: 7px 0 0 7px">
                             <a href="{{ route('admin.open-dates.times.index', $date) }}"
                                class="w-100 text-white d-flex align-items-center justify-content-between">
                                 <i class="fa-solid fa-eye"></i>
