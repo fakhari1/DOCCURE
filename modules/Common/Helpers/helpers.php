@@ -105,6 +105,7 @@ function get_today_number_of_month(): string
 
 function get_timestamp_gregory_date(string $timestamp): Carbon
 {
+
     return Carbon::createFromTimestamp(get_fixed_timestamp($timestamp));
 }
 

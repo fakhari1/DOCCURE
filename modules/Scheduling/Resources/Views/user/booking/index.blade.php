@@ -76,26 +76,26 @@
     </div>
 
 
-    <div class="row mb-4 justify-content-end">
-        <div class="col-3 ">
-            <div class="input-group mb-4 dir-ltr">
-                <span class="input-group-text" id="basic-addon1">
-                    <i class="fa-solid fa-calendar"></i>
-                </span>
-                <select name="" id="" class="form-select form-select-sm">
-                    <option selected disabled>انتخاب...</option>
-                    @foreach($dates as $key=> $date)
-                        <option value="{{ $date->id }}" style="font-family: IRANSansWeb(FaNum)">
-                            {{ Morilog\Jalali\Jalalian::fromCarbon(\Carbon\Carbon::parse($date->date))->format('Y/m/d') }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
+{{--    <div class="row mb-4 justify-content-end">--}}
+{{--        <div class="col-3 ">--}}
+{{--            <div class="input-group mb-4 dir-ltr">--}}
+{{--                <span class="input-group-text" id="basic-addon1">--}}
+{{--                    <i class="fa-solid fa-calendar"></i>--}}
+{{--                </span>--}}
+{{--                <select name="" id="" class="form-select form-select-sm">--}}
+{{--                    <option selected disabled>انتخاب...</option>--}}
+{{--                    @foreach($dates as $key=> $date)--}}
+{{--                        <option value="{{ $date->id }}" style="font-family: IRANSansWeb(FaNum)">--}}
+{{--                            {{ Morilog\Jalali\Jalalian::fromCarbon(\Carbon\Carbon::parse($date->date))->format('Y/m/d') }}--}}
+{{--                        </option>--}}
+{{--                    @endforeach--}}
+{{--                </select>--}}
+{{--            </div>--}}
 
 
-        </div>
+{{--        </div>--}}
 
-    </div>
+{{--    </div>--}}
 
 
     <div class="row mb-4">
@@ -108,14 +108,17 @@
             <div class="swiper-wrapper" id="swiper-wrapper-a4338456106cb16d6" aria-live="polite"
                  style="transition-duration: 0ms; transform: translate3d(0, 0, 0); transition-delay: 0ms;">
                 @foreach($dates as $key => $date)
-                    <div class="swiper-slide cursor-pointer"
-                         id="{{ $date->id }}"
-                         data-date="{{ Morilog\Jalali\Jalalian::fromCarbon(Carbon\Carbon::parse($date->date))->format('%A %d %B %Y') }}"
-                         data-url="{{ route('admin.open-dates.times.get-date-times', $date->id) }}"
-                         role="group"
-                         aria-label="{{ Morilog\Jalali\Jalalian::fromCarbon(Carbon\Carbon::parse($date->date))->format('Y/m/d') }}">
+                    <button class="swiper-slide cursor-pointer @if($date->isHoliday()) bg-danger-light @endif"
+                            @if($date->isHoliday())
+                                disabled
+                            @endif
+                            id="{{ $date->id }}"
+                            data-date="{{ Morilog\Jalali\Jalalian::fromCarbon(Carbon\Carbon::parse($date->date))->format('%A %d %B %Y') }}"
+                            data-url="{{ route('admin.open-dates.times.get-date-times', $date->id) }}"
+                            role="group"
+                            aria-label="{{ Morilog\Jalali\Jalalian::fromCarbon(Carbon\Carbon::parse($date->date))->format('Y/m/d') }}">
                         {{ Morilog\Jalali\Jalalian::fromCarbon(Carbon\Carbon::parse($date->date))->format('%A %d %B %Y') }}
-                    </div>
+                    </button>
                 @endforeach
 
             </div>
@@ -136,8 +139,9 @@
                         <a href="{{ route('user.bookings.store', $time) }}"
                            class="badge @if($time->is_available) bg-success @elseif($time->is_disabled) border border-1 border-danger text-danger bg-white @else bg-danger @endif d-flex justify-content-between align-items-center"
                            id="time_{{ $time->id }}"
+
                            onclick="event.preventDefault(); document.getElementById('form_time_{{ $time->id }}').submit()"
-                           style="min-width: 120px">
+                           style="min-width: 120px; @if(!$time->is_available or $time->is_disabled) pointer-events: none; @endif">
                             <i class="fa-solid fa-clock"></i>
                             <span>{{ $time->start_time . '-' . $time->end_time }}</span>
                         </a>
@@ -204,17 +208,23 @@
 
                     res.data.forEach((time) => {
                         let className = '';
+                        let style = '';
+
                         if (time.is_available) {
                             className = ' bg-success ';
                         } else if (time.has_appointment) {
                             className = ' bg-danger ';
+                            style = ` pointer-events: none; `;
                         } else {
                             className = ' bg-white text-danger border border-1 border-danger ';
+                            style = ` pointer-events: none; `;
                         }
+
+
                         cols += `<div class="col-2 mb-3">
                                 <a href="/dashboard/user/times/${time.id}/bookings/store" class="badge ` + className + ` d-flex justify-content-between align-items-center"
                                       id="time_${time.id}"
-                                      style="min-width: 120px">
+                                      style="min-width: 120px;` + style  + `">
                                     <i class="fa-solid fa-clock"></i>
                                     <span>
                                         ${time.start_time} - ${time.end_time}

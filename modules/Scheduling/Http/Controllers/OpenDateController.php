@@ -44,14 +44,16 @@ class OpenDateController extends Controller
             $holidays = [];
             $data = [];
 
-            if (!is_null($request->holidays))
+            if (!is_null($request->holidays)) {
                 foreach ($request->holidays as $key => $day) {
                     $holidays[] = get_timestamp_gregory_date(get_fixed_timestamp($day))->format('Y-m-d');
                 }
+            }
 
             $date = $startDate;
 
             for ($i = 0; $i <= $endDate->diffInDays($startDate); $i++) {
+                $is_holiday = in_array($date->format('Y-m-d'), $holidays);
                 $data[$i] = [
                     'date' => $date->format('Y-m-d'),
                     'morning_start_time' => $request->morning_start_time ?? null,
@@ -59,8 +61,8 @@ class OpenDateController extends Controller
                     'evening_start_time' => $request->evening_start_time ?? null,
                     'evening_end_time' => $request->evening_end_time ?? null,
                     'duration' => $request->duration,
-                    'is_holiday' => in_array($date->format('Y-m-d'), $holidays),
-                    'status_id' => $data[$i]['is_holiday'] ? OpenDateStatus::where('name', OpenDateStatus::STATUS_INACTIVE)->first()->id : $request->status_id
+                    'is_holiday' => $is_holiday,
+                    'status_id' => $is_holiday ? OpenDateStatus::where('name', OpenDateStatus::STATUS_INACTIVE)->first()->id : $request->status_id
                 ];
 
                 $date = Carbon::parse($date)->addDay();

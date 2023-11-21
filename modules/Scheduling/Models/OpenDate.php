@@ -91,4 +91,14 @@ class OpenDate extends Model
         });
     }
 
+    public function isHoliday()
+    {
+        return $this->status_id == OpenDateStatus::where('name', OpenDateStatus::STATUS_INACTIVE)->first()->id;
+    }
+
+    public function getIsHolidayAttribute()
+    {
+        return $this->isHoliday();
+    }
+
 }

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Morilog\Jalali\Jalalian;
 use Scheduling\Models\Appointment;
 use Scheduling\Models\OpenDate;
+use Scheduling\Models\OpenDateStatus;
 use Scheduling\Models\OpenTime;
 use User\Models\User;
 
@@ -25,7 +26,13 @@ class BookingController extends Controller
 
     public function store(OpenTime $time)
     {
-        dd($time);
+        Appointment::create([
+            'user_id' => Auth::id(),
+            'open_date_id' => $time->date_id,
+            'open_time_id' => $time->id,
+        ]);
+
+        return redirect()->back()->with(['success_msg' => 'نوبت مورد نظر با موفقیت ثبت شد!']);
     }
 
 }
