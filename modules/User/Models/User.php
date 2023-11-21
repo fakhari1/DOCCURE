@@ -3,11 +3,13 @@
 namespace User\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Carbon\Carbon;
 use Comment\Models\Comment;
 use File\Models\Uploader;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
 use RolePermission\Models\Permission;
 use RolePermission\Models\Role;
@@ -62,6 +64,16 @@ class User extends Authenticatable
 
     public function appointments()
     {
-        return $this->hasManyThrough(Appointment::class, 'appointment_user');
+        return $this->hasMany(Appointment::class, 'user_id', 'id');
     }
+
+    public function scopeMyAppointments()
+    {
+        return Auth::user()->appointments()->get();
+    }
+
+//    public function scopeMyExpiredAppointments($query)
+//    {
+//        $query->appointments()->where('created_at', '<', Carbon::now()->format('Y-m-d H:i:s'))->get();
+//    }
 }

@@ -27,7 +27,10 @@ class OpenTime extends Model
         'status_text',
         'start_time_text',
         'end_time_text',
-        'is_available_text'
+        'is_available_text',
+        'is_available',
+        'has_appointment',
+        'is_disabled',
     ];
 
     public function status()
@@ -83,5 +86,20 @@ class OpenTime extends Model
             return '<span class="badge bg-warning" style="width: 80px">' . 'رزرو' . '</span>';
         else
             return '<span class="badge bg-success" style="width: 80px">' . 'آزاد' . '</span>';
+    }
+
+    public function getIsDisabledAttribute()
+    {
+        return $this->isDisabled();
+    }
+
+    public function getHasAppointmentAttribute()
+    {
+        return $this->hasAppointment();
+    }
+
+    public function getIsAvailableAttribute()
+    {
+        return !$this->hasAppointment() and !$this->isDisabled();
     }
 }

@@ -33,4 +33,11 @@ class OpenTimeController extends Controller
 
         return redirect()->back()->with(['success_msg' => 'زمان مورد نظر با موفقیت بروزرسانی شد!']);
     }
+
+    public function getDateTimes(OpenDate $date)
+    {
+        return response()->json([
+            'data' => $date->openTimes
+        ]);
+    }
 }
