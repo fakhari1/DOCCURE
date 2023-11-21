@@ -76,26 +76,26 @@
     </div>
 
 
-{{--    <div class="row mb-4 justify-content-end">--}}
-{{--        <div class="col-3 ">--}}
-{{--            <div class="input-group mb-4 dir-ltr">--}}
-{{--                <span class="input-group-text" id="basic-addon1">--}}
-{{--                    <i class="fa-solid fa-calendar"></i>--}}
-{{--                </span>--}}
-{{--                <select name="" id="" class="form-select form-select-sm">--}}
-{{--                    <option selected disabled>انتخاب...</option>--}}
-{{--                    @foreach($dates as $key=> $date)--}}
-{{--                        <option value="{{ $date->id }}" style="font-family: IRANSansWeb(FaNum)">--}}
-{{--                            {{ Morilog\Jalali\Jalalian::fromCarbon(\Carbon\Carbon::parse($date->date))->format('Y/m/d') }}--}}
-{{--                        </option>--}}
-{{--                    @endforeach--}}
-{{--                </select>--}}
-{{--            </div>--}}
+    {{--    <div class="row mb-4 justify-content-end">--}}
+    {{--        <div class="col-3 ">--}}
+    {{--            <div class="input-group mb-4 dir-ltr">--}}
+    {{--                <span class="input-group-text" id="basic-addon1">--}}
+    {{--                    <i class="fa-solid fa-calendar"></i>--}}
+    {{--                </span>--}}
+    {{--                <select name="" id="" class="form-select form-select-sm">--}}
+    {{--                    <option selected disabled>انتخاب...</option>--}}
+    {{--                    @foreach($dates as $key=> $date)--}}
+    {{--                        <option value="{{ $date->id }}" style="font-family: IRANSansWeb(FaNum)">--}}
+    {{--                            {{ Morilog\Jalali\Jalalian::fromCarbon(\Carbon\Carbon::parse($date->date))->format('Y/m/d') }}--}}
+    {{--                        </option>--}}
+    {{--                    @endforeach--}}
+    {{--                </select>--}}
+    {{--            </div>--}}
 
 
-{{--        </div>--}}
+    {{--        </div>--}}
 
-{{--    </div>--}}
+    {{--    </div>--}}
 
 
     <div class="row mb-4">
@@ -221,8 +221,9 @@
 
                         cols += `<div class="col-2 mb-3">
                                 <a href="/dashboard/user/times/${time.id}/bookings/store" class="badge ` + className + ` d-flex justify-content-between align-items-center"
+                                        onclick="event.preventDefault(); document.getElementById('form_time_` + time.id + `').submit()"
                                       id="time_${time.id}"
-                                      style="min-width: 120px;` + style  + `">
+                                      style="min-width: 120px;` + style + `">
                                     <i class="fa-solid fa-clock"></i>
                                     <span>
                                         ${time.start_time} - ${time.end_time}

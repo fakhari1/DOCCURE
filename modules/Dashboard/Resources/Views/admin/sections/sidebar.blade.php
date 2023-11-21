@@ -91,9 +91,12 @@
 {{--                            </a>--}}
 {{--                        </li>--}}
                         <li>
-                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/index-2.html">
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('form_logout').submit()">
                                 <i class="fas fa-sign-out-alt"></i>
                                 <span>خروج</span>
+                                <form action="{{ route('logout') }}" method="post" id="form_logout">
+                                    @csrf
+                                </form>
                             </a>
                         </li>
                     </ul>

@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        Auth::login(User::firstOrFail());
+//        Auth::login(User::firstOrFail());
 //        Auth::login(User::where('id', '=', 2)->first());
         return view('Front::index');
     }

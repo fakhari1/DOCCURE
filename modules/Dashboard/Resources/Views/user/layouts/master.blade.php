@@ -27,9 +27,12 @@
 
 <div class="main-wrapper">
 
-    @include('Dashboard::user.sections.header')
 
-    @include('Dashboard::user.sections.sidebar')
+    @auth
+        @include('Dashboard::user.sections.header')
+
+        @include('Dashboard::user.sections.sidebar')
+    @endauth
 
 
     <div class="page-wrapper" style="min-height: 567px;">

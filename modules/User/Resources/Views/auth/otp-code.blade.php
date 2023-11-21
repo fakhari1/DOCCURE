@@ -1,12 +1,12 @@
 @extends('User::auth.layouts.master')
 
-@section('title','ورود')
+@section('title','وارد کردن کد یکبار مصرف')
 
 @section('sub_content')
     <div class="login-header mb-5">
-        <h2 class="text-center">ورود به حساب کاربری</h2>
+        <h2 class="text-center">کد یکبار مصرف</h2>
     </div>
-    <form method="POST" action="{{ route('otp.send') }}">
+    <form method="POST" action="{{ route('login') }}">
         @csrf
         <div class="form-group form-focus mb-5">
             <input type="text" class="form-control p-4" name="mobile" title="شماره همراه" style="direction: ltr !important; text-align: left !important;">

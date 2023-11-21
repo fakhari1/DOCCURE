@@ -19,9 +19,9 @@ class BookingController extends Controller
     public function index()
     {
 //        $appointments = Appointment::where('user_id', Auth::id())->first();
-        $appointments = User::MyAppointments();
+//        $appointments = User::MyAppointments();
         $dates = OpenDate::where('date', '>=', Carbon::now()->format('Y-m-d'))->with('openTimes')->get();
-        return view('Scheduling::user.booking.index', compact('appointments', 'dates'));
+        return view('Scheduling::user.booking.index', compact('dates'));
     }
 
     public function store(OpenTime $time)

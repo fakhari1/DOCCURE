@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
-use User\Http\Requests\LoginRequest;
+use User\Http\Requests\OtpSendRequest;
 use User\Models\User;
 
 class AuthController extends Controller
@@ -17,10 +17,11 @@ class AuthController extends Controller
         return view('User::auth.login');
     }
 
-    public function login(LoginRequest $request)
+    public function login()
     {
 
     }
+
 
     public function logout()
     {

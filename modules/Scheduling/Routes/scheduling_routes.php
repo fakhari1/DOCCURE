@@ -23,12 +23,16 @@ Route::middleware(['web', 'auth'])->prefix('dashboard')->group(function () {
         Route::get('open-dates/times/appointments/{appointment}/update-status', [AppointmentController::class, 'updateStatus'])->name('admin.open-dates.times.appointments.update_status');
     });
 
-    Route::post('open-dates/{date}/times/get-date-times', [OpenTimeController::class, 'getDateTimes'])->name('admin.open-dates.times.get-date-times');
 
     Route::middleware('user')->prefix('user')->group(function () {
 
-        Route::get('bookings', [BookingController::class, 'index'])->name('user.bookings.index');
         Route::post('times/{time}/bookings/store', [BookingController::class, 'store'])->name('user.bookings.store');
     });
+});
+
+Route::middleware(['web'])->prefix('dashboard/user')->group(function () {
+    Route::post('open-dates/{date}/times/get-date-times', [OpenTimeController::class, 'getDateTimes'])->name('admin.open-dates.times.get-date-times');
+
+    Route::get('bookings', [BookingController::class, 'index'])->name('user.bookings.index');
 
 });
