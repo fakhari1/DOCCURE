@@ -120,7 +120,6 @@
                         {{ Morilog\Jalali\Jalalian::fromCarbon(Carbon\Carbon::parse($date->date))->format('%A %d %B %Y') }}
                     </button>
                 @endforeach
-
             </div>
         </div>
     </div>
@@ -134,7 +133,6 @@
                     </div>
                 </div>
                 @foreach($dates->first()->openTimes as $key => $time)
-
                     <div class="col-2 mb-3">
                         <a href="{{ route('user.bookings.store', $time) }}"
                            class="badge @if($time->is_available) bg-success @elseif($time->is_disabled) border border-1 border-danger text-danger bg-white @else bg-danger @endif d-flex justify-content-between align-items-center"
