@@ -1,8 +1,10 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use Scheduling\Http\Controllers\OpenDateController;
 use Scheduling\Http\Controllers\OpenTimeController;
 use Scheduling\Http\Controllers\BookingController;
+use Scheduling\Http\Controllers\AppointmentController;
 
 Route::middleware(['web', 'auth'])->prefix('dashboard')->group(function () {
 
@@ -16,6 +18,9 @@ Route::middleware(['web', 'auth'])->prefix('dashboard')->group(function () {
 
         Route::get('open-dates/{date}/times/all', [OpenTimeController::class, 'index'])->name('admin.open-dates.times.index');
         Route::post('open-dates/times/{time}/update-status', [OpenTimeController::class, 'updateStatus'])->name('admin.open-dates.times.update_status');
+
+        Route::get('open-dates/times/appointments/index', [AppointmentController::class, 'index'])->name('admin.open-dates.times.appointments.index');
+        Route::get('open-dates/times/appointments/{appointment}/update-status', [AppointmentController::class, 'updateStatus'])->name('admin.open-dates.times.appointments.update_status');
     });
 
     Route::post('open-dates/{date}/times/get-date-times', [OpenTimeController::class, 'getDateTimes'])->name('admin.open-dates.times.get-date-times');

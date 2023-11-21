@@ -16,38 +16,31 @@ use RolePermission\Models\Role;
 use Scheduling\Models\Appointment;
 use Spatie\Permission\Traits\HasRoles;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'email',
-        'password',
+        'mobile',
+        'mobile_verified_at',
+        'national_code',
+        'job'
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
+    protected $appends = [
+        'full_name'
+    ];
+
     protected $hidden = [
         'password',
         'remember_token',
     ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'mobile_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
 
@@ -70,6 +63,11 @@ class User extends Authenticatable
     public function scopeMyAppointments()
     {
         return Auth::user()->appointments()->get();
+    }
+
+    public function getFullNameAttribute(): string
+    {
+        return $this->first_name . ' ' . $this->last_name;
     }
 
 //    public function scopeMyExpiredAppointments($query)

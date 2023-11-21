@@ -35,10 +35,16 @@
 {{--                                <span>مراجعه‌کنندگان من</span>--}}
 {{--                            </a>--}}
 {{--                        </li>--}}
-                        <li class="{{ Illuminate\Support\Facades\Route::is('admin.open-dates.index') ? 'active' : '' }}">
+                        <li class="{{ $Route::is('admin.open-dates.index') ? 'active' : '' }}">
                             <a href="{{ route('admin.open-dates.index') }}">
                                 <i class="fas fa-hourglass-start"></i>
                                 <span>زمان بندی ها</span>
+                            </a>
+                        </li>
+                        <li class="{{ $Route::is('admin.open-dates.times.appointments.index') ? 'active' : '' }}">
+                            <a href="{{ route('admin.open-dates.times.appointments.index') }}">
+                                <i class="fa-solid fa-calendar"></i>
+                                <span>نوبت ها</span>
                             </a>
                         </li>
 {{--                        <li>--}}

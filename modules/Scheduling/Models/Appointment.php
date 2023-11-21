@@ -17,6 +17,11 @@ class Appointment extends Model
         'user_id',
         'status_id',
     ];
+
+    protected $appends = [
+        'status_text'
+    ];
+
     public function status()
     {
         return $this->belongsTo(AppointmentStatus::class);
@@ -37,8 +42,11 @@ class Appointment extends Model
         return $this->belongsTo(User::class);
     }
 
-//    public function scopeIsExpired($query)
-//    {
-//        return $query->time()->where('end_time', '<', Carbon::now()->format('Y-m-d H:i:s'))->get();
-//    }
+    public function getStatusTextAttribute()
+    {
+        $className = $this->status_id == 1 ? "bg-success" : "bg-danger";
+        $text = $this->status_id == 1 ? "فعال" : "غیرفعال ";
+
+        return "<a href='/dashboard/doctor/open-dates/times/appointments/" . $this->id . "/update-status' class='badge " . $className ."'>" . $text . "</a>";
+    }
 }

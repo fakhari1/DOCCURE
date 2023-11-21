@@ -129,7 +129,7 @@
             <div class="row flex-wrap times-container">
                 <div class="row">
                     <div class="col-12" id="month-container" style="font-family: IRANSansWeb(FaNum)">
-                        <h3>{{ Morilog\Jalali\Jalalian::fromCarbon(\Carbon\Carbon::parse($dates->first()->date))->format('%A %d %B %Y') }}</h3>
+                        <h3>{{ Morilog\Jalali\Jalalian::fromCarbon(Carbon\Carbon::parse($dates->first()->date))->format('%A %d %B %Y') }}</h3>
                     </div>
                 </div>
                 @foreach($dates->first()->openTimes as $key => $time)
