@@ -118,3 +118,16 @@ function get_fixed_timestamp($timestamp)
 {
     return substr($timestamp, 0, 10);
 }
+
+function get_seconds_in_minute_second_format($seconds)
+{
+    if (!is_numeric($seconds)) return 0;
+
+    $hour = floor($seconds / 60);
+    $secs = $seconds % 60;
+
+    if ($secs < 10)
+        $secs = '0' . $secs;
+
+    return '0' . $hour . ':' . $secs;
+}

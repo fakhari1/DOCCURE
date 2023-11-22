@@ -17,8 +17,8 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
-                'first_name' => 'super',
-                'last_name' => 'admin',
+                'first_name' => 'مدیر',
+                'last_name' => 'کل',
                 'mobile' => '9010335657',
                 'mobile_verified_at' => null,
                 'national_code' => null,
@@ -28,9 +28,9 @@ class UserSeeder extends Seeder
                 'role' => Role::ROLE_SUPER_ADMIN
             ],
             [
-                'first_name' => 'patient 1',
+                'first_name' => 'بیمار 1',
                 'last_name' => null,
-                'mobile' => '9136821808',
+                'mobile' => '9112367891',
                 'mobile_verified_at' => null,
                 'national_code' => null,
                 'job' => null,
@@ -38,7 +38,7 @@ class UserSeeder extends Seeder
                 'updated_at' => '2022-04-24 15:38:51',
                 'role' => Role::ROLE_PATIENT
             ],
-            [
+            /*[
                 'first_name' => 'patient 2',
                 'last_name' => null,
                 'mobile' => null,
@@ -114,16 +114,17 @@ class UserSeeder extends Seeder
                 'created_at' => '2022-04-22 17:48:28',
                 'updated_at' => '2022-04-24 15:38:51',
                 'role' => Role::ROLE_PATIENT
-            ],
+            ],*/
 
         ];
 
         foreach ($users as $user) {
-            User::firstOrCreate([
+            User::create([
                 'mobile' => $user['mobile'],
-            ], [
-                'mobile' => $user['mobile'] ?? null,
                 'first_name' => $user['first_name'],
+                'last_name' => $user['last_name'],
+                'created_at' => $user['created_at'],
+                'updated_at' => $user['updated_at']
             ])->assignRole($user['role']);
         }
     }

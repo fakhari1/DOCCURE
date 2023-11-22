@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
+use Otp\Models\Otp;
 use RolePermission\Models\Permission;
 use RolePermission\Models\Role;
 use Scheduling\Models\Appointment;
@@ -48,6 +49,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class, 'author_id');
 
+    }
+
+    public function otps()
+    {
+        return $this->hasMany(Otp::class, 'user_id', 'id');
     }
 
     public function isAdmin()

@@ -1,7 +1,7 @@
 @extends('Front::layouts.master')
 
 @section('head')
-    @yield('sub_head')
+    @yield('head')
 @endsection
 
 @section('header')
@@ -89,7 +89,8 @@
                 <li class="nav-item dropdown has-arrow logged-item">
                     <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="user-img">
-                            <img class="rounded-circle" src="{{asset('assets/images/doctor/doctor-thumb.jpg')}}" width="31"
+                            <img class="rounded-circle" src="{{asset('assets/images/doctor/doctor-thumb.jpg')}}"
+                                 width="31"
                                  alt="User Image">
                         </span>
                     </a>
@@ -136,5 +137,5 @@
 @endsection
 
 @section('script')
-    @yield('sub_script')
+    @yield('script')
 @endsection
