@@ -43,33 +43,17 @@ class OpenDateRequest extends FormRequest
                         }
                     }
                 }],
-                'morning_start_time' => [Rule::requiredIf(function () {
-                    if ($this->morning_end_time or !$this->evening_start_time or !$this->evening_end_time) return true;
-                }), 'date_format:H:i'],
-                'morning_end_time' => [Rule::requiredIf(function () {
-                    if ($this->morning_start_time or !$this->evening_end_time or !$this->evening_start_time) return true;
-                }), 'date_format:H:i'],
-                'evening_start_time' => [Rule::requiredIf(function () {
-                    if ($this->evening_end_time or !$this->morning_end_time or !$this->morning_start_time) return true;
-                }), 'date_format:H:i'],
-                'evening_end_time' => [Rule::requiredIf(function () {
-                    if ($this->evening_start_time or !$this->morning_start_time or !$this->morning_end_time) return true;
-                }), 'date_format:H:i'],
+                'morning_start_time' => ['nullable', 'date_format:H:i'],
+                'morning_end_time' => ['nullable', 'date_format:H:i'],
+                'evening_start_time' => ['nullable', 'date_format:H:i'],
+                'evening_end_time' => ['nullable', 'date_format:H:i'],
                 'duration' => ['required', 'numeric']
             ],
             'PUT', 'PATCH' => [
-                'morning_start_time' => [Rule::requiredIf(function () {
-                    if ($this->morning_end_time or !$this->evening_start_time or !$this->evening_end_time) return true;
-                }), 'date_format:H:i'],
-                'morning_end_time' => [Rule::requiredIf(function () {
-                    if ($this->morning_start_time or !$this->evening_end_time or !$this->evening_start_time) return true;
-                }), 'date_format:H:i'],
-                'evening_start_time' => [Rule::requiredIf(function () {
-                    if ($this->evening_end_time or !$this->morning_end_time or !$this->morning_start_time) return true;
-                }), 'date_format:H:i'],
-                'evening_end_time' => [Rule::requiredIf(function () {
-                    if ($this->evening_start_time or !$this->morning_start_time or !$this->morning_end_time) return true;
-                }), 'date_format:H:i'],
+                'morning_start_time' => ['nullable', 'date_format:H:i'],
+                'morning_end_time' => ['nullable', 'date_format:H:i'],
+                'evening_start_time' => ['nullable', 'date_format:H:i'],
+                'evening_end_time' => ['nullable', 'date_format:H:i'],
                 'duration' => ['required', 'numeric']
             ],
             default => []
