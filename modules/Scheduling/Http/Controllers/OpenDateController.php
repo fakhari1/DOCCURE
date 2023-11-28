@@ -46,6 +46,9 @@ class OpenDateController extends Controller
 
             if (!is_null($request->holidays)) {
                 foreach ($request->holidays as $key => $day) {
+                    if (!$endDate->greaterThan(get_timestamp_gregory_date(get_fixed_timestamp($day)))) {
+                        return redirect()->back(['error_msg' => 'روز های تعطیل نمی توانند بعد از تاریخ پایان باشند!']);
+                    }
                     $holidays[] = get_timestamp_gregory_date(get_fixed_timestamp($day))->format('Y-m-d');
                 }
             }
