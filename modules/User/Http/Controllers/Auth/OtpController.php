@@ -92,7 +92,7 @@ class OtpController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with(['success_msg' => 'به حساب کاربری خود خوش آمدید!']);
     }
 
     public function retry(Request $request)

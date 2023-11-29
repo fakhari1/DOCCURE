@@ -6,7 +6,7 @@ use User\Http\Controllers\Auth\OtpController;
 
 Route::middleware(['web'])
     ->group(function () {
-        Route::get('login', [AuthController::class, 'showLogin'])->name('login.show');
+        Route::get('login', [AuthController::class, 'showLogin'])->name('login');
 
 
         Route::prefix('login/code')->group(function () {
