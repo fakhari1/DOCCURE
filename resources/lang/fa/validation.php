@@ -180,6 +180,7 @@ return [
     */
 
     'attributes' => [
+        'address' => 'آدرس',
         'name' => 'نام',
         'username' => 'نام کاربری',
         'email' => 'ایمیل',

@@ -8,34 +8,40 @@
                     <div class="col-12 col-md-8">
                         <div class="right">
                             <ul>
-                                <li>
-                                    <span>شماره تماس (ها):</span>
-                                    @if($settings->landline_phones)
+                                @if($settings->landline_phones)
+                                    <li>
+                                        <span>شماره تماس (ها):</span>
                                         @foreach($settings->landline_phones as $key => $phone)
                                             | <span>{{ $phone }}</span>
                                         @endforeach
-                                    @endif
-                                </li>
-                                <li>
-                                    <span>آدرس:</span>
-                                    <span>{{ $settings->address }}</span>
-                                </li>
+                                    </li>
+                                @endif
+                                @if($settings->address)
+                                    <li>
+                                        <span>آدرس:</span>
+                                        <span>{{ $settings->address }}</span>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                     </div>
                     <div class="col-12 col-md-4">
                         <div class="left social-icon">
                             <ul class="" style="list-style: none !important;">
-                                <li class="px-2">
-                                    <a href="https://instagram.com/{{ $settings->instagram_id }}" title="instagram"
-                                       class="text-white"><i
-                                            class="fab fa-instagram"></i></a>
-                                </li>
-                                <li class="px-2">
-                                    <a href="https://telegram.me/{{ $settings->telegram_id }}" title="telegram"
-                                       class="text-white"><i
-                                            class="fab fa-telegram"></i></a>
-                                </li>
+                                @if($settings->instagram_id)
+                                    <li class="px-2">
+                                        <a href="https://instagram.com/{{ $settings->instagram_id }}" title="instagram"
+                                           class="text-white"><i
+                                                class="fab fa-instagram"></i></a>
+                                    </li>
+                                @endif
+                                @if($settings->instagram_id)
+                                    <li class="px-2">
+                                        <a href="https://telegram.me/{{ $settings->telegram_id }}" title="telegram"
+                                           class="text-white"><i
+                                                class="fab fa-telegram"></i></a>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -109,7 +115,8 @@
                             </button>
 
                             <ul class="dropdown-menu">
-                                <li class="border-bottom"><a class="dropdown-item mb-0" href="{{ route('users.profile') }}">پروفایل مدیریت</a></li>
+                                <li class="border-bottom"><a class="dropdown-item mb-0"
+                                                             href="{{ route('users.profile') }}">پروفایل مدیریت</a></li>
 
                                 <li>
                                     <a
