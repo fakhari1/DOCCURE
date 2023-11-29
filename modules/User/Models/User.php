@@ -25,7 +25,6 @@ class User extends Authenticatable
     protected $fillable = [
         'first_name',
         'last_name',
-        'email',
         'mobile',
         'mobile_verified_at',
         'national_code',
@@ -74,6 +73,14 @@ class User extends Authenticatable
     public function getFullNameAttribute(): string
     {
         return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function hasCompletedProfile()
+    {
+        if ($this->first_name != null and $this->last_name != null and $this->national_code != null) {
+            return true;
+        }
+        return false;
     }
 
 //    public function scopeMyExpiredAppointments($query)

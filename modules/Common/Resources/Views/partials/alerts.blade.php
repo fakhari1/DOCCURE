@@ -8,22 +8,3 @@
     </div>
 @endif
 
-@if(session()->has('success_msg'))
-    <div class="text-center">
-        <div class="alert alert-success" role="alert">
-            {{ session('success_msg') }}
-        </div>
-    </div>
-@endif
-
-@if(session()->has('error_msg'))
-    <div class="text-center">
-        <div class="alert alert-danger" role="alert">
-            {{ session('error_msg') }}
-        </div>
-    </div>
-@endif
-
-
-
-

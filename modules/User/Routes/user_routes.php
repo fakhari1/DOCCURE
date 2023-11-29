@@ -12,5 +12,6 @@ Route::middleware(['web', 'auth'])->group(function () {
 //    Route::patch('/users/{id}', 'UserController@update')->name('users.update');
 //    Route::delete('/users/{id}', 'UserController@destroy')->name('users.destroy');
 
-    Route::get('profile', [UserController::class, 'profile'])->name('users.profile');
+    Route::get('profile', [UserController::class, 'index'])->name('users.profile');
+    Route::post('profile', [UserController::class, 'store'])->name('users.profile.store');
 });

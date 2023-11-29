@@ -86,6 +86,8 @@ class OtpController extends Controller
 
         $user = User::whereId($otp->user_id)->first();
 
+        $user->update(['mobile_verified_at' => Carbon::now()->format('Y-m-d H:i:s')]);
+
         Auth::login($user);
 
         return redirect()->route('home');

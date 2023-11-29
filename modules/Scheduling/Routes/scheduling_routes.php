@@ -8,7 +8,7 @@ use Scheduling\Http\Controllers\AppointmentController;
 
 Route::middleware(['web', 'auth'])->prefix('dashboard')->group(function () {
 
-    Route::middleware('admin')->prefix('doctor')->group(function () {
+    Route::middleware(['admin', 'admin.has_completed_profile'])->prefix('doctor')->group(function () {
 
         Route::get('open-dates', [OpenDateController::class, 'index'])->name('admin.open-dates.index');
         Route::get('open-dates/create', [OpenDateController::class, 'create'])->name('admin.open-dates.create');
@@ -24,15 +24,15 @@ Route::middleware(['web', 'auth'])->prefix('dashboard')->group(function () {
     });
 
 
-    Route::middleware('user')->prefix('user')->group(function () {
+    Route::middleware(['user', 'user.has_completed_profile'])->prefix('user')->group(function () {
 
         Route::post('times/{time}/bookings/store', [BookingController::class, 'store'])->name('user.bookings.store');
     });
 });
 
-Route::middleware(['web'])->prefix('dashboard/user')->group(function () {
+Route::middleware(['web', 'user', 'user.has_completed_profile'])->prefix('dashboard/user')->group(function () {
     Route::post('open-dates/{date}/times/get-date-times', [OpenTimeController::class, 'getDateTimes'])->name('admin.open-dates.times.get-date-times');
-
     Route::get('bookings', [BookingController::class, 'index'])->name('user.bookings.index');
 
+    Route::get('appointments', [AppointmentController::class, 'userAppointments'])->name('user.appointments.index');
 });

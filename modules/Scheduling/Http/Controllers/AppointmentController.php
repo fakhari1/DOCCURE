@@ -4,6 +4,7 @@ namespace Scheduling\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use DateTime;
+use Illuminate\Support\Facades\Auth;
 use Scheduling\Http\Requests\AppointmentRequest;
 use Scheduling\Models\Appointment;
 use Scheduling\Models\AppointmentStatus;
@@ -33,5 +34,12 @@ class AppointmentController extends Controller
         $trans = trans(AppointmentStatus::whereId($appointment->status_id)->first()->name);
         $msg = " وضعیت نوبت مورد نظر با موفقیت {$trans} شد! ";
         return redirect()->back()->with(['success_msg' => $msg]);
+    }
+
+    public function userAppointments()
+    {
+        $appointments = Auth::user()->appointments;
+
+        return view('Scheduling::user.appointments.index', compact('appointments'));
     }
 }

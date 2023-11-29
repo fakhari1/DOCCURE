@@ -127,7 +127,7 @@
                         <div class="col-md-5">
                             <select type="text" name="morning_start_time"
                                     class="form-control form-control-sm form-select">
-                                <option value="null">تعطیل</option>
+                                <option value="">تعطیل</option>
                                 @foreach(get_ceil_hours() as $key => $hour)
                                     <option value="{{ $hour }}" @if($hour == '08:00') selected @endif>
                                         {{ $hour }}
@@ -141,7 +141,7 @@
                         <div class="col-md-5">
                             <select type="text" name="morning_end_time"
                                     class="form-control form-control-sm form-select">
-                                <option value="null">تعطیل</option>
+                                <option value="">تعطیل</option>
                                 @foreach(get_ceil_hours() as $key => $hour)
                                     <option value="{{ $hour }}" @if($hour == '13:00') selected @endif>
                                         {{ $hour }}
@@ -162,7 +162,7 @@
                         <div class="col-md-5">
                             <select type="text" class="form-control form-control-sm form-select"
                                     name="evening_start_time">
-                                <option value="null">تعطیل</option>
+                                <option value="">تعطیل</option>
                                 @foreach(get_ceil_hours() as $key => $hour)
                                     <option value="{{ $hour }}" @if($hour == '16:00') selected @endif>
                                         {{ $hour }}
@@ -176,7 +176,7 @@
                         <div class="col-md-5">
                             <select type="text" class="form-control form-control-sm form-select"
                                     name="evening_end_time">
-                                <option value="null">تعطیل</option>
+                                <option value="">تعطیل</option>
                                 @foreach(get_ceil_hours() as $key => $hour)
                                     <option value="{{ $hour }}" @if($hour == '21:00') selected @endif>
                                         {{ $hour }}
@@ -248,11 +248,7 @@
 @section('script')
     <script src="{{ asset('assets/js/persian-date.js') }}"></script>
     <script src="{{ asset('assets/js/persian-datepicker.js') }}"></script>
-
-
     <script>
-
-
         $(document).ready(function () {
 
             let monthCardElems = $('.month-card');
@@ -384,4 +380,5 @@
             return date.getState().selected;
         }
     </script>
+    @include('Common::partials.sweetalert')
 @endsection

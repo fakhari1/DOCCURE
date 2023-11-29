@@ -16,6 +16,7 @@
     {{--    <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">--}}
     {{--    <link rel="stylesheet" href="{{ asset('assets/css/feathericon.min.css') }}">--}}
     {{--    <link rel="stylesheet" href="{{ asset('assets/css/morris.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset('assets/css/sweetalert2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/public.css') }}">
 
@@ -43,6 +44,7 @@
             </div>
 
             @include('Common::partials.alerts')
+            @include('Common::partials.sweetalert')
 
             @yield('content')
         </div>
@@ -57,6 +59,7 @@
 {{--<script src="{{ asset('assets/js/raphael.min.js') }}" type="text/javascript"></script>--}}
 {{--<script src="{{ asset('assets/js/morris.min.js') }}" type="text/javascript"></script>--}}
 {{--<script src="{{ asset('assets/js/chart.morris.js') }}" type="text/javascript"></script>--}}
+<script src="{{ asset('assets/js/sweetalert2.js') }}" type="text/javascript"></script>ّ
 <script src="{{ asset('assets/js/script.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/js/fontawesome.min.js') }}"
         referrerpolicy="no-referrer"></script>
