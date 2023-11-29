@@ -32,7 +32,7 @@ class BookingController extends Controller
             'open_time_id' => $time->id,
         ]);
 
-        return redirect()->back()->with(['success_msg' => 'نوبت مورد نظر با موفقیت ثبت شد!']);
+        return redirect()->route('user.appointments.index')->with(['success_msg' => 'تاریخ و زمان نوبت با موفقیت رزرو شد!']);
     }
 
 }
