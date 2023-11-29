@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Otp\Models\Otp;
+use RolePermission\Models\Role;
 use User\Http\Requests\OtpGetRequest;
 use User\Http\Requests\OtpSendRequest;
 use User\Models\User;
@@ -23,7 +24,8 @@ class OtpController extends Controller
     public function create(OtpSendRequest $request)
     {
         $mobile = ltrim($request->mobile, '0');
-        $user = User::query()->firstOrCreate(['mobile' => $mobile]);
+        $user = User::query()->firstOrCreate(['mobile' => $mobile])->assignRole(Role::ROLE_PATIENT);
+
         // $apiKey = config('sms.api_key');
         $verificationCode = rand(100000, 999999);
         $token = bin2hex(random_bytes(40));
