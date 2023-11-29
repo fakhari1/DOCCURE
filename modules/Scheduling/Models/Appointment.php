@@ -44,9 +44,10 @@ class Appointment extends Model
 
     public function getStatusTextAttribute()
     {
-        $className = $this->status_id == 1 ? "bg-success" : "bg-danger";
-        $text = $this->status_id == 1 ? "فعال" : "غیرفعال ";
-
-        return "<a href='/dashboard/doctor/open-dates/times/appointments/" . $this->id . "/update-status' class='badge " . $className ."'>" . $text . "</a>";
+        if ($this->status->name == 'active') {
+            return '<span class="badge bg-success">' . trans($this->status->name) . '</span>';
+        } else {
+            return '<span class="badge bg-danger">' . trans($this->status->name) . '</span>';
+        }
     }
 }

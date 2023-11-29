@@ -20,6 +20,11 @@ class OpenDate extends Model
         'status_id',
     ];
 
+    protected $appends = [
+        'is_holiday',
+        'status_text'
+    ];
+
     public function status()
     {
         return $this->belongsTo(OpenDateStatus::class);

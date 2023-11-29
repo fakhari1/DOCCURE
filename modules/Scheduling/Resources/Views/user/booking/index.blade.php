@@ -75,29 +75,6 @@
         </div>
     </div>
 
-
-    {{--    <div class="row mb-4 justify-content-end">--}}
-    {{--        <div class="col-3 ">--}}
-    {{--            <div class="input-group mb-4 dir-ltr">--}}
-    {{--                <span class="input-group-text" id="basic-addon1">--}}
-    {{--                    <i class="fa-solid fa-calendar"></i>--}}
-    {{--                </span>--}}
-    {{--                <select name="" id="" class="form-select form-select-sm">--}}
-    {{--                    <option selected disabled>انتخاب...</option>--}}
-    {{--                    @foreach($dates as $key=> $date)--}}
-    {{--                        <option value="{{ $date->id }}" style="font-family: IRANSansWeb(FaNum)">--}}
-    {{--                            {{ Morilog\Jalali\Jalalian::fromCarbon(\Carbon\Carbon::parse($date->date))->format('Y/m/d') }}--}}
-    {{--                        </option>--}}
-    {{--                    @endforeach--}}
-    {{--                </select>--}}
-    {{--            </div>--}}
-
-
-    {{--        </div>--}}
-
-    {{--    </div>--}}
-
-
     <div class="row mb-4">
         <div class="swiper mySwiper swiper-initialized swiper-horizontal swiper-backface-hidden">
             <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide"
