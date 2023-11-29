@@ -12,18 +12,21 @@
 
         <div class="form-group">
             <label>نام وبسایت</label>
+            <span class="text-danger">*</span>
             <input type="text" name="site_name" class="form-control"
                    value="{{ $settings->site_name ?? old('site_name') }}">
         </div>
 
         <div class="form-group">
             <label>نام پزشک (یا نام مستعار)</label>
+            <span class="text-danger">*</span>
             <input type="text" name="doctor_name" class="form-control"
                    value="{{ $settings->doctor_name ?? old('doctor_name') }}">
         </div>
 
         <div class="form-group">
-            <label for="">تخصص، حیطه کاری:</label>
+            <label for="">تخصص، حیطه کاری</label>
+            <span class="text-danger">*</span>
             <input type="text" name="specialization" class="form-control"
                    value="{{ $settings->specialization ?? old('specialization') }}">
         </div>
@@ -71,28 +74,29 @@
 
         <div class="form-group">
             <label for="">آدرس</label>
+            <span class="text-danger">*</span>
             <input class="form-control" type="text" name="address" value="{{ $settings->address ?? old('address') }}">
         </div>
 
         <div class="row">
             <div class="col-lg-6 col-md-6 col-12">
                 <label for="">شناسه اینستاگرام</label>
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 dir-ltr">
+                    <span class="input-group-text" id="instagram_id">@</span>
                     <input type="text" class="form-control dir-ltr" placeholder="اینستاگرام"
                            name="instagram_id"
                            aria-label="instagram" aria-describedby="instagram_id"
                            value="{{ $settings->instagram_id ??  old('instagram_id') }}">
-                    <span class="input-group-text" id="instagram_id">@</span>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-12">
                 <label for="">شناسه تلگرام</label>
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 dir-ltr">
+                    <span class="input-group-text" id="telegram_id">@</span>
                     <input type="text" class="form-control dir-ltr" placeholder="تلگرام"
                            name="telegram_id"
                            aria-label="telegram" aria-describedby="telegram_id"
                            value="{{ $settings->telegram_id ?? old('telegram_id') }}">
-                    <span class="input-group-text" id="telegram_id">@</span>
                 </div>
             </div>
         </div>

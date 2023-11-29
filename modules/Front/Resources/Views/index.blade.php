@@ -19,7 +19,7 @@
                             {{ $settings->description }}
                         </p>
                     @endif
-                    @if(!auth()->check() or (auth()->check() and !auth()->user()->isAdmin()))
+                    @if(auth()->check() and !auth()->user()->isAdmin())
                         <a href="{{ route('user.bookings.index') }}" class="btn-pink">
                             <span>رزرو نوبت</span>
                             <i class="fas fa-arrow-left"></i>

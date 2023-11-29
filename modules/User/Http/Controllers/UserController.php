@@ -17,10 +17,6 @@ class UserController extends Controller
             return view('User::user.profile.index', compact('user'));
     }
 
-    public function create()
-    {
-
-    }
 
     public function store(UserProfileRequest $request)
     {
@@ -33,25 +29,4 @@ class UserController extends Controller
 
         return redirect()->back()->with(['success_msg' => 'اطلاعات کاربری با موفقیت ثبت شد!']);
     }
-
-    public function show($id)
-    {
-
-    }
-
-    public function edit($id)
-    {
-
-    }
-
-    public function update($id)
-    {
-
-    }
-
-    public function destroy($id)
-    {
-
-    }
-
 }

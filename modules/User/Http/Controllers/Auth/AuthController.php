@@ -16,12 +16,6 @@ class AuthController extends Controller
     {
         return view('User::auth.login');
     }
-
-    public function login()
-    {
-
-    }
-
     public function logout()
     {
         Auth::logout();
