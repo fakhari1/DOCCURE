@@ -4,9 +4,11 @@ namespace App\Http;
 
 use App\Http\Middleware\AuthenticatedUserIsAdmin;
 use App\Http\Middleware\AuthenticatedUserIsUser;
+use App\Http\Middleware\IsSettingsCompleted;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use App\Http\Middleware\IsUserProfileCompleted;
 use App\Http\Middleware\IsAdminProfileCompleted;
+
 class Kernel extends HttpKernel
 {
     /**
@@ -43,7 +45,7 @@ class Kernel extends HttpKernel
 
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-            \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
+            \Illuminate\Routing\Middleware\ThrottleRequests::class . ':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
@@ -71,5 +73,6 @@ class Kernel extends HttpKernel
         'user' => AuthenticatedUserIsUser::class,
         'user.has_completed_profile' => IsUserProfileCompleted::class,
         'admin.has_completed_profile' => IsAdminProfileCompleted::class,
+        'settings.general.completed' => IsSettingsCompleted::class,
     ];
 }

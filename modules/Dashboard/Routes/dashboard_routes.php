@@ -9,7 +9,7 @@ Route::middleware(['web', 'auth'])
     ->prefix('dashboard')
     ->group(function () {
 
-        Route::middleware('admin')
+        Route::middleware(['admin', 'settings.general.completed'])
             ->prefix('doctor')
             ->group(function () {
                 Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard.admin.index');

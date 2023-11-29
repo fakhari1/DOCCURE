@@ -8,7 +8,7 @@ use Scheduling\Http\Controllers\AppointmentController;
 
 Route::middleware(['web', 'auth'])->prefix('dashboard')->group(function () {
 
-    Route::middleware(['admin', 'admin.has_completed_profile'])->prefix('doctor')->group(function () {
+    Route::middleware(['admin', 'admin.has_completed_profile', 'settings.general.completed'])->prefix('doctor')->group(function () {
 
         Route::get('open-dates', [OpenDateController::class, 'index'])->name('admin.open-dates.index');
         Route::get('open-dates/create', [OpenDateController::class, 'create'])->name('admin.open-dates.create');
