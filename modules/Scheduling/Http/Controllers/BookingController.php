@@ -26,6 +26,12 @@ class BookingController extends Controller
 
     public function store(OpenTime $time)
     {
+        $appointments = Appointment::where('user_id', Auth::id())->where('open_date_id', $time->date_id)->get();
+
+        if (count($appointments)) {
+            return redirect()->back()->with(['error_msg' => 'در تاریخ مورد نظر نوبت رزرو شده دارید؛ تاریخ دیگری انتخاب کنید!']);
+        }
+
         Appointment::create([
             'user_id' => Auth::id(),
             'open_date_id' => $time->date_id,

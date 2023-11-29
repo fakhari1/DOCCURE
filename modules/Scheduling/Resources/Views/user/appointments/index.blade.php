@@ -22,8 +22,8 @@
             <th>#</th>
             <th class="text-center">تاریخ</th>
             <th class="text-center">زمان نوبت</th>
-            <th>وضعیت</th>
-            <th>عملیات</th>
+            <th class="text-center">وضعیت</th>
+            <th class="text-center">عملیات</th>
         </tr>
         </thead>
         <tbody>
@@ -42,21 +42,13 @@
                     </span>
                     </td>
                     <td class="text-center dir-ltr">
-                        @if($appointment->time->morning_start_time && $appointment->time->morning_end_time)
-                            <div class="d-block my-3">
+                        @if($appointment->time->start_time && $appointment->time->end_time)
+                            <div class="d-block">
                                 <span
-                                    class="badge bg-success">{{ Carbon\Carbon::parse($appointment->time->morning_start_time)->format('H:i') }}</span>
+                                    class="badge bg-success">{{ Carbon\Carbon::parse($appointment->time->start_time)->format('H:i') }}</span>
                                 -
                                 <span
-                                    class="badge bg-danger">{{ Carbon\Carbon::parse($appointment->time->morning_end_time)->format('H:i') }}</span>
-                            </div>
-                        @elseif($appointment->time->evening_start_time && $appointment->time->evening_end_time)
-                            <div class="d-block my-3">
-                                <span
-                                    class="badge bg-success">{{ Carbon\Carbon::parse($appointment->time->evening_start_time)->format('H:i') }}</span>
-                                -
-                                <span
-                                    class="badge bg-danger">{{ Carbon\Carbon::parse($appointment->time->evening_end_time)->format('H:i') }}</span>
+                                    class="badge bg-danger">{{ Carbon\Carbon::parse($appointment->time->end_time)->format('H:i') }}</span>
                             </div>
                         @else
                             -
@@ -67,8 +59,8 @@
                         {!! $appointment->status_text !!}
                     </td>
                     <td>
-                        <div class="d-block">
-                            <button class="btn btn-sm btn-danger">
+                        <div class="d-block disabled text-center">
+                            <button class="btn btn-sm btn-danger disabled">
                                 <i class="fa-solid fa-close"></i>
                                 <span>لغو</span>
                             </button>
