@@ -21,32 +21,40 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($appointments as $key => $app)
+        @if(!count($appointments))
             <tr>
-                <td>{{ $loop->iteration }}</td>
-                <td class="text-center">
-                    {{ $app->user->full_name }}
+                <td colspan="10" class="text-center">
+                    آیتمی برای نمایش وجود ندارد!
                 </td>
-                <td class="text-center">
-                    {{ $app->user->national_code }}
-                </td>
-                <td class="text-center">
-                    {{ $app->user->mobile }}
-                </td>
-                <td class="text-center">
+            </tr>
+        @else
+            @foreach($appointments as $key => $app)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td class="text-center">
+                        {{ $app->user->full_name }}
+                    </td>
+                    <td class="text-center">
+                        {{ $app->user->national_code }}
+                    </td>
+                    <td class="text-center">
+                        {{ $app->user->mobile }}
+                    </td>
+                    <td class="text-center">
                     <span class="badge bg-transparent text-dark border border-1 border-primary"
                           style="font-size: 14px !important;">
                         {{ Morilog\Jalali\Jalalian::fromCarbon(Carbon\Carbon::parse($app->date->date))->format('Y/m/d') }}
                     </span>
-                </td>
-                <td class="text-center">
+                    </td>
+                    <td class="text-center">
                         {!! $app->time->end_time_text !!} - {!! $app->time->start_time_text !!}
-                </td>
-                <td class="text-center">
-                    {!! $app->status_text !!}
-                </td>
-            </tr>
-        @endforeach
+                    </td>
+                    <td class="text-center">
+                        {!! $app->status_text !!}
+                    </td>
+                </tr>
+            @endforeach
+        @endif
         </tbody>
     </table>
 

@@ -5,7 +5,8 @@ namespace App\Http;
 use App\Http\Middleware\AuthenticatedUserIsAdmin;
 use App\Http\Middleware\AuthenticatedUserIsUser;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-
+use App\Http\Middleware\IsUserProfileCompleted;
+use App\Http\Middleware\IsAdminProfileCompleted;
 class Kernel extends HttpKernel
 {
     /**

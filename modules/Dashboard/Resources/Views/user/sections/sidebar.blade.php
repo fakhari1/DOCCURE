@@ -18,6 +18,12 @@
                             <span>رزرو نوبت</span>
                         </a>
                     </li>
+                    <li class="@if(Illuminate\Support\Facades\Route::is('user.appointments.index')) active @endif">
+                        <a href="{{ route('user.appointments.index') }}" class="">
+                            <i class="fa-solid fa-calendar-times"></i>
+                            <span>نوبت های رزرو شده</span>
+                        </a>
+                    </li>
                     {{--                    <li>--}}
                     {{--                        <a href=""><i--}}
                     {{--                                    class="fa-solid fa-chart-line"></i> <span>تراکنش‌ها</span></a>--}}
