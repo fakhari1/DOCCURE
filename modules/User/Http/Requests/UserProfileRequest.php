@@ -25,7 +25,7 @@ class UserProfileRequest extends FormRequest
             'first_name' => ['required'],
             'last_name' => ['required'],
             'job' => ['nullable'],
-            'national_code' => ['required'],
+            'national_code' => ['required', 'unique:users,national_code'],
         ];
     }
 }
