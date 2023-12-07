@@ -283,7 +283,7 @@
                     enabled: false,
                 },
             },
-            maxDate: new persianDate().add('month', 3).valueOf(),
+            maxDate: new persianDate().add('month', 12).valueOf(),
             minDate: new persianDate().valueOf(),
             onSelect: function (unix) {
                 document.getElementById('start_date_view').value = getJalaliDateWithGeneralFormat(getDateDetails(startDate));
@@ -300,7 +300,7 @@
                     enabled: false,
                 },
             },
-            maxDate: new persianDate().add('month', 3).valueOf(),
+            maxDate: new persianDate().add('month', 12).valueOf(),
             minDate: new persianDate().valueOf(),
             onSelect: function (unix) {
                 document.getElementById('end_date_view').value =
@@ -312,7 +312,7 @@
             initialValue: false,
             altField: '#holidays',
             format: 'YYYY/MM/DD',
-            maxDate: new persianDate().add('month', 3).valueOf(),
+            maxDate: new persianDate().add('month', 12).valueOf(),
             minDate: new persianDate().valueOf(),
             onSelect: function () {
                 addingHolidays(holidays);
