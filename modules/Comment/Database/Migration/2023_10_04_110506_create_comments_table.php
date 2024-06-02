@@ -13,9 +13,7 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('author_id')->nullable();
-            $table->foreign('author_id')->on('users')->references('id')
-                ->onDelete('cascade');
+            $table->uuid('author_id')->nullable();
             $table->string('text');
             $table->timestamps();
         });
