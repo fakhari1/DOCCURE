@@ -34,27 +34,30 @@ class OtpController extends Controller
             'user_id' => $user->id,
             'mobile' => $mobile,
             'verification_code' => $verificationCode,
-            'expired_at' => Carbon::now()->addMinutes(2)->addSeconds(2)->format('Y-m-d H:i:s'),
+            'expired_at' => Carbon::now()->addMinutes(2)->format('Y-m-d H:i:s'),
             'token' => $token
         ]);
 
-        $client = new SoapClient(config('sms.wsdl_url'));
+//        $client = new SoapClient(config('sms.wsdl_url'));
         $input_data = array("verification_code" => $verificationCode);
 
-        $res = $client->sendPatternSms(
-            config('sms.originator'),
-            $mobile,
-            config('sms.username'),
-            config('sms.password'),
-            config('sms.pattern_code'),
-            $input_data
-        );
+//        $res = $client->sendPatternSms(
+//            config('sms.originator'),
+//            $mobile,
+//            config('sms.username'),
+//            config('sms.password'),
+//            config('sms.pattern_code'),
+//            $input_data
+//        );
 
-        if (is_numeric($res)) {
+//        if (is_numeric($res)) {
             return redirect()->route('otps.get', ['token' => $token]);
-        }
+//        }
 
-        return redirect()->back()->with('error_msg', 'اشکال در ارسال پیامک با پشتیبانی تماس بگیرید!');
+//        $otp->update([
+//            'status' => Otp::STATUS_EXPIRED
+//        ]);
+//        return redirect()->back()->with('error_msg', 'اشکال در ارسال پیامک با پشتیبانی تماس بگیرید!');
     }
 
     public function showCheck(Request $request)

@@ -3,6 +3,7 @@
 namespace User\Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 use RolePermission\Models\Role;
 use User\Models\User;
 
@@ -15,18 +16,19 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-//        $users = [
-//            [
-//                'first_name' => 'مدیر',
-//                'last_name' => 'کل',
-//                'mobile' => '9010335657',
-//                'mobile_verified_at' => null,
-//                'national_code' => null,
-//                'job' => null,
-//                'created_at' => '2022-04-22 17:48:28',
-//                'updated_at' => '2022-04-24 15:38:51',
-//                'role' => Role::ROLE_SUPER_ADMIN
-//            ],
+        $users = [
+            [
+                'id' => Str::uuid(),
+                'first_name' => 'مدیر',
+                'last_name' => 'کل',
+                'mobile' => '9010335657',
+                'mobile_verified_at' => null,
+                'national_code' => null,
+                'job' => null,
+                'created_at' => '2022-04-22 17:48:28',
+                'updated_at' => '2022-04-24 15:38:51',
+                'role' => Role::ROLE_SUPER_ADMIN
+            ],
 //            [
 //                'first_name' => 'بیمار 1',
 //                'last_name' => null,
@@ -116,16 +118,16 @@ class UserSeeder extends Seeder
 //                'role' => Role::ROLE_PATIENT
 //            ],*/
 //
-//        ];
+        ];
 //
-//        foreach ($users as $user) {
-//            User::create([
-//                'mobile' => $user['mobile'],
-//                'first_name' => $user['first_name'],
-//                'last_name' => $user['last_name'],
-//                'created_at' => $user['created_at'],
-//                'updated_at' => $user['updated_at']
-//            ])->assignRole($user['role']);
-//        }
+        foreach ($users as $user) {
+            User::create([
+                'mobile' => $user['mobile'],
+                'first_name' => $user['first_name'],
+                'last_name' => $user['last_name'],
+                'created_at' => $user['created_at'],
+                'updated_at' => $user['updated_at']
+            ])->assignRole($user['role']);
+        }
     }
 }

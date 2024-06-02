@@ -39,17 +39,14 @@
             "Settings\\": "modules/Settings/",
             "RolePermission\\": "modules/RolePermission/",
             "Common\\": "modules/Common/",
+            "Comment\\": "modules/Comment/",
             "Dashboard\\": "modules/Dashboard/",
             "Scheduling\\": "modules/Scheduling/",
             "Service\\": "modules/Service/",
-            "Ticket\\": "modules/Ticket/",
             "Category\\": "modules/Category",
             "File\\": "modules/File",
-            "Comment\\": "modules/Comment",
-            "Blog\\": "modules/Blog",
             "Otp\\": "modules/Otp",
-            "Front\\": "modules/Front",
-            "Banner\\": "modules/Banner"
+            "Front\\": "modules/Front"
         },
         "files": [
             "modules/Common/Helpers/helpers.php"
