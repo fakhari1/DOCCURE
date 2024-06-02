@@ -94,7 +94,7 @@
 
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link header-login" href="{{ route('login') }}">ورود به حساب کاربری</a>
+                        <a class="nav-link header-login" href="{{ route('auth.show-form') }}">ورود به حساب کاربری</a>
                     </li>
                 @endguest
                 @auth

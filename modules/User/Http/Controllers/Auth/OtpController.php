@@ -66,7 +66,7 @@ class OtpController extends Controller
         $otp = Otp::where('token', $token)->latest()->first();
 
         if (!$otp) {
-            return redirect()->route('login')->with(['error_msg' => 'توکن نامعتبر است؛ دوباره تلاش کنید!']);
+            return redirect()->route('auth-show-form')->with(['error_msg' => 'توکن نامعتبر است؛ دوباره تلاش کنید!']);
         }
 
         $seconds = Carbon::parse($otp->expired_at)->greaterThan(Carbon::now()) ? Carbon::parse($otp->expired_at)->diffInSeconds(Carbon::now()) : 0;
@@ -79,12 +79,12 @@ class OtpController extends Controller
         $otp = Otp::where('token', $request->otp_token)->where('verification_code', $request->verification_code)->first();
 
         if (!$otp) {
-            return redirect()->route('login')->with(['error_msg' => 'توکن نامعتبر است؛ دوباره تلاش کنید!']);
+            return redirect()->route('show-form')->with(['error_msg' => 'توکن نامعتبر است؛ دوباره تلاش کنید!']);
         }
 
         if ($otp->isExpired() or $otp->isAccepted()) {
             $otp->update(['status' => Otp::STATUS_EXPIRED]);
-            return redirect()->route('login')->with(['error_msg' => 'کد مورد نظر منقضی شده است؛ دوباره تلاش کنید!']);
+            return redirect()->route('show-form')->with(['error_msg' => 'کد مورد نظر منقضی شده است؛ دوباره تلاش کنید!']);
         }
 
         $otp->update(['status' => Otp::STATUS_ACCEPTED]);

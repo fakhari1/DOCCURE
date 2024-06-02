@@ -1,9 +1,5 @@
 @extends('Front::layouts.master')
 
-@section('head')
-    @yield('head')
-@endsection
-
 @section('header')
     <header class="header">
         <div class="top-header">

@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
                 'id' => Str::uuid(),
                 'first_name' => 'مدیر',
                 'last_name' => 'کل',
-                'mobile' => '9010335657',
+                'mobile' => '9123456789',
                 'mobile_verified_at' => null,
                 'national_code' => null,
                 'job' => null,
