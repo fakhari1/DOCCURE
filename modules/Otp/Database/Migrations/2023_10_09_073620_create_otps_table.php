@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('otps', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->uuid('user_id');
             $table->unsignedBigInteger('mobile');
             $table->unsignedInteger('verification_code');
             $table->string('token');
