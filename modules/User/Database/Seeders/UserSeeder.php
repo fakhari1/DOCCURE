@@ -19,8 +19,8 @@ class UserSeeder extends Seeder
         $users = [
             [
                 'id' => Str::uuid(),
-                'first_name' => 'مدیر',
-                'last_name' => 'کل',
+                'first_name' => 'مدیریت',
+                'last_name' => 'سایت',
                 'mobile' => '9123456789',
                 'mobile_verified_at' => null,
                 'national_code' => null,

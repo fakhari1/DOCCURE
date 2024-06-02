@@ -8,6 +8,8 @@ class Role extends \Spatie\Permission\Models\Role
 {
 
     const ROLE_SUPER_ADMIN = 'super admin';
+    const ROLE_DOCTOR = 'doctor';
+    const ROLE_ADMIN = 'admin';
     const ROLE_PATIENT = 'patient';
 
     public static $roles = [
