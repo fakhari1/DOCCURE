@@ -45,7 +45,6 @@
             "Service\\": "modules/Service/",
             "Category\\": "modules/Category",
             "File\\": "modules/File",
-            "Otp\\": "modules/Otp",
             "Front\\": "modules/Front"
         },
         "files": [

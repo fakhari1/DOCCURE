@@ -3,7 +3,6 @@
 namespace User\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Carbon\Carbon;
 use Comment\Models\Comment;
 use File\Models\Uploader;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,8 +11,6 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
-use Otp\Models\Otp;
-use RolePermission\Models\Permission;
 use RolePermission\Models\Role;
 use Scheduling\Models\Appointment;
 use Spatie\Permission\Traits\HasRoles;

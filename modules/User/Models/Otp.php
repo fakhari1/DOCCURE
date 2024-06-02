@@ -1,12 +1,10 @@
 <?php
 
-namespace Otp\Models;
+namespace User\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use phpDocumentor\Reflection\Types\Self_;
-use User\Models\User;
 
 class Otp extends Model
 {
