@@ -12,7 +12,7 @@ use User\Models\User;
 class AuthController extends Controller
 {
 
-    public function showLogin()
+    public function form()
     {
         return view('User::auth.login');
     }
