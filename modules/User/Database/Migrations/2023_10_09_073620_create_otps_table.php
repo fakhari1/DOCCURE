@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('user_id');
             $table->unsignedBigInteger('mobile');
             $table->unsignedInteger('verification_code');
-            $table->string('token');
+            $table->string('token')->unique();
             $table->timestamp('expired_at');
             $table->enum('status', [Otp::$statuses])->default(Otp::STATUS_PENDING);
             $table->timestamps();

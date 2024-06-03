@@ -31,10 +31,16 @@
                 <span class="countdown">00:00</span>
             </div>
             <div class="d-none otps-retry mb-4 text-center">
-                <a href="{{ route('otps.retry') }}" class="btn btn-outline-success p-2 btn-otps-retry"
-                   data-url="{{ route('otps.retry', ['token' => $token]) }}">
+                <a href="{{ route('otps.retry') }}"
+                   class="btn btn-outline-success p-2 btn-otps-retry"
+                >
                     ارسال مجدد کد تایید
                 </a>
+
+                <form action="{{ route('otps.retry') }}" method="post" id="form_retry_otp">
+                    @csrf
+                    <input type="hidden" name="token" value="{{ $token }}">
+                </form>
             </div>
         </div>
     </form>
@@ -44,6 +50,8 @@
     <script>
 
         $(document).ready(function () {
+            checkOtpExpired();
+
             let seconds = "{{ $seconds }}";
             let interval;
 
@@ -51,24 +59,6 @@
                 $('.otps-retry').removeClass('d-none');
 
             startTimer(seconds);
-
-            $('.btn-otps-retry').on('click', function (event) {
-                event.preventDefault();
-
-                $.ajax({
-                    url: $(this).data('url'),
-                    type: 'GET',
-                    success: function (res) {
-                        startTimer(res.data.seconds);
-
-                        $('.otps-retry').addClass('d-none');
-                        $('.login-btn').removeClass('disabled');
-                    },
-                    error: function (res) {
-                        console.error(res.data.data);
-                    }
-                })
-            })
 
             function startTimer(duration) {
                 let timer = duration, minutes, seconds;
@@ -88,6 +78,44 @@
                         $('.login-btn').addClass('disabled');
                     }
                 }, 1000);
+            }
+
+            // $('.btn-otps-retry').on('click', function (event) {
+            //     event.preventDefault();
+            //
+            //     $.ajax({
+            //         url: $(this).data('url'),
+            //         type: 'GET',
+            //         success: function (res) {
+            //             startTimer(res.data.seconds);
+            //
+            //             $('.otps-retry').addClass('d-none');
+            //             $('.login-btn').removeClass('disabled');
+            //         },
+            //         error: function (res) {
+            //             console.error(res.data.data);
+            //         }
+            //     })
+            // })
+
+            function checkOtpExpired() {
+                $.ajax({
+                    url: "{{ route('otps.check-expired') }}",
+                    type: 'POST',
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        token: "{{ $token }}"
+                    },
+                    success: function (res) {
+                        if (res.data.status) {
+                            $('.otps-retry').addClass('d-none');
+                            $('.login-btn').removeClass('disabled');
+                        }
+                    },
+                    error: function (res) {
+                        console.error(res);
+                    }
+                })
             }
         });
     </script>

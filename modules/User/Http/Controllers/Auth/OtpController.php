@@ -50,7 +50,7 @@ class OtpController extends Controller
 //        );
 
 //        if (is_numeric($res)) {
-            return redirect()->route('otps.get', ['token' => $token]);
+        return redirect()->route('otps.get', ['token' => $token]);
 //        }
 
 //        $otp->update([
@@ -151,5 +151,24 @@ class OtpController extends Controller
                 ]
             ]);
         }
+    }
+
+    public function checkExpired(Request $request)
+    {
+        $otp = Otp::where('token', $request->token)->first();
+
+        if ($otp->isExpired()) {
+            return response()->json([
+                'data' => [
+                    'status' => true
+                ]
+            ]);
+        }
+
+        return response()->json([
+            'data' => [
+                'status' => true
+            ]
+        ]);
     }
 }

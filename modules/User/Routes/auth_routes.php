@@ -14,7 +14,8 @@ Route::middleware(['web'])->group(function () {
             Route::post('/', [OtpController::class, 'create'])->name('otps.send');
             Route::get('get', [OtpController::class, 'showCheck'])->name('otps.get');
             Route::post('check', [OtpController::class, 'check'])->name('otps.check');
-            Route::get('retry', [OtpController::class, 'retry'])->name('otps.retry');
+            Route::post('retry', [OtpController::class, 'retry'])->name('otps.retry');
+            Route::post('check-expired', [OtpController::class, 'checkExpired'])->name('otps.check-expired');
 
         });
     });
