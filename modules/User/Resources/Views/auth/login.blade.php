@@ -6,7 +6,7 @@
     <div class="login-header mb-5">
         <h2 class="text-center">ورود به حساب کاربری</h2>
     </div>
-    <form method="POST" action="{{ route('otps.send') }}">
+    <form method="POST" action="{{ route('auth.otp.store') }}">
         @csrf
         <div class="form-group form-focus mb-5">
             <input type="text" class="form-control p-4" name="mobile" title="شماره همراه" style="direction: ltr !important; text-align: left !important;">

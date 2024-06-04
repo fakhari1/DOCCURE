@@ -22,7 +22,7 @@ class OtpGetRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'otp_token' => ['required', 'exists:otps,token'],
+            'token' => ['required', 'exists:otps,token'],
             'verification_code' => ['required', 'exists:otps,verification_code'],
         ];
     }

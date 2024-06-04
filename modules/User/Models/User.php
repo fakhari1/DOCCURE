@@ -28,6 +28,8 @@ class User extends Authenticatable
 
         static::creating(function ($model) {
             $model->id = Str::uuid();
+
+            $model->assignRole(Role::ROLE_PATIENT);
         });
     }
 
