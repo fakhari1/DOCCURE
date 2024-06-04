@@ -15,12 +15,7 @@ use User\Models\User;
 
 class OtpController extends Controller
 {
-
-    /**
-     * @throws \SoapFault
-     * @throws \Exception
-     */
-    public function create(OtpSendRequest $request)
+    public function store(OtpSendRequest $request)
     {
         $mobile = ltrim($request->mobile, '0');
         $user = User::query()->firstOrCreate(['mobile' => $mobile])->assignRole(Role::ROLE_PATIENT);
@@ -28,6 +23,10 @@ class OtpController extends Controller
         // $apiKey = config('sms.api_key');
         $verificationCode = rand(100000, 999999);
         $token = bin2hex(random_bytes(40));
+
+        if ($existsOtp = Otp::HasPendingCode($mobile)) {
+            return redirect()->route('otps.get', ['token' => $existsOtp->token])->with(['warning_msg' => 'شما یک کد منقضی نشده دارید؛ از همان کد استفاده کنید']);
+        }
 
         $otp = Otp::create([
             'user_id' => $user->id,
@@ -50,6 +49,7 @@ class OtpController extends Controller
 //        );
 
 //        if (is_numeric($res)) {
+        $seconds = Carbon::parse(now())->diffInSeconds(Carbon::parse($otp->expired_at));
         return redirect()->route('otps.get', ['token' => $token]);
 //        }
 
@@ -64,13 +64,79 @@ class OtpController extends Controller
         $token = $request->token;
         $otp = Otp::where('token', $token)->latest()->first();
 
-        if (!$otp) {
-            return redirect()->route('auth-show-form')->with(['error_msg' => 'توکن نامعتبر است؛ دوباره تلاش کنید!']);
+        if (!$otp) return redirect()->route('auth-show-form')->with(['error_msg' => 'توکن نامعتبر است؛ دوباره تلاش کنید!']);
+
+        return view('User::auth.otp-code', ['token' => $token]);
+    }
+
+    public function retry(Request $request)
+    {
+
+        $token = $request->token;
+        $otp = Otp::where('token', $token)->latest()->first();
+
+        if (!$otp) return redirect()->route('auth.show-form')->with(['error' => 'توکن نامعتبر؛ دوباره وارد شوید!']);
+
+        $otp->update(['status' => Otp::STATUS_EXPIRED]);
+
+        $user = $otp->user;
+
+        $verificationCode = rand(100000, 999999);
+        $token = bin2hex(random_bytes(40));
+
+        $newOtp = Otp::create([
+            'user_id' => $user->id,
+            'mobile' => $user->mobile,
+            'verification_code' => $verificationCode,
+            'expired_at' => Carbon::now()->addMinutes(2)->addSeconds(4)->format('Y-m-d H:i:s'),
+            'token' => $token
+        ]);
+
+//        $client = new SoapClient(config('sms.wsdl_url'));
+//
+//        $input_data = array("verification_code" => $verificationCode);
+//
+//        $res = $client->sendPatternSms(
+//            config('sms.originator'),
+//            $user->mobile,
+//            config('sms.username'),
+//            config('sms.password'),
+//            config('sms.pattern_code'),
+//            $input_data
+//        );
+
+
+//        if (is_numeric($res)) {
+//        $seconds = Carbon::parse($newOtp->expired_at)->greaterThan(Carbon::now()) ? Carbon::parse($newOtp->expired_at)->diffInSeconds(Carbon::now()) : 0;
+
+        $seconds = Carbon::parse($otp->expired_at)->diffInSeconds(Carbon::now());
+        dd($seconds);
+        return redirect()->route('otps.get', ['token' => $token]);
+
+//        }
+    }
+
+    public function checkExpired(Request $request)
+    {
+        $otp = Otp::where('token', $request->token)->first();
+
+        dd($otp->isExpired());
+        if ($otp->isExpired()) {
+            return response()->json([
+                'data' => [
+                    'status' => true
+                ]
+            ]);
         }
 
-        $seconds = Carbon::parse($otp->expired_at)->greaterThan(Carbon::now()) ? Carbon::parse($otp->expired_at)->diffInSeconds(Carbon::now()) : 0;
+        $seconds = Carbon::parse(now())->diffInSeconds(Carbon::parse($otp->expired_at));
 
-        return view('User::auth.otp-code', compact('token', 'seconds'));
+        return response()->json([
+            'data' => [
+                'status' => false,
+                'seconds' => $seconds
+            ]
+        ]);
     }
 
     public function check(OtpGetRequest $request)
@@ -95,80 +161,5 @@ class OtpController extends Controller
         Auth::login($user);
 
         return redirect()->route('home')->with(['success_msg' => 'به حساب کاربری خود خوش آمدید!']);
-    }
-
-    public function retry(Request $request)
-    {
-
-        $token = $request->token;
-        $otp = Otp::where('token', $token)->latest()->first();
-
-
-        if (!$otp) {
-            return response()->json([
-                'data' => [
-                    'status' => false,
-                    'msg' => 'توکن نامعتبر است؛ دوباره لاگین کنید!'
-                ]
-            ], 401);
-        }
-
-        $otp->update(['status' => Otp::STATUS_EXPIRED]);
-
-        $user = $otp->user;
-
-        $verificationCode = rand(100000, 999999);
-
-        $newOtp = Otp::create([
-            'user_id' => $user->id,
-            'mobile' => $user->mobile,
-            'verification_code' => $verificationCode,
-            'expired_at' => Carbon::now()->addMinutes(2)->addSeconds(2)->format('Y-m-d H:i:s'),
-            'token' => $token
-        ]);
-
-        $client = new SoapClient(config('sms.wsdl_url'));
-
-        $input_data = array("verification_code" => $verificationCode);
-
-        $res = $client->sendPatternSms(
-            config('sms.originator'),
-            $user->mobile,
-            config('sms.username'),
-            config('sms.password'),
-            config('sms.pattern_code'),
-            $input_data
-        );
-
-
-        if (is_numeric($res)) {
-            $seconds = Carbon::parse($newOtp->expired_at)->greaterThan(Carbon::now()) ? Carbon::parse($newOtp->expired_at)->diffInSeconds(Carbon::now()) : 0;
-
-            return response()->json([
-                'data' => [
-                    'status' => true,
-                    'seconds' => $seconds,
-                ]
-            ]);
-        }
-    }
-
-    public function checkExpired(Request $request)
-    {
-        $otp = Otp::where('token', $request->token)->first();
-
-        if ($otp->isExpired()) {
-            return response()->json([
-                'data' => [
-                    'status' => true
-                ]
-            ]);
-        }
-
-        return response()->json([
-            'data' => [
-                'status' => true
-            ]
-        ]);
     }
 }

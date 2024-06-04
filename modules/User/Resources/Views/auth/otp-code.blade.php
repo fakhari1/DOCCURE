@@ -33,70 +33,50 @@
             <div class="d-none otps-retry mb-4 text-center">
                 <a href="{{ route('otps.retry') }}"
                    class="btn btn-outline-success p-2 btn-otps-retry"
+                   onclick="event.preventDefault(); document.getElementById('form_retry_otp').submit()"
                 >
                     ارسال مجدد کد تایید
                 </a>
-
-                <form action="{{ route('otps.retry') }}" method="post" id="form_retry_otp">
-                    @csrf
-                    <input type="hidden" name="token" value="{{ $token }}">
-                </form>
             </div>
         </div>
+    </form>
+    <form action="{{ route('otps.retry') }}" method="post" id="form_retry_otp">
+        @csrf
+        <input type="hidden" name="token" value="{{ $token }}">
     </form>
 @endsection
 
 @section('script')
     <script>
-
         $(document).ready(function () {
             checkOtpExpired();
 
-            let seconds = "{{ $seconds }}";
-            let interval;
+            let seconds = 120;
+            let minutes = 0;
 
-            if (seconds == 0)
-                $('.otps-retry').removeClass('d-none');
+            let countdown = setInterval(function() {
+                minutes = Math.floor(seconds / 60);
+                seconds = seconds % 60;
 
-            startTimer(seconds);
-
-            function startTimer(duration) {
-                let timer = duration, minutes, seconds;
-                interval = setInterval(function () {
-                    minutes = parseInt(timer / 60, 10);
-                    seconds = parseInt(timer % 60, 10);
-
-                    minutes = minutes < 10 ? "0" + minutes : minutes;
-                    seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                    $('.countdown').html(minutes + ":" + seconds);
-
-                    if (--timer < 0) {
-                        // timer = duration;
-                        clearInterval(interval);
+                if (seconds > 0) {
+                    seconds--;
+                } else {
+                    if (minutes > 0) {
+                        minutes--;
+                        seconds = 59;
+                    } else {
+                        clearInterval(countdown);
+                        $('.login-btn').addClass('d-none');
                         $('.otps-retry').removeClass('d-none');
-                        $('.login-btn').addClass('disabled');
                     }
-                }, 1000);
-            }
+                }
 
-            // $('.btn-otps-retry').on('click', function (event) {
-            //     event.preventDefault();
-            //
-            //     $.ajax({
-            //         url: $(this).data('url'),
-            //         type: 'GET',
-            //         success: function (res) {
-            //             startTimer(res.data.seconds);
-            //
-            //             $('.otps-retry').addClass('d-none');
-            //             $('.login-btn').removeClass('disabled');
-            //         },
-            //         error: function (res) {
-            //             console.error(res.data.data);
-            //         }
-            //     })
-            // })
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                seconds = seconds < 10 ? '0' + seconds : seconds;
+
+                $('.countdown').text(minutes + ":" + seconds);
+
+            }, 1000); // Update the timer every second
 
             function checkOtpExpired() {
                 $.ajax({
@@ -107,9 +87,11 @@
                         token: "{{ $token }}"
                     },
                     success: function (res) {
+                        console.log(res.data.status)
                         if (res.data.status) {
-                            $('.otps-retry').addClass('d-none');
-                            $('.login-btn').removeClass('disabled');
+                            $('.login-btn').addClass('d-none');
+                            $('.otps-retry').removeClass('d-none');
+                            clearInterval(countdown);
                         }
                     },
                     error: function (res) {

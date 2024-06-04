@@ -11,7 +11,7 @@ Route::middleware(['web'])->group(function () {
 
         Route::prefix('auth/code')->group(function () {
 
-            Route::post('/', [OtpController::class, 'create'])->name('otps.send');
+            Route::post('/', [OtpController::class, 'store'])->name('otps.send');
             Route::get('get', [OtpController::class, 'showCheck'])->name('otps.get');
             Route::post('check', [OtpController::class, 'check'])->name('otps.check');
             Route::post('retry', [OtpController::class, 'retry'])->name('otps.retry');

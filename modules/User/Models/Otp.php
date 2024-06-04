@@ -5,6 +5,7 @@ namespace User\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use phpDocumentor\Reflection\Types\Self_;
 
 class Otp extends Model
 {
@@ -38,7 +39,7 @@ class Otp extends Model
 
     public function isExpired()
     {
-        if (Carbon::parse($this->expired_at)->lessThan(Carbon::now())) {
+        if (Carbon::now()->greaterThanOrEqualTo(Carbon::parse($this->expired_at))) {
             $this->update(['status' => self::STATUS_EXPIRED]);
             return true;
         }
@@ -49,5 +50,25 @@ class Otp extends Model
     public function isAccepted()
     {
         return $this->status == self::STATUS_ACCEPTED;
+    }
+
+    public function scopeHasPendingCode($query, $mobile)
+    {
+        $existsOtp = $query
+            ->where('mobile', $mobile)
+            ->where('expired_at', '>', Carbon::now())
+            ->where('status', self::STATUS_PENDING)
+            ->first();
+        return $existsOtp ?? false;
+    }
+
+    public function scopeHasExpiredCode($query, $mobile)
+    {
+        $existsOtp = $query
+            ->where('mobile', $mobile)
+            ->where('expired_at', '<', Carbon::now())
+            ->get();
+
+        return count($existsOtp) > 0 ? $existsOtp : false;
     }
 }

@@ -27,3 +27,18 @@
         });
     </script>
 @endif
+
+@if(session()->has('warning_msg'))
+    <script src="{{ asset("assets/js/jquery-3.6.0.min.js") }}" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function () {
+            Swal.fire({
+                title: "دقت کنید!",
+                text: "{{ session('warning_msg') }}",
+                icon: "warning",
+                confirmButtonText: 'باشه'
+            });
+        });
+    </script>
+@endif
