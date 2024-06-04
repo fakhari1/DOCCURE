@@ -93,7 +93,7 @@
 
                     $('.countdown').html(minutes + ":" + seconds);
 
-                    if (--timer <= 0) {
+                    if (--timer < 0) {
                         // timer = duration;
                         clearInterval(interval);
                         $('.otps-retry').removeClass('d-none');
