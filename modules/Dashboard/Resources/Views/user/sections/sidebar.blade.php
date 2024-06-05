@@ -6,19 +6,19 @@
                     <li class="menu-title">
                         <span>پیشخوان بیمار</span>
                     </li>
-                    <li class="@if(Illuminate\Support\Facades\Route::is('dashboard.user.index')) active @endif">
+                    <li class="@if(Route::is('dashboard.user.index')) active @endif">
                         <a href="{{ route('dashboard.user.index') }}">
                             <i class="fa-solid fa-home"></i>
                             <span>خانه</span>
                         </a>
                     </li>
-                    <li class="@if(Illuminate\Support\Facades\Route::is('user.bookings.index')) active @endif">
+                    <li class="@if(Route::is('user.bookings.index')) active @endif">
                         <a href="{{ route('user.bookings.index') }}" class="">
                             <i class="fa-solid fa-calendar-check"></i>
                             <span>رزرو نوبت</span>
                         </a>
                     </li>
-                    <li class="@if(Illuminate\Support\Facades\Route::is('user.appointments.index')) active @endif">
+                    <li class="@if(Route::is('user.appointments.index')) active @endif">
                         <a href="{{ route('user.appointments.index') }}" class="">
                             <i class="fa-solid fa-calendar-times"></i>
                             <span>نوبت های رزرو شده</span>
@@ -28,7 +28,7 @@
                     {{--                        <a href=""><i--}}
                     {{--                                    class="fa-solid fa-chart-line"></i> <span>تراکنش‌ها</span></a>--}}
                     {{--                    </li>--}}
-                    <li>
+                    <li class="@if(Route::is('users.profile')) active @endif">
                         <a href=""><i class="fa-solid fa-user"></i> <span>پروفایل</span></a>
                     </li>
 

@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace Modules\Settings\Http\Middlewares;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Settings\Settings\GeneralSettings;
 use Symfony\Component\HttpFoundation\Response;
 
