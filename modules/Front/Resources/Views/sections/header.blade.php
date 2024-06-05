@@ -8,15 +8,15 @@
                     <div class="col-12 col-md-8">
                         <div class="right">
                             <ul>
-                                @if($settings->landline_phones)
+                                @if(count($settings->landline_phones))
                                     <li>
-                                        <span>شماره تماس (ها):</span>
+                                        <span>شماره (های) تماس:</span>
                                         @foreach($settings->landline_phones as $key => $phone)
                                             | <span>{{ $phone }}</span>
                                         @endforeach
                                     </li>
                                 @endif
-                                @if($settings->address)
+                                @if($settings->address != '' or !$settings->address != null)
                                     <li>
                                         <span>آدرس:</span>
                                         <span>{{ $settings->address }}</span>

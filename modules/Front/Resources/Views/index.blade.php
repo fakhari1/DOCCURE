@@ -12,7 +12,7 @@
             <div class="banner-wrapper">
                 <div class="banner-header">
                     <p>خوش آمدید</p>
-                    <h1 class="sahel_black">{{ $settings->doctor_name }}</h1>
+                    <h1 class="sahel_black">{{ $settings->title }}</h1>
                     <h3 class="bold text-white">{{ $settings->specialization }}</h3>
                     @if($settings->description)
                         <p class="small-text">

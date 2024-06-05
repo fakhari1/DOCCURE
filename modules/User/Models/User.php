@@ -72,6 +72,10 @@ class User extends Authenticatable
         return Auth::user()->hasRole(Role::ROLE_SUPER_ADMIN);
     }
 
+    public function isUser() {
+        return Auth::user()->hasRole(Role::ROLE_PATIENT);
+    }
+
     public function appointments()
     {
         return $this->hasMany(Appointment::class, 'user_id', 'id');
@@ -89,7 +93,10 @@ class User extends Authenticatable
 
     public function hasCompletedProfile()
     {
-        if ($this->first_name != null and $this->last_name != null and $this->national_code != null) {
+        if ($this->first_name != null and
+            $this->last_name != null and
+            $this->national_code != null
+        ) {
             return true;
         }
         return false;

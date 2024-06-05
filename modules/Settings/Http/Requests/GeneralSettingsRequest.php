@@ -19,7 +19,7 @@ class GeneralSettingsRequest extends FormRequest
         return match ($this->method()) {
             'POST' => [
                 'site_name' => ['required'],
-                'doctor_name' => ['required'],
+                'title' => ['required'],
                 'specialization' => ['required'],
                 'description' => ['nullable', 'string', 'min:5'],
                 'phones' => ['nullable', 'array'],

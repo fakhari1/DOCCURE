@@ -11,22 +11,22 @@
         @csrf
 
         <div class="form-group">
-            <label>نام وبسایت</label>
             <span class="text-danger">*</span>
+            <label>نام وبسایت</label>
             <input type="text" name="site_name" class="form-control"
                    value="{{ $settings->site_name ?? old('site_name') }}">
         </div>
 
         <div class="form-group">
-            <label>نام پزشک (یا نام مستعار)</label>
             <span class="text-danger">*</span>
-            <input type="text" name="doctor_name" class="form-control"
-                   value="{{ $settings->doctor_name ?? old('doctor_name') }}">
+            <label>عنوان نمایشی صفحه اصلی سایت (نمونه: پایگاه اینترنتی نوبت دهی دکتر مجید سمیعی)</label>
+            <input type="text" name="title" class="form-control"
+                   value="{{ $settings->title ?? old('title') }}">
         </div>
 
         <div class="form-group">
-            <label for="">تخصص، حیطه کاری</label>
             <span class="text-danger">*</span>
+            <label for="">تخصص</label>
             <input type="text" name="specialization" class="form-control"
                    value="{{ $settings->specialization ?? old('specialization') }}">
         </div>

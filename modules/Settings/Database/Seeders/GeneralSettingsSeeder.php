@@ -10,7 +10,7 @@ class GeneralSettingsSeeder extends Seeder
 //        $settings = new GeneralSettings();
 //
 //        $settings->site_name = 'مطب دکتر پزشکیان';
-//        $settings->doctor_name = 'دکتر مسعود پزشکیان';
+//        $settings->title = 'دکتر مسعود پزشکیان';
 //        $settings->specialization = 'داخلی، اطفال، پوست و مو';
 //        $settings->description = 'زیبایی و سلامتی را برای شما به ارمغان آورده ایم';
 //        $settings->landline_phones = [

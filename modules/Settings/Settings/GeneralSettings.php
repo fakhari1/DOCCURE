@@ -8,7 +8,7 @@ class GeneralSettings extends Settings
 {
     public $site_name;
     public $specialization;
-    public $doctor_name;
+    public $title;
     public $landline_phones;
     public $description;
     public $address;

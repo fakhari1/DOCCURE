@@ -7,7 +7,7 @@ return new class extends SettingsMigration
     public function up(): void
     {
         $this->migrator->add('general.site_name');
-        $this->migrator->add('general.doctor_name');
+        $this->migrator->add('general.title');
         $this->migrator->add('general.specialization');
         $this->migrator->add('general.description');
         $this->migrator->add('general.landline_phones');

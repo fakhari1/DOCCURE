@@ -1,4 +1,5 @@
-<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar"
+     style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
     <div class="theiaStickySidebar" style="padding-bottom: 1px; padding-top: 0px; position: relative; transform: none;">
         <div class="profile-sidebar">
             <div class="widget-profile pro-widget-content">
@@ -7,7 +8,7 @@
                         <img src="{{ asset('assets/images/doctor/doctor-thumb.jpg') }}" alt="User Image">
                     </a>
                     <div class="profile-det-info">
-                        <h3> {{ $settings->doctor_name }}</h3>
+                        <h3> {{ $settings->title }}</h3>
                         <div class="patient-details">
                             <h5 class="mb-0"> {{ $settings->specialization }} </h5>
                         </div>
@@ -17,7 +18,7 @@
             <div class="dashboard-widget">
                 <nav class="dashboard-menu">
                     <ul>
-                        <li class="{{ Illuminate\Support\Facades\Route::is('dashboard.admin.index') ? 'active' : '' }}">
+                        <li class="@if(Route::is('dashboard.admin.index')) active @endif">
                             <a href="{{ route('dashboard.admin.index') }}">
                                 <i class="fas fa-columns"></i>
                                 <span>پیشخوان</span>
@@ -35,13 +36,13 @@
                         {{--                                <span>مراجعه‌کنندگان من</span>--}}
                         {{--                            </a>--}}
                         {{--                        </li>--}}
-                        <li class="{{ $Route::is('admin.open-dates.index') ? 'active' : '' }}">
+                        <li class="@if(Route::is('admin.open-dates.index')) active @endif">
                             <a href="{{ route('admin.open-dates.index') }}">
                                 <i class="fas fa-hourglass-start"></i>
                                 <span>زمان بندی ها</span>
                             </a>
                         </li>
-                        <li class="{{ $Route::is('admin.open-dates.times.appointments.index') ? 'active' : '' }}">
+                        <li class="@if(Route::is('admin.open-dates.times.appointments.index')) active @endif">
                             <a href="{{ route('admin.open-dates.times.appointments.index') }}">
                                 <i class="fa-solid fa-calendar"></i>
                                 <span>نوبت ها</span>
@@ -53,12 +54,12 @@
                         {{--                                <span>صورت‌حساب</span>--}}
                         {{--                            </a>--}}
                         {{--                        </li>--}}
-                        {{--                        <li>--}}
-                        {{--                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/reviews.html">--}}
-                        {{--                                <i class="fas fa-star"></i>--}}
-                        {{--                                <span>نظرات</span>--}}
-                        {{--                            </a>--}}
-                        {{--                        </li>--}}
+                        <li>
+                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/reviews.html">
+                                <i class="fa-solid fa-comment"></i>
+                                <span>نظرات</span>
+                            </a>
+                        </li>
                         {{--                        <li>--}}
                         {{--                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/chat-doctor.html">--}}
                         {{--                                <i class="fas fa-comments"></i>--}}
@@ -66,13 +67,13 @@
                         {{--                                <small class="unread-msg">23</small>--}}
                         {{--                            </a>--}}
                         {{--                        </li>--}}
-                        <li>
+                        <li class="@if(Route::is('users.profile')) active  @endif">
                             <a href="{{ route('users.profile') }}">
                                 <i class="fas fa-user-cog"></i>
                                 <span>تنظیمات پروفایل</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="@if(Route::is('admin.settings.general.index')) active @endif">
                             <a href="{{ route('admin.settings.general.index') }}">
                                 <i class="fas fa-cog"></i>
                                 <span>تنظیمات سایت</span>

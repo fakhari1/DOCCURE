@@ -20,7 +20,7 @@
                                  class="mw-100-px">
                         </a>
                         <div class="booking-info">
-                            <h5 class="mb-4"><a href="">{{ $settings->doctor_name }}</a></h5>
+                            <h5 class="mb-4"><a href="">{{ $settings->title }}</a></h5>
 
                             <p class="text-muted mb-4">
                                 {{ $settings->description }}
