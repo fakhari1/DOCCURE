@@ -34,7 +34,11 @@
         <tbody>
         @if(!count($dates))
             <tr>
-                <td colspan="10" class="text-center">آیتمی در سیستم ثبت نشده است.</td>
+                <td colspan="10" class="text-center text-danger">
+                    <span>
+                        ردیف برای نمایش وجود ندارد
+                    </span>
+                </td>
             </tr>
         @else
             @foreach($dates as $key => $date)

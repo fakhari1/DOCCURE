@@ -23,8 +23,10 @@
         <tbody>
         @if(!count($appointments))
             <tr>
-                <td colspan="10" class="text-center">
-                    آیتمی برای نمایش وجود ندارد!
+                <td colspan="10" class="text-center text-danger">
+                    <span>
+                        ردیف برای نمایش وجود ندارد
+                    </span>
                 </td>
             </tr>
         @else

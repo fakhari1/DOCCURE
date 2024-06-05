@@ -56,9 +56,9 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function comment()
+    public function comments()
     {
-        return $this->hasMany(Comment::class, 'author_id');
+        return $this->hasMany(Comment::class);
 
     }
 
@@ -69,7 +69,7 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        return auth()->user()->hasRole(Role::ROLE_SUPER_ADMIN);
+        return Auth::user()->hasRole(Role::ROLE_SUPER_ADMIN);
     }
 
     public function appointments()

@@ -88,17 +88,17 @@ class AuthController extends Controller
         $otp = Otp::where('token', $request->token)->where('verification_code', $request->verification_code)->first();
 
         if (!$otp) {
-            return redirect()->route('show-form')->with(['error_msg' => 'توکن نامعتبر است؛ دوباره تلاش کنید!']);
+            return redirect()->route('auth.show-form')->with(['error_msg' => 'توکن نامعتبر است؛ دوباره تلاش کنید!']);
         }
 
         if ($otp->isExpired() or $otp->isAccepted()) {
             $otp->update(['status' => Otp::STATUS_EXPIRED]);
-            return redirect()->route('show-form')->with(['error_msg' => 'کد مورد نظر منقضی شده است؛ دوباره تلاش کنید!']);
+            return redirect()->route('auth.show-form')->with(['error_msg' => 'کد مورد نظر منقضی شده است؛ دوباره تلاش کنید!']);
         }
 
         $otp->update(['status' => Otp::STATUS_ACCEPTED]);
 
-        $user = User::whereId($otp->user_id)->first();
+        $user = $otp->user;
 
         $user->update(['mobile_verified_at' => Carbon::now()->format('Y-m-d H:i:s')]);
 
