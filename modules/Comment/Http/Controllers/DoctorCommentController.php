@@ -4,7 +4,7 @@ namespace Comment\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
-class CommentController extends Controller
+class DoctorCommentController extends Controller
 {
     public function index()
     {

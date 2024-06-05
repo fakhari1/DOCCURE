@@ -24,6 +24,12 @@
                             <span>نوبت های رزرو شده</span>
                         </a>
                     </li>
+                    <li class="@if(Route::is('user.comments.index')) active @endif">
+                        <a href="{{ route('user.comments.index') }}" class="">
+                            <i class="fa-solid fa-comment-o"></i>
+                            <span>نظرات من</span>
+                        </a>
+                    </li>
                     {{--                    <li>--}}
                     {{--                        <a href=""><i--}}
                     {{--                                    class="fa-solid fa-chart-line"></i> <span>تراکنش‌ها</span></a>--}}

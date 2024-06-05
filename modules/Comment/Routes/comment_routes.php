@@ -1,15 +1,30 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use Comment\Http\Controllers\DoctorCommentController;
+use Comment\Http\Controllers\UserCommentController;
 
-Route::group([
-    'namespace'=>'Comment\Http\Controllers',
-    'middleware'=>'web'],function (){
-    Route::get('/comments','CommentController@index')->name('comments.index');
-    Route::get('/comments/create','CommentController@create')->name('comments.create');
-    Route::post('/comments','CommentController@store')->name('comments.store');
-    Route::get('/comments/{id}','CommentController@show')->name('comments.show');
-    Route::get('/comments/{id}/edit','CommentController@show')->name('comments.edit');
-    Route::put('/comments/{id}','CommentController@update')->name('comments.update');
-    Route::delete('/comments/{id}','CommentController@destroy')->name('comments.destroy');
+Route::middleware(['web', 'auth'])
+    ->prefix('dashboard')
+    ->group(function () {
 
-});
+        Route::middleware(['admin'])
+            ->prefix('doctor')
+            ->group(function () {
+                Route::get('comments', [DoctorCommentController::class, 'index'])->name('admin.comments.index');
+                Route::post('comments', [DoctorCommentController::class, 'store'])->name('admin.comments.store');
+                Route::get('comments/{comment}/create', [DoctorCommentController::class, 'create'])->name('admin.comments.create');
+                Route::patch('comments/{comment}', [DoctorCommentController::class, 'update'])->name('admin.comments.update');
+                Route::delete('comments/{comment}', [DoctorCommentController::class, 'destroy'])->name('admin.comments.delete');
+            });
+
+        Route::middleware(['user'])
+            ->prefix('user')
+            ->group(function () {
+                Route::get('comments', [UserCommentController::class, 'index'])->name('user.comments.index');
+                Route::post('comments', [UserCommentController::class, 'store'])->name('user.comments.store');
+                Route::get('comments/{comment}/create', [UserCommentController::class, 'create'])->name('user.comments.create');
+                Route::patch('comments/{comment}', [UserCommentController::class, 'update'])->name('user.comments.update');
+                Route::delete('comments/{comment}', [UserCommentController::class, 'destroy'])->name('user.comments.delete');
+            });
+
+    });
