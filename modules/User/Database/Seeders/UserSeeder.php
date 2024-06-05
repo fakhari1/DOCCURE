@@ -3,6 +3,7 @@
 namespace User\Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use RolePermission\Models\Role;
 use User\Models\User;
@@ -121,13 +122,15 @@ class UserSeeder extends Seeder
         ];
 //
         foreach ($users as $user) {
-            User::create([
+            DB::table('users')->insert([
                 'mobile' => $user['mobile'],
                 'first_name' => $user['first_name'],
                 'last_name' => $user['last_name'],
                 'created_at' => $user['created_at'],
                 'updated_at' => $user['updated_at']
-            ])->assignRole($user['role']);
+            ]);
+
+            User::where('mobile', $user['mobile'])->assignRole($user['role']);
         }
     }
 }
