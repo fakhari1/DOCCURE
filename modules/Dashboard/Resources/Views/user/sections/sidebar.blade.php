@@ -26,7 +26,7 @@
                     </li>
                     <li class="@if(Route::is('user.comments.index')) active @endif">
                         <a href="{{ route('user.comments.index') }}" class="">
-                            <i class="fa-solid fa-comment-o"></i>
+                            <i class="fa-solid fa-comment"></i>
                             <span>نظرات من</span>
                         </a>
                     </li>

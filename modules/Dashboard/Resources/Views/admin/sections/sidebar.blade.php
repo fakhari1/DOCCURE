@@ -54,10 +54,10 @@
                         {{--                                <span>صورت‌حساب</span>--}}
                         {{--                            </a>--}}
                         {{--                        </li>--}}
-                        <li>
-                            <a href="https://atiyehahmadi.ir/doccure/pediatric-rtl/reviews.html">
-                                <i class="fa-solid fa-comment"></i>
-                                <span>نظرات</span>
+                        <li class="@if(Route::is('admin.comments.index')) active @endif">
+                            <a href="{{ route('admin.comments.index') }}" class="">
+                                <i class="fa-solid fa-comments"></i>
+                                <span>نظرات من</span>
                             </a>
                         </li>
                         {{--                        <li>--}}

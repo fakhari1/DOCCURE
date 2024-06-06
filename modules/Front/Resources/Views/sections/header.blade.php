@@ -8,7 +8,7 @@
                     <div class="col-12 col-md-8">
                         <div class="right">
                             <ul>
-                                @if(count($settings->landline_phones))
+                                @if(!is_null($settings->landline_phones) and count($settings->landline_phones))
                                     <li>
                                         <span>شماره (های) تماس:</span>
                                         @foreach($settings->landline_phones as $key => $phone)
