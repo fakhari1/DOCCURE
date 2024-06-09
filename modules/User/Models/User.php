@@ -44,7 +44,7 @@ class User extends Authenticatable
     ];
 
     protected $appends = [
-        'full_name'
+        'name'
     ];
 
     protected $hidden = [
@@ -86,7 +86,7 @@ class User extends Authenticatable
         return Auth::user()->appointments()->get();
     }
 
-    public function getFullNameAttribute(): string
+    public function getNameAttribute(): string
     {
         return $this->first_name . ' ' . $this->last_name;
     }

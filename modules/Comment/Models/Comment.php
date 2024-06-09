@@ -20,7 +20,7 @@ class Comment extends Model
         'last_answer'
     ];
 
-    public function user()
+    public function author()
     {
         return $this->belongsTo(User::class, 'author_id');
     }
@@ -43,5 +43,10 @@ class Comment extends Model
     public function getLastAnswerAttribute()
     {
         return $this->answers()?->latest()->first();
+    }
+
+    public function scopeIsNotAnswer($query)
+    {
+        return $query->where('parent_id', null);
     }
 }

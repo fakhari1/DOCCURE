@@ -11,7 +11,7 @@ class UserCommentController extends Controller
 {
     public function index()
     {
-        $comments = Comment::where('author_id', Auth::id())->get();
+        $comments = Comment::where('author_id', Auth::id())->IsNotAnswer()->get();
 
         return view('Comment::user.index', compact('comments'));
     }
@@ -34,7 +34,7 @@ class UserCommentController extends Controller
 
         return view('Comment::user.show', compact('comment'));
     }
-    
+
     public function edit($id)
     {
 

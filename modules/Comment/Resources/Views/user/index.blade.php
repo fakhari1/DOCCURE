@@ -45,11 +45,10 @@
                         @endif
                     </td>
                     <td>
-{{--                        @if($comment->hasAnswer())--}}
-                            <a href="{{ route('user.comments.') }}" class="btn btn-sm btn-warning">
-                                <i class="fa-solid fa-retweet"></i>
-                            </a>
-{{--                        @endif--}}
+                        <a href="{{ route('user.comments.show', ['comment' => $comment]) }}"
+                           class="btn btn-sm btn-warning">
+                            <i class="fa-solid fa-retweet"></i>
+                        </a>
                     </td>
                 </tr>
             @endforeach

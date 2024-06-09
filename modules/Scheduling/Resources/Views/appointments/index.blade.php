@@ -34,7 +34,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td class="text-center">
-                        {{ $app->user->full_name }}
+                        {{ $app->user->name }}
                     </td>
                     <td class="text-center">
                         {{ $app->user->national_code }}
