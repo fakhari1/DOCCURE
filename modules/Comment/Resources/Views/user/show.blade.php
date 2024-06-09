@@ -23,6 +23,7 @@
         </div>
         @if($comment->hasAnswer())
             @include('Comment::user.sections.answer', ['comment' => $comment])
+            <input type="hidden" name="parent_id" value="{{ $comment->last_answer->id }}">
             <div class="row mb-4">
                 <div class="col-12 ">
                     <div class="form-group">

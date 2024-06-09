@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use Comment\Models\Comment;
 return new class extends Migration
 {
     /**
@@ -16,6 +16,7 @@ return new class extends Migration
             $table->uuid('author_id')->nullable();
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->string('text');
+            $table->string('status')->default(Comment::STATUS_PENDING);
             $table->timestamps();
         });
     }

@@ -13,11 +13,21 @@ class Comment extends Model
     protected $fillable = [
         'text',
         'parent_id',
-        'author_id'
+        'author_id',
+        'status'
     ];
 
     protected $appends = [
-        'last_answer'
+        'last_answer',
+        'status_badge'
+    ];
+
+    const STATUS_PENDING = 'pending';
+    const STATUS_ACCEPTED = 'accepted';
+
+    protected $statuses = [
+        self::STATUS_ACCEPTED,
+        self::STATUS_PENDING
     ];
 
     public function author()
@@ -45,8 +55,31 @@ class Comment extends Model
         return $this->answers()?->latest()->first();
     }
 
+    public function getStatusBadgeAttribute()
+    {
+        $className = $this->isAccepted() ? 'bg-success' : 'bg-warning';
+        $statusName = trans($this->status);
+
+        return "<span class='badge {$className}'>{$statusName}</span>";
+    }
+
+    public function isAccepted() {
+        return $this->status == self::STATUS_ACCEPTED;
+    }
+
     public function scopeIsNotAnswer($query)
     {
         return $query->where('parent_id', null);
     }
+
+    public function scopePending($query)
+    {
+        return $query->where('status', self::STATUS_PENDING);
+    }
+
+    public function scopeAccepted($query)
+    {
+        return $query->where('status', self::STATUS_ACCEPTED);
+    }
+
 }

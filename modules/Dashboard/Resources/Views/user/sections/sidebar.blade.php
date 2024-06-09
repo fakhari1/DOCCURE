@@ -35,7 +35,7 @@
                     {{--                                    class="fa-solid fa-chart-line"></i> <span>تراکنش‌ها</span></a>--}}
                     {{--                    </li>--}}
                     <li class="@if(Route::is('users.profile')) active @endif">
-                        <a href=""><i class="fa-solid fa-user"></i> <span>پروفایل</span></a>
+                        <a href="{{ route('users.profile') }}"><i class="fa-solid fa-user"></i> <span>پروفایل</span></a>
                     </li>
 
                     <li>

@@ -23,6 +23,7 @@ class UserCommentStoreRequest extends FormRequest
     {
         return [
             'body'=> ['required'],
+            'parent_id' => ['nullable'],
         ];
     }
 }

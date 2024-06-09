@@ -23,7 +23,8 @@ class UserCommentController extends Controller
     {
         Comment::create([
             'author_id' => Auth::id(),
-            'text' => $request->body
+            'text' => $request->body,
+            'parent_id' => $request->parent_id ?? null
         ]);
 
         return redirect()->route('user.comments.index')->with(['success_msg' => 'اطلاعات با موفقیت ثبت شد!']);

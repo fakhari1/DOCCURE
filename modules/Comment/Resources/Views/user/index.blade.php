@@ -21,7 +21,9 @@
         <tr>
             <th>#</th>
             <th class="text-center">تاریخ ارسال</th>
+            <th class="text-center">متن</th>
             <th class="text-center">تاریخ آخرین پاسخ</th>
+            <th class="text-center">وضعیت</th>
             <th class="text-center">عملیات</th>
         </tr>
         </thead>
@@ -35,6 +37,9 @@
                 <tr>
                     <td class="text-center">{{ $loop->iteration }}</td>
                     <td class="text-center">
+                        {{ $comment->text }}
+                    </td>
+                    <td class="text-center">
                         {{ Morilog\Jalali\Jalalian::fromCarbon(Carbon\Carbon::parse($comment->created_at))->format('Y/m/d') }}
                     </td>
                     <td class="text-center">
@@ -44,7 +49,10 @@
                             <span>پاسخ داده نشده است</span>
                         @endif
                     </td>
-                    <td>
+                    <td class="text-center">
+                        {!! $comment->status_badge !!}
+                    </td>
+                    <td class="text-center">
                         <a href="{{ route('user.comments.show', ['comment' => $comment]) }}"
                            class="btn btn-sm btn-warning">
                             <i class="fa-solid fa-retweet"></i>

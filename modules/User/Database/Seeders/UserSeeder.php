@@ -30,17 +30,18 @@ class UserSeeder extends Seeder
                 'updated_at' => '2022-04-24 15:38:51',
                 'role' => Role::ROLE_SUPER_ADMIN
             ],
-//            [
-//                'first_name' => 'بیمار 1',
-//                'last_name' => null,
-//                'mobile' => '9112367891',
-//                'mobile_verified_at' => null,
-//                'national_code' => null,
-//                'job' => null,
-//                'created_at' => '2022-04-22 17:48:28',
-//                'updated_at' => '2022-04-24 15:38:51',
-//                'role' => Role::ROLE_PATIENT
-//            ],
+            [
+                'id' => Str::uuid(),
+                'first_name' => 'بیمار 1',
+                'last_name' => null,
+                'mobile' => '9112367891',
+                'mobile_verified_at' => null,
+                'national_code' => null,
+                'job' => null,
+                'created_at' => '2022-04-22 17:48:28',
+                'updated_at' => '2022-04-24 15:38:51',
+                'role' => Role::ROLE_PATIENT
+            ],
 //            /*[
 //                'first_name' => 'patient 2',
 //                'last_name' => null,
