@@ -3,6 +3,8 @@
 namespace Comment\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Comment\Http\Requests\AdminCommentUpdateRequest;
+use Comment\Http\Requests\UserCommentStoreRequest;
 use Comment\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,14 +17,16 @@ class DoctorCommentController extends Controller
         return view('Comment::admin.index', compact('comments'));
     }
 
-    public function create()
+    public function store(UserCommentStoreRequest $request)
     {
+        Comment::create([
+            'parent_id' => $request->parent_id,
+            'author_id' => Auth::id(),
+            'status' => Comment::STATUS_ACCEPTED,
+            'text' => $request->body,
+        ]);
 
-    }
-
-    public function store()
-    {
-
+        return redirect()->back()->with(['success_msg' => 'عملیات موفق']);
     }
 
     public function  show(Comment $comment)
@@ -32,14 +36,18 @@ class DoctorCommentController extends Controller
         return view('Comment::admin.show', compact('comment'));
     }
 
-    public function edit($id)
+    public function edit(Comment $comment)
     {
-
+        return view('Comment::admin.edit', compact('comment'));
     }
 
-    public function update($id)
+    public function update(AdminCommentUpdateRequest $request, Comment $comment)
     {
+        $comment->update([
+            'text' => $request->body
+        ]);
 
+        return redirect()->route('admin.comments.index')->with(['success_msg' => 'عملیات موفق']);
     }
 
     public function destroy(Comment $comment)
@@ -50,7 +58,7 @@ class DoctorCommentController extends Controller
 
         $comment->delete();
 
-        return redirect()->back()->with(['success_msg' => 'عملیات موفق']);
+        return redirect()->route('admin.comments.index')->with(['success_msg' => 'عملیات موفق']);
     }
 
     public function updateStatus(Comment $comment)

@@ -6,7 +6,7 @@
                     <div class="card-header">
                         <div class="d-flex justify-content-between">
                             <div>
-                                @if($answer->author_id == auth()->id())
+                                @if($answer->author_id == auth()->id() && !$answer->hasAnswer())
                                     <div class="buttons">
                                         <a href="{{ route('admin.comments.edit', ['comment' => $answer]) }}" class="btn btn-sm btn-warning">
                                             <i class="fa-solid fa-pen"></i>
@@ -39,7 +39,7 @@
                 </div>
             </div>
         </div>
-
+        <input type="hidden" name="parent_id" value="{{ $comment->last_answer?->id }}">
         @if($comment->hasAnswer())
             @include('Comment::admin.sections.answer', ['comment' => $answer])
         @endif
