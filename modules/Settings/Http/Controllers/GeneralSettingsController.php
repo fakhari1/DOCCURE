@@ -32,6 +32,6 @@ class GeneralSettingsController extends Controller
 
         return redirect()
             ->route('dashboard.admin.index')
-            ->with(['success_msg' => 'تنظیمات با موفقیت  ثبت شد!']);
+            ->with(['success_msg' => 'عملیات موفق']);
     }
 }

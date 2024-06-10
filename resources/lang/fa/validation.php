@@ -200,6 +200,7 @@ return [
         'morning_end_time' => 'ساعت پایان شیفت صبح',
         'evening_start_time' => 'ساعت شروع شیفت عصر',
         'evening_end_time' => 'ساعت پایان شیفت عصر',
-
+        'national_code' => 'کد ملی',
+        'national code' => 'کد ملی'
     ],
 ];

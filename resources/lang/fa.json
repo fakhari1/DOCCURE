@@ -137,5 +137,7 @@
     "active": "فعال",
     "inactive": "غیر فعال",
     "accepted": "تایید شده",
-    "pending": "در انتظار تایید"
+    "pending": "در انتظار تایید",
+    "national code": "کد ملی",
+    "national_code": "کد ملی"
 }

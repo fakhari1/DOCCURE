@@ -50,7 +50,7 @@ class DoctorCommentController extends Controller
 
         $comment->delete();
 
-        return redirect()->back()->with(['success_msg' => 'این نظر با موفقیت حذف شد']);
+        return redirect()->back()->with(['success_msg' => 'عملیات موفق']);
     }
 
     public function updateStatus(Comment $comment)
@@ -59,6 +59,6 @@ class DoctorCommentController extends Controller
 
         $comment->update(['status' => $status]);
 
-        return redirect()->route('admin.comments.index')->with(['success_msg' => 'نظر با موفقیت بروزرسانی شد!']);
+        return redirect()->route('admin.comments.index')->with(['success_msg' => 'عملیات موفق']);
     }
 }

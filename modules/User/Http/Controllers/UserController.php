@@ -27,6 +27,6 @@ class UserController extends Controller
             'national_code' => $request->national_code
         ]);
 
-        return redirect()->back()->with(['success_msg' => 'اطلاعات کاربری با موفقیت ثبت شد!']);
+        return redirect()->back()->with(['success_msg' => 'عملیات موفق']);
     }
 }

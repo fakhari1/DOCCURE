@@ -123,7 +123,7 @@ class OpenDateController extends Controller
 
             DB::commit();
 
-            return redirect()->route('admin.open-dates.index')->with(['success_msg' => 'اطلاعات با موفقیت ثبت شد!']);
+            return redirect()->route('admin.open-dates.index')->with(['success_msg' => 'عملیات موفق']);
         } catch (\Exception $exception) {
             DB::rollBack();
 
@@ -218,7 +218,7 @@ class OpenDateController extends Controller
 
             DB::commit();
 
-            return redirect()->route('admin.open-dates.times.index', $date)->with(['success_msg' => 'تاریخ با موفقیت بروزرسانی شد!']);
+            return redirect()->route('admin.open-dates.times.index', $date)->with(['success_msg' => 'عملیات موفق']);
 
 
         } catch (\Exception $exception) {

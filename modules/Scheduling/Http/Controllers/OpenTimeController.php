@@ -31,7 +31,7 @@ class OpenTimeController extends Controller
             'status_id' => $status_id
         ]);
 
-        return redirect()->back()->with(['success_msg' => 'زمان مورد نظر با موفقیت بروزرسانی شد!']);
+        return redirect()->back()->with(['success_msg' => 'عملیات موفق']);
     }
 
     public function getDateTimes(OpenDate $date)

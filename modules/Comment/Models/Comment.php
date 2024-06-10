@@ -4,6 +4,7 @@ namespace Comment\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use User\Models\User;
 
 class Comment extends Model
@@ -86,6 +87,11 @@ class Comment extends Model
     public function scopeAccepted($query)
     {
         return $query->where('status', self::STATUS_ACCEPTED);
+    }
+
+    public function scopeMyComments($query)
+    {
+        return $query->where('author_id', Auth::id());
     }
 
 }

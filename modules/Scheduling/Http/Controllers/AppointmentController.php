@@ -31,9 +31,9 @@ class AppointmentController extends Controller
             'status_id' => $status_id
         ]);
 
-        $trans = trans(AppointmentStatus::whereId($appointment->status_id)->first()->name);
-        $msg = " وضعیت نوبت مورد نظر با موفقیت {$trans} شد! ";
-        return redirect()->back()->with(['success_msg' => $msg]);
+//        $trans = trans(AppointmentStatus::whereId($appointment->status_id)->first()->name);
+//        $msg = " وضعیت نوبت مورد نظر با موفقیت {$trans} شد! ";
+        return redirect()->back()->with(['success_msg' => 'عملیات موفق']);
     }
 
     public function userAppointments()

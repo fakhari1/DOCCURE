@@ -11,7 +11,7 @@ class UserCommentController extends Controller
 {
     public function index()
     {
-        $comments = Comment::where('author_id', Auth::id())->IsNotAnswer()->get();
+        $comments = Comment::MyComments()->IsNotAnswer()->get();
 
         return view('Comment::user.index', compact('comments'));
     }
@@ -28,7 +28,7 @@ class UserCommentController extends Controller
             'status' => $request->parent_id != null ? Comment::STATUS_ACCEPTED : Comment::STATUS_PENDING,
         ]);
 
-        return redirect()->route('user.comments.index')->with(['success_msg' => 'اطلاعات با موفقیت ثبت شد!']);
+        return redirect()->route('user.comments.index')->with(['success_msg' => 'عملیات موفق']);
     }
     public function show(Comment $comment)
     {
