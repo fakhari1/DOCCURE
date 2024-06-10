@@ -8,10 +8,13 @@ Route::middleware(['web', 'auth', 'admin', 'admin.has_completed_profile'])
     ->prefix('dashboard/doctor/comments')
     ->group(function () {
         Route::get('/', [DoctorCommentController::class, 'index'])->name('admin.comments.index');
-        Route::post('/', [DoctorCommentController::class, 'store'])->name('admin.comments.store');
+        Route::post('{comment}', [DoctorCommentController::class, 'store'])->name('admin.comments.store');
         Route::get('{comment}/answer', [DoctorCommentController::class, 'create'])->name('admin.comments.create');
+        Route::get('{comment}', [DoctorCommentController::class, 'show'])->name('admin.comments.show');
+        Route::get('{comment}/edit', [DoctorCommentController::class, 'edit'])->name('admin.comments.edit');
         Route::patch('{comment}', [DoctorCommentController::class, 'update'])->name('admin.comments.update');
         Route::delete('{comment}', [DoctorCommentController::class, 'destroy'])->name('admin.comments.delete');
+        Route::post('{comment}/update-status', [DoctorCommentController::class, 'updateStatus'])->name('admin.comments.update-status');
     });
 
 Route::middleware(['web', 'auth', 'user', 'user.has_completed_profile'])

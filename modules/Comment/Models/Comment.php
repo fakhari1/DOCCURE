@@ -63,8 +63,14 @@ class Comment extends Model
         return "<span class='badge {$className}'>{$statusName}</span>";
     }
 
-    public function isAccepted() {
+    public function isAccepted()
+    {
         return $this->status == self::STATUS_ACCEPTED;
+    }
+
+    public function isAnswer()
+    {
+        return $this->parent_id != null;
     }
 
     public function scopeIsNotAnswer($query)

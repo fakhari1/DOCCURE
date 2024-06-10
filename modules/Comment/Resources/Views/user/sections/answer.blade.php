@@ -5,13 +5,13 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="badge bg-secondary">
-                            <span>{{ $answer->author->name }}</span>
+                            <span>{{ auth()->id() == $answer->author_id ? 'شما' : $answer->author->name }}</span>
                             <span> در تاریخ</span>
                             <span>
                                 {{ Morilog\Jalali\Jalalian::fromCarbon(Carbon\Carbon::parse($answer->created_at))->format('%A, %d %B %Y') }}
                             </span>
                             <span>
-                                پاسخ داده:
+                                {{ auth()->id() == $answer->author_id ? 'پاسخ داده اید:' : 'پاسخ داده:' }}
                             </span>
                         </div>
                     </div>

@@ -57,7 +57,7 @@
                         <li class="@if(Route::is('admin.comments.index')) active @endif">
                             <a href="{{ route('admin.comments.index') }}" class="">
                                 <i class="fa-solid fa-comments"></i>
-                                <span>نظرات من</span>
+                                <span>نظرات</span>
                             </a>
                         </li>
                         {{--                        <li>--}}
