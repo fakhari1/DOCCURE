@@ -36,7 +36,7 @@ class AuthController extends Controller
         }
 
         if ($otps = Otp::HasExpiredCode($mobile)) {
-            foreach($otps as $item) {
+            foreach ($otps as $item) {
                 $item->update(['status' => Otp::STATUS_EXPIRED]);
             }
         }
@@ -49,27 +49,27 @@ class AuthController extends Controller
             'token' => $token
         ]);
 
-//        $client = new SoapClient(config('sms.wsdl_url'));
+        $client = new SoapClient(config('sms.wsdl_url'));
         $input_data = array("verification_code" => $verificationCode);
 
-//        $res = $client->sendPatternSms(
-//            config('sms.originator'),
-//            $mobile,
-//            config('sms.username'),
-//            config('sms.password'),
-//            config('sms.pattern_code'),
-//            $input_data
-//        );
+        $res = $client->sendPatternSms(
+            config('sms.originator'),
+            $mobile,
+            config('sms.username'),
+            config('sms.password'),
+            config('sms.pattern_code'),
+            $input_data
+        );
 
-//        if (is_numeric($res)) {
+        if (is_numeric($res)) {
+            return redirect()->route('auth.otp.get', ['token' => $token]);
+        }
 
-        return redirect()->route('auth.otp.get', ['token' => $token]);
-//        }
+        $otp->update([
+            'status' => Otp::STATUS_EXPIRED
+        ]);
 
-//        $otp->update([
-//            'status' => Otp::STATUS_EXPIRED
-//        ]);
-//        return redirect()->back()->with('error_msg', 'اشکال در ارسال پیامک با پشتیبانی تماس بگیرید!');
+        return redirect()->back()->with('error_msg', 'اشکال در ارسال پیامک با پشتیبانی تماس بگیرید!');
     }
 
     public function getOtp(\Illuminate\Http\Request $request)
@@ -130,27 +130,27 @@ class AuthController extends Controller
             'token' => $token
         ]);
 
-//        $client = new SoapClient(config('sms.wsdl_url'));
-//
-//        $input_data = array("verification_code" => $verificationCode);
-//
-//        $res = $client->sendPatternSms(
-//            config('sms.originator'),
-//            $user->mobile,
-//            config('sms.username'),
-//            config('sms.password'),
-//            config('sms.pattern_code'),
-//            $input_data
-//        );
+        $client = new SoapClient(config('sms.wsdl_url'));
+
+        $input_data = array("verification_code" => $verificationCode);
+
+        $res = $client->sendPatternSms(
+            config('sms.originator'),
+            $user->mobile,
+            config('sms.username'),
+            config('sms.password'),
+            config('sms.pattern_code'),
+            $input_data
+        );
 
 
-//        if (is_numeric($res)) {
+        if (is_numeric($res)) {
 
-        $seconds = Carbon::parse(now())->diffInSeconds(Carbon::parse($newOtp->expired_at));
+            $seconds = Carbon::parse(now())->diffInSeconds(Carbon::parse($newOtp->expired_at));
 
-        return redirect()->route('auth.otp.get', ['token' => $token, 'seconds' => $seconds]);
+            return redirect()->route('auth.otp.get', ['token' => $token, 'seconds' => $seconds]);
 
-//        }
+        }
     }
 
     public function checkExpiredOtp(Request $request)
